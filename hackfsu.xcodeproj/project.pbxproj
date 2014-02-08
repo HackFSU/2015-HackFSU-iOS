@@ -22,6 +22,10 @@
 		40275F2718A5B7780029C9DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0618A5B7780029C9DA /* UIKit.framework */; };
 		40275F2F18A5B7780029C9DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40275F2D18A5B7780029C9DA /* InfoPlist.strings */; };
 		40275F3118A5B7780029C9DA /* hackfsuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F3018A5B7780029C9DA /* hackfsuTests.m */; };
+		40E0467518A5D177001A1C96 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0466E18A5D177001A1C96 /* ChatViewController.m */; };
+		40E0467618A5D177001A1C96 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467018A5D177001A1C96 /* Common.m */; };
+		40E0467718A5D177001A1C96 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467218A5D177001A1C96 /* FeedViewController.m */; };
+		40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467418A5D177001A1C96 /* TimelineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		40275F2C18A5B7780029C9DA /* hackfsuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackfsuTests-Info.plist"; sourceTree = "<group>"; };
 		40275F2E18A5B7780029C9DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40275F3018A5B7780029C9DA /* hackfsuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hackfsuTests.m; sourceTree = "<group>"; };
+		40E0466D18A5D177001A1C96 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		40E0466E18A5D177001A1C96 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		40E0466F18A5D177001A1C96 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		40E0467018A5D177001A1C96 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		40E0467118A5D177001A1C96 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		40E0467218A5D177001A1C96 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		40E0467318A5D177001A1C96 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		40E0467418A5D177001A1C96 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +126,20 @@
 		40275F0818A5B7780029C9DA /* hackfsu */ = {
 			isa = PBXGroup;
 			children = (
+				40E0466F18A5D177001A1C96 /* Common.h */,
+				40E0467018A5D177001A1C96 /* Common.m */,
 				40275F1118A5B7780029C9DA /* AppDelegate.h */,
 				40275F1218A5B7780029C9DA /* AppDelegate.m */,
 				40275F1418A5B7780029C9DA /* Main_iPhone.storyboard */,
 				40275F1718A5B7780029C9DA /* Main_iPad.storyboard */,
 				40275F1A18A5B7780029C9DA /* ViewController.h */,
 				40275F1B18A5B7780029C9DA /* ViewController.m */,
+				40E0467118A5D177001A1C96 /* FeedViewController.h */,
+				40E0467218A5D177001A1C96 /* FeedViewController.m */,
+				40E0467318A5D177001A1C96 /* TimelineViewController.h */,
+				40E0467418A5D177001A1C96 /* TimelineViewController.m */,
+				40E0466D18A5D177001A1C96 /* ChatViewController.h */,
+				40E0466E18A5D177001A1C96 /* ChatViewController.m */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
 			);
@@ -254,7 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				40275F1C18A5B7780029C9DA /* ViewController.m in Sources */,
+				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
 				40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */,
+				40E0467618A5D177001A1C96 /* Common.m in Sources */,
+				40E0467518A5D177001A1C96 /* ChatViewController.m in Sources */,
+				40E0467718A5D177001A1C96 /* FeedViewController.m in Sources */,
 				40275F0F18A5B7780029C9DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +498,7 @@
 				40275F3618A5B7780029C9DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40275F3718A5B7780029C9DA /* Build configuration list for PBXNativeTarget "hackfsuTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +507,7 @@
 				40275F3918A5B7780029C9DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
