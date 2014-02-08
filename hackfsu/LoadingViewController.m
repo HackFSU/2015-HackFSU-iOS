@@ -30,7 +30,7 @@
 	// Do any additional setup after loading the view.
 
     [self performSelector:@selector(popGoesTheWeasel) withObject:nil afterDelay:2.0];
-    //[self.navigationController pushViewController:[[TabsViewController alloc] init] animated:YES];
+    //[self.navigationController pushViewController:[[TabsViewController alloc] init] animated:YES]
 }
 
 -(void)popGoesTheWeasel

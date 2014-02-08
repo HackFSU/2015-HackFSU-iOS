@@ -10,4 +10,8 @@
 
 @interface LogInViewController : UIViewController
 
+- (IBAction)loginButtonTouchHandler:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @end
