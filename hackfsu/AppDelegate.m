@@ -16,6 +16,13 @@
     [tabBar setSelectedImageTintColor:DARK_GREEN];
     [tabBar setTintColor:GRAY];
     
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    
+    UIBarButtonItem *backBtn = [UIBarButtonItem appearance];
+    
+    UINavigationController *navigationController = self.window.rootViewController;
+    navigationController.navigationItem.leftBarButtonItem = nil;
+    navigationController.navigationItem.backBarButtonItem = nil;
     // Override point for customization after application launch.
     return YES;
 }

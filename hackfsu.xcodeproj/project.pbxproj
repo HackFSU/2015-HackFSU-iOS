@@ -27,6 +27,10 @@
 		40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467418A5D177001A1C96 /* TimelineViewController.m */; };
 		40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467B18A5DCB4001A1C96 /* TimelineCell.m */; };
 		40E0467E18A5DE07001A1C96 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E0467D18A5DE07001A1C96 /* QuartzCore.framework */; };
+		B6BF4D8518A60F8700EDC729 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8418A60F8700EDC729 /* LogInViewController.m */; };
+		B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8718A61C9800EDC729 /* TabsViewController.m */; };
+		B6BF4D8B18A6241200EDC729 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */; };
+		B6BF4D8E18A6242B00EDC729 /* SubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,14 @@
 		40E0467A18A5DCB4001A1C96 /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
 		40E0467B18A5DCB4001A1C96 /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
 		40E0467D18A5DE07001A1C96 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B6BF4D8318A60F8700EDC729 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		B6BF4D8418A60F8700EDC729 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		B6BF4D8618A61C9800EDC729 /* TabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabsViewController.h; sourceTree = "<group>"; };
+		B6BF4D8718A61C9800EDC729 /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabsViewController.m; sourceTree = "<group>"; };
+		B6BF4D8918A6241200EDC729 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		B6BF4D8C18A6242B00EDC729 /* SubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitViewController.h; sourceTree = "<group>"; };
+		B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +148,12 @@
 				40275F1118A5B7780029C9DA /* AppDelegate.h */,
 				40275F1218A5B7780029C9DA /* AppDelegate.m */,
 				40275F1418A5B7780029C9DA /* Main_iPhone.storyboard */,
+				B6BF4D8918A6241200EDC729 /* LoadingViewController.h */,
+				B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */,
+				B6BF4D8C18A6242B00EDC729 /* SubmitViewController.h */,
+				B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */,
+				B6BF4D8618A61C9800EDC729 /* TabsViewController.h */,
+				B6BF4D8718A61C9800EDC729 /* TabsViewController.m */,
 				40275F1A18A5B7780029C9DA /* ViewController.h */,
 				40275F1B18A5B7780029C9DA /* ViewController.m */,
 				40E0467918A5DC86001A1C96 /* Timeline */,
@@ -143,6 +161,8 @@
 				40E0467218A5D177001A1C96 /* FeedViewController.m */,
 				40E0466D18A5D177001A1C96 /* ChatViewController.h */,
 				40E0466E18A5D177001A1C96 /* ChatViewController.m */,
+				B6BF4D8318A60F8700EDC729 /* LogInViewController.h */,
+				B6BF4D8418A60F8700EDC729 /* LogInViewController.m */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
 			);
@@ -286,14 +306,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */,
 				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,
 				40275F1C18A5B7780029C9DA /* ViewController.m in Sources */,
 				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
+				B6BF4D8E18A6242B00EDC729 /* SubmitViewController.m in Sources */,
 				40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */,
 				40E0467618A5D177001A1C96 /* Common.m in Sources */,
+				B6BF4D8518A60F8700EDC729 /* LogInViewController.m in Sources */,
 				40E0467518A5D177001A1C96 /* ChatViewController.m in Sources */,
 				40E0467718A5D177001A1C96 /* FeedViewController.m in Sources */,
 				40275F0F18A5B7780029C9DA /* main.m in Sources */,
+				B6BF4D8B18A6241200EDC729 /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

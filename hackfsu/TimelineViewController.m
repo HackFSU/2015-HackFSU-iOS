@@ -33,6 +33,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
     CALayer *line = [CALayer layer];
     line.frame = CGRectMake(27.5f, 25.0f, 5.0f, self.view.frame.size.height - 25.0f);
     line.backgroundColor = [BLACK CGColor];
@@ -70,7 +71,7 @@
 {
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    cell.timeLabel.text = @"3p";
+    cell.timeLabel.text = @"12 pm";
     
     cell.descriptionView.text = @"Test data...";
     
