@@ -10,4 +10,7 @@
 
 @interface FeedViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *Title;
+@property (nonatomic, strong) NSMutableArray *Description;
+
 @end

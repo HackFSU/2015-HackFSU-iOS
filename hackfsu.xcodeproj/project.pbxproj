@@ -31,6 +31,7 @@
 		B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8718A61C9800EDC729 /* TabsViewController.m */; };
 		B6BF4D8B18A6241200EDC729 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */; };
 		B6BF4D8E18A6242B00EDC729 /* SubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */; };
+		E75A03E618A62F4100D93BAD /* UpdateEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		B6BF4D8C18A6242B00EDC729 /* SubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitViewController.h; sourceTree = "<group>"; };
 		B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitViewController.m; sourceTree = "<group>"; };
+		E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateEventTableViewCell.h; sourceTree = "<group>"; };
+		E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateEventTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 				B6BF4D8418A60F8700EDC729 /* LogInViewController.m */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
+				E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */,
+				E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */,
 			);
 			path = hackfsu;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */,
+				E75A03E618A62F4100D93BAD /* UpdateEventTableViewCell.m in Sources */,
 				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,
 				40275F1C18A5B7780029C9DA /* ViewController.m in Sources */,
 				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
