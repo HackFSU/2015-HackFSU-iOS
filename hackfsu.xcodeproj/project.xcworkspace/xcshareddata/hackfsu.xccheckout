@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>16FEA603-6C7F-4787-AB78-68569CB87CBF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>hackfsu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EFAE7A4A-61BF-495D-8747-2E01449D3E70</key>
+		<string>ssh://github.com/TheSupremeBeing/hackfsu.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>hackfsu/hackfsu.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EFAE7A4A-61BF-495D-8747-2E01449D3E70</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/TheSupremeBeing/hackfsu.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EFAE7A4A-61BF-495D-8747-2E01449D3E70</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EFAE7A4A-61BF-495D-8747-2E01449D3E70</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hackfsu</string>
+		</dict>
+	</array>
+</dict>
+</plist>
