@@ -34,7 +34,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     CALayer *line = [CALayer layer];
-    line.frame = CGRectMake(20.0f, 25.0f, 5.0f, self.view.frame.size.height - 25.0f);
+    line.frame = CGRectMake(27.5f, 25.0f, 5.0f, self.view.frame.size.height - 25.0f);
     line.backgroundColor = [BLACK CGColor];
     line.zPosition = -1;
     line.cornerRadius = 2.0f;
