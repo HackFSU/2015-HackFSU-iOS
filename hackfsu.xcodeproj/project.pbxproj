@@ -146,6 +146,8 @@
 		40275F0818A5B7780029C9DA /* hackfsu */ = {
 			isa = PBXGroup;
 			children = (
+				E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */,
+				E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */,
 				40E0466F18A5D177001A1C96 /* Common.h */,
 				40E0467018A5D177001A1C96 /* Common.m */,
 				40275F1118A5B7780029C9DA /* AppDelegate.h */,
@@ -168,8 +170,6 @@
 				B6BF4D8418A60F8700EDC729 /* LogInViewController.m */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
-				E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */,
-				E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */,
 			);
 			path = hackfsu;
 			sourceTree = "<group>";
