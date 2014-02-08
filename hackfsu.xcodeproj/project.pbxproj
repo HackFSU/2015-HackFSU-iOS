@@ -25,6 +25,8 @@
 		40E0467618A5D177001A1C96 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467018A5D177001A1C96 /* Common.m */; };
 		40E0467718A5D177001A1C96 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467218A5D177001A1C96 /* FeedViewController.m */; };
 		40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467418A5D177001A1C96 /* TimelineViewController.m */; };
+		40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467B18A5DCB4001A1C96 /* TimelineCell.m */; };
+		40E0467E18A5DE07001A1C96 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E0467D18A5DE07001A1C96 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,9 @@
 		40E0467218A5D177001A1C96 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		40E0467318A5D177001A1C96 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		40E0467418A5D177001A1C96 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		40E0467A18A5DCB4001A1C96 /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
+		40E0467B18A5DCB4001A1C96 /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
+		40E0467D18A5DE07001A1C96 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E0467E18A5DE07001A1C96 /* QuartzCore.framework in Frameworks */,
 				40275F0518A5B7780029C9DA /* CoreGraphics.framework in Frameworks */,
 				40275F0718A5B7780029C9DA /* UIKit.framework in Frameworks */,
 				40275F0318A5B7780029C9DA /* Foundation.framework in Frameworks */,
@@ -113,6 +119,7 @@
 		40275F0118A5B7780029C9DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40E0467D18A5DE07001A1C96 /* QuartzCore.framework */,
 				40275F0218A5B7780029C9DA /* Foundation.framework */,
 				40275F0418A5B7780029C9DA /* CoreGraphics.framework */,
 				40275F0618A5B7780029C9DA /* UIKit.framework */,
@@ -131,10 +138,9 @@
 				40275F1418A5B7780029C9DA /* Main_iPhone.storyboard */,
 				40275F1A18A5B7780029C9DA /* ViewController.h */,
 				40275F1B18A5B7780029C9DA /* ViewController.m */,
+				40E0467918A5DC86001A1C96 /* Timeline */,
 				40E0467118A5D177001A1C96 /* FeedViewController.h */,
 				40E0467218A5D177001A1C96 /* FeedViewController.m */,
-				40E0467318A5D177001A1C96 /* TimelineViewController.h */,
-				40E0467418A5D177001A1C96 /* TimelineViewController.m */,
 				40E0466D18A5D177001A1C96 /* ChatViewController.h */,
 				40E0466E18A5D177001A1C96 /* ChatViewController.m */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
@@ -170,6 +176,17 @@
 				40275F2D18A5B7780029C9DA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		40E0467918A5DC86001A1C96 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				40E0467318A5D177001A1C96 /* TimelineViewController.h */,
+				40E0467418A5D177001A1C96 /* TimelineViewController.m */,
+				40E0467A18A5DCB4001A1C96 /* TimelineCell.h */,
+				40E0467B18A5DCB4001A1C96 /* TimelineCell.m */,
+			);
+			name = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,
 				40275F1C18A5B7780029C9DA /* ViewController.m in Sources */,
 				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
 				40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */,

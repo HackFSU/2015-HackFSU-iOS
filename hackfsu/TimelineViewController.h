@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimelineCell.h"
 
 @interface TimelineViewController : UITableViewController
 
