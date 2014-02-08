@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import <QuartzCore/QuartzCore.h>
     #import "Common.h"
+    #import <Parse/Parse.h>
 #endif

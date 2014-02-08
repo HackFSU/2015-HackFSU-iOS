@@ -12,18 +12,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+    
     UITabBar *tabBar = [UITabBar appearance];
     [tabBar setSelectedImageTintColor:DARK_GREEN];
     [tabBar setTintColor:GRAY];
     
-    UINavigationBar *navBar = [UINavigationBar appearance];
-    
-    UIBarButtonItem *backBtn = [UIBarButtonItem appearance];
-    
-    UINavigationController *navigationController = self.window.rootViewController;
-    navigationController.navigationItem.leftBarButtonItem = nil;
-    navigationController.navigationItem.backBarButtonItem = nil;
-    // Override point for customization after application launch.
     return YES;
 }
 							
@@ -52,6 +50,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
 }
 
 @end

@@ -21,6 +21,8 @@
 		40275F2718A5B7780029C9DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0618A5B7780029C9DA /* UIKit.framework */; };
 		40275F2F18A5B7780029C9DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40275F2D18A5B7780029C9DA /* InfoPlist.strings */; };
 		40275F3118A5B7780029C9DA /* hackfsuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F3018A5B7780029C9DA /* hackfsuTests.m */; };
+		405196EB18A63166000E676A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196E918A63166000E676A /* FacebookSDK.framework */; };
+		405196EC18A63166000E676A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196EA18A63166000E676A /* Parse.framework */; };
 		40E0467518A5D177001A1C96 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0466E18A5D177001A1C96 /* ChatViewController.m */; };
 		40E0467618A5D177001A1C96 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467018A5D177001A1C96 /* Common.m */; };
 		40E0467718A5D177001A1C96 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467218A5D177001A1C96 /* FeedViewController.m */; };
@@ -63,6 +65,8 @@
 		40275F2C18A5B7780029C9DA /* hackfsuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackfsuTests-Info.plist"; sourceTree = "<group>"; };
 		40275F2E18A5B7780029C9DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40275F3018A5B7780029C9DA /* hackfsuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hackfsuTests.m; sourceTree = "<group>"; };
+		405196E918A63166000E676A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../../Isitt Apps/iOS Apps/Storyteller/Storyteller/FacebookSDK.framework"; sourceTree = "<group>"; };
+		405196EA18A63166000E676A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Isitt Apps/iOS Apps/Storyteller/Storyteller/Parse.framework"; sourceTree = "<group>"; };
 		40E0466D18A5D177001A1C96 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		40E0466E18A5D177001A1C96 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		40E0466F18A5D177001A1C96 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405196EB18A63166000E676A /* FacebookSDK.framework in Frameworks */,
+				405196EC18A63166000E676A /* Parse.framework in Frameworks */,
 				40E0467E18A5DE07001A1C96 /* QuartzCore.framework in Frameworks */,
 				40275F0518A5B7780029C9DA /* CoreGraphics.framework in Frameworks */,
 				40275F0718A5B7780029C9DA /* UIKit.framework in Frameworks */,
@@ -131,6 +137,8 @@
 		40275F0118A5B7780029C9DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				405196E918A63166000E676A /* FacebookSDK.framework */,
+				405196EA18A63166000E676A /* Parse.framework */,
 				40E0467D18A5DE07001A1C96 /* QuartzCore.framework */,
 				40275F0218A5B7780029C9DA /* Foundation.framework */,
 				40275F0418A5B7780029C9DA /* CoreGraphics.framework */,
@@ -446,6 +454,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Mac\\ HD/Logan/Isitt\\ Apps/iOS\\ Apps/Storyteller/Storyteller",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
 				INFOPLIST_FILE = "hackfsu/hackfsu-Info.plist";
@@ -460,6 +472,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Mac\\ HD/Logan/Isitt\\ Apps/iOS\\ Apps/Storyteller/Storyteller",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
 				INFOPLIST_FILE = "hackfsu/hackfsu-Info.plist";
