@@ -21,7 +21,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self.greetingLbl setText:[NSString stringWithFormat:@"Thank You, %@", self.name]];
+    [self.greetingLbl setText:[NSString stringWithFormat:@"Hello, %@", self.name]];
 }
 
 -(void) popGoesTheWeasel

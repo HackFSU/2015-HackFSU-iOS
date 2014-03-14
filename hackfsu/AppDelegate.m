@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"kJUbCL4NZsCo1bNWHicJij46cTfQr8aJXl7yEadx" clientKey:@"Mlo9l1RN9Yv4qyVOkrUaMs9zvPrRQSx9paZZCg9X"];
+    [Parse setApplicationId:@"4NDzxeC8KxdZi4Kyok7QfGhtS27GuHfntNh9ZSfL" clientKey:@"u4akfWEzsLpXunJEkGFlkA8xvkhEwvN8hwvw4Atq"];
     
     [PFFacebookUtils initializeFacebook];
 
