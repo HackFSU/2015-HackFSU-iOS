@@ -70,7 +70,7 @@
     
     // Configure the cell...
     
-    int row = [indexPath row];
+    int row = (int)[indexPath row];
     
     cell.TitleLabel.text = _Title[row];
     cell.DescriptionLabel.text = _Description[row];

@@ -12,9 +12,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"ztJxqtV9G5AcleAZn3cUNkSTF4lQfTUGVhUwSxpG" clientKey:@"3tPXKtxniR5T8kzPldYjccFGSN0GW7dwS31LEI2A"];
+    [Parse setApplicationId:@"kJUbCL4NZsCo1bNWHicJij46cTfQr8aJXl7yEadx" clientKey:@"Mlo9l1RN9Yv4qyVOkrUaMs9zvPrRQSx9paZZCg9X"];
     
     [PFFacebookUtils initializeFacebook];
+
     
     // Register for push notifications
     [application registerForRemoteNotificationTypes:

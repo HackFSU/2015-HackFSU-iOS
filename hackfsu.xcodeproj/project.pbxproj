@@ -14,7 +14,6 @@
 		40275F0F18A5B7780029C9DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F0E18A5B7780029C9DA /* main.m */; };
 		40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F1218A5B7780029C9DA /* AppDelegate.m */; };
 		40275F1618A5B7780029C9DA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40275F1418A5B7780029C9DA /* Main_iPhone.storyboard */; };
-		40275F1C18A5B7780029C9DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F1B18A5B7780029C9DA /* ViewController.m */; };
 		40275F1E18A5B7780029C9DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40275F1D18A5B7780029C9DA /* Images.xcassets */; };
 		40275F2518A5B7780029C9DA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F2418A5B7780029C9DA /* XCTest.framework */; };
 		40275F2618A5B7780029C9DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0218A5B7780029C9DA /* Foundation.framework */; };
@@ -40,7 +39,6 @@
 		B6BF4D8518A60F8700EDC729 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8418A60F8700EDC729 /* LogInViewController.m */; };
 		B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8718A61C9800EDC729 /* TabsViewController.m */; };
 		B6BF4D8B18A6241200EDC729 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */; };
-		B6BF4D8E18A6242B00EDC729 /* SubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */; };
 		E75A03E618A62F4100D93BAD /* UpdateEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +64,6 @@
 		40275F1118A5B7780029C9DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		40275F1218A5B7780029C9DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		40275F1518A5B7780029C9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		40275F1A18A5B7780029C9DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		40275F1B18A5B7780029C9DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		40275F1D18A5B7780029C9DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40275F2318A5B7780029C9DA /* hackfsuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackfsuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40275F2418A5B7780029C9DA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -101,8 +97,6 @@
 		B6BF4D8718A61C9800EDC729 /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabsViewController.m; sourceTree = "<group>"; };
 		B6BF4D8918A6241200EDC729 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
-		B6BF4D8C18A6242B00EDC729 /* SubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitViewController.h; sourceTree = "<group>"; };
-		B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitViewController.m; sourceTree = "<group>"; };
 		E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateEventTableViewCell.h; sourceTree = "<group>"; };
 		E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateEventTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,28 +180,20 @@
 		40275F0818A5B7780029C9DA /* hackfsu */ = {
 			isa = PBXGroup;
 			children = (
-				E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */,
-				E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */,
 				40E0466F18A5D177001A1C96 /* Common.h */,
 				40E0467018A5D177001A1C96 /* Common.m */,
 				40275F1118A5B7780029C9DA /* AppDelegate.h */,
 				40275F1218A5B7780029C9DA /* AppDelegate.m */,
 				40275F1418A5B7780029C9DA /* Main_iPhone.storyboard */,
-				B6BF4D8918A6241200EDC729 /* LoadingViewController.h */,
-				B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */,
-				B6BF4D8C18A6242B00EDC729 /* SubmitViewController.h */,
-				B6BF4D8D18A6242B00EDC729 /* SubmitViewController.m */,
-				B6BF4D8618A61C9800EDC729 /* TabsViewController.h */,
-				B6BF4D8718A61C9800EDC729 /* TabsViewController.m */,
-				40275F1A18A5B7780029C9DA /* ViewController.h */,
-				40275F1B18A5B7780029C9DA /* ViewController.m */,
-				40E0467918A5DC86001A1C96 /* Timeline */,
-				40E0467118A5D177001A1C96 /* FeedViewController.h */,
-				40E0467218A5D177001A1C96 /* FeedViewController.m */,
-				40E0466D18A5D177001A1C96 /* ChatViewController.h */,
-				40E0466E18A5D177001A1C96 /* ChatViewController.m */,
 				B6BF4D8318A60F8700EDC729 /* LogInViewController.h */,
 				B6BF4D8418A60F8700EDC729 /* LogInViewController.m */,
+				B6BF4D8918A6241200EDC729 /* LoadingViewController.h */,
+				B6BF4D8A18A6241200EDC729 /* LoadingViewController.m */,
+				B6BF4D8618A61C9800EDC729 /* TabsViewController.h */,
+				B6BF4D8718A61C9800EDC729 /* TabsViewController.m */,
+				40866E7718D2ADCD0092EC7B /* Feed */,
+				40E0467918A5DC86001A1C96 /* Timeline */,
+				40866E7818D2ADE30092EC7B /* Chat */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
 			);
@@ -241,6 +227,26 @@
 				40275F2D18A5B7780029C9DA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		40866E7718D2ADCD0092EC7B /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				E75A03E418A62F4100D93BAD /* UpdateEventTableViewCell.h */,
+				E75A03E518A62F4100D93BAD /* UpdateEventTableViewCell.m */,
+				40E0467118A5D177001A1C96 /* FeedViewController.h */,
+				40E0467218A5D177001A1C96 /* FeedViewController.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		40866E7818D2ADE30092EC7B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				40E0466D18A5D177001A1C96 /* ChatViewController.h */,
+				40E0466E18A5D177001A1C96 /* ChatViewController.m */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		40E0467918A5DC86001A1C96 /* Timeline */ = {
@@ -298,7 +304,7 @@
 		40275EF718A5B7780029C9DA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Isitt Inc.";
 				TargetAttributes = {
 					40275F2218A5B7780029C9DA = {
@@ -354,9 +360,7 @@
 				B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */,
 				E75A03E618A62F4100D93BAD /* UpdateEventTableViewCell.m in Sources */,
 				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,
-				40275F1C18A5B7780029C9DA /* ViewController.m in Sources */,
 				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
-				B6BF4D8E18A6242B00EDC729 /* SubmitViewController.m in Sources */,
 				40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */,
 				40E0467618A5D177001A1C96 /* Common.m in Sources */,
 				B6BF4D8518A60F8700EDC729 /* LogInViewController.m in Sources */,
@@ -417,7 +421,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -457,7 +460,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -500,6 +502,7 @@
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
 				INFOPLIST_FILE = "hackfsu/hackfsu-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ECC1E64B-0B3D-4AA1-BC9D-89269BAEBEB7";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -518,6 +521,7 @@
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
 				INFOPLIST_FILE = "hackfsu/hackfsu-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ECC1E64B-0B3D-4AA1-BC9D-89269BAEBEB7";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -526,7 +530,6 @@
 		40275F3818A5B7780029C9DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/hackfsu.app/hackfsu";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -549,7 +552,6 @@
 		40275F3918A5B7780029C9DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/hackfsu.app/hackfsu";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

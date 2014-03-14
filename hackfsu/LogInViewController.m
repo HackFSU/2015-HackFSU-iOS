@@ -8,74 +8,74 @@
 
 #import "LogInViewController.h"
 
-@interface LogInViewController ()
-
-@end
-
 @implementation LogInViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.signInButton.layer.cornerRadius = 5;
     
     [self.navigationController setNavigationBarHidden:YES];
     
-    // Check if user is cached and linked to Facebook, if so, bypass login
-    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
+    if ([PFUser currentUser])
     {
-        [self performSegueWithIdentifier:@"toSubmit" sender:self];
+        [self performSegueWithIdentifier:@"toTabs" sender:self];
     }
 }
 
-- (void)didReceiveMemoryWarning
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (self.view.frame.origin.y == 0)
+    {
+        int y = - (216 - (CGRectGetMaxY(self.view.frame) - CGRectGetMaxY(self.signInButton.frame) - 6));
+        float dur = self.view.frame.size.height > 480 ? 0.3f : 0.5f;
+        [UIView animateWithDuration:dur
+                         animations:^{
+            [self.view setFrame:CGRectOffset(self.view.frame, 0, y)];
+                         }];
+    }
 }
 
-/* Login to facebook method */
-- (IBAction)loginButtonTouchHandler:(id)sender  {
-    // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.view.frame.origin.y < 0)
+    {
+        int y = - CGRectGetMinY(self.view.frame);
+        float dur = self.view.frame.size.height > 480 ? 0.2f : 0.1f;
+        [UIView animateWithDuration:dur
+                         animations:^{
+                             [self.view setFrame:CGRectOffset(self.view.frame, 0, y)];
+                         }];
+    }
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.emailField resignFirstResponder];
+    [self.passwdField resignFirstResponder];
     
-    // Login PFUser using facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        [_activityIndicator stopAnimating]; // Hide loading indicator
-        
-        if (!user) {
-            if (!error) {
-                NSLog(@"Uh oh. The user cancelled the Facebook login.");
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error" message:@"Uh oh. The user cancelled the Facebook login." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
-                [alert show];
-            } else {
-                NSLog(@"Uh oh. An error occurred: %@", error);
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error" message:[error description] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
-                [alert show];
-            }
-        }
-        else if (user.isNew)
-        {
-            NSLog(@"User with facebook signed up and logged in!");
-            [self performSegueWithIdentifier:@"toSubmit" sender:self];
-        }
-        else
-        {
-            NSLog(@"User with facebook logged in!");
-            [self performSegueWithIdentifier:@"toSubmit" sender:self];
-        }
-    }];
+    if (self.view.frame.origin.y < 0)
+    {
+        int y = - CGRectGetMinY(self.view.frame);
+        float dur = self.view.frame.size.height > 480 ? 0.2f : 0.1f;
+        [UIView animateWithDuration:dur
+                         animations:^{
+                             [self.view setFrame:CGRectOffset(self.view.frame, 0, y)];
+                         }];
+    }
+}
+
+-(void)loginButtonTouchHandler:(id)sender
+{
+    [self.emailField resignFirstResponder];
+    [self.passwdField resignFirstResponder];
     
-//    [_activityIndicator startAnimating]; // Show loading indicator until login is finished
+    if ([PFUser logInWithUsername:self.emailField.text password:self.passwdField.text])
+    {
+        [self performSegueWithIdentifier:@"toLoading" sender:self];
+    }
 }
 
 @end
