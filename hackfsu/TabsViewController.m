@@ -15,6 +15,7 @@
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:YES];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning

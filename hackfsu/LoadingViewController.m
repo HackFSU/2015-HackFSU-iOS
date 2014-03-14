@@ -17,6 +17,13 @@
     [self performSelector:@selector(popGoesTheWeasel) withObject:nil afterDelay:2.0];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.greetingLbl setText:[NSString stringWithFormat:@"Thank You, %@", self.name]];
+}
+
 -(void) popGoesTheWeasel
 {
     [self performSegueWithIdentifier:@"toTabs" sender:self];

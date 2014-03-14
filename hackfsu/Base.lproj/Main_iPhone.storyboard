@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="46" id="9Uk-dX-tnr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="fYa-Rs-Kkg"/>
                                 </connections>
@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="height" constant="46" id="uGT-cQ-2v2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="61m-Hg-LtW"/>
                                 </connections>
@@ -146,6 +146,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z6i-3s-k10"/>
                     <connections>
+                        <outlet property="greetingLbl" destination="p03-ob-6kW" id="ELU-U9-Sjr"/>
                         <segue destination="7Yp-5a-LRb" kind="push" identifier="toTabs" id="iEB-U0-lmQ"/>
                     </connections>
                 </viewController>
@@ -342,6 +343,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="W42-d2-bHy"/>
+        <segue reference="iEB-U0-lmQ"/>
     </inferredMetricsTieBreakers>
 </document>

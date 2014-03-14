@@ -502,7 +502,7 @@
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
 				INFOPLIST_FILE = "hackfsu/hackfsu-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ECC1E64B-0B3D-4AA1-BC9D-89269BAEBEB7";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -521,7 +521,7 @@
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
 				INFOPLIST_FILE = "hackfsu/hackfsu-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ECC1E64B-0B3D-4AA1-BC9D-89269BAEBEB7";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

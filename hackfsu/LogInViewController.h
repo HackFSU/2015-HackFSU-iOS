@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LogInViewController : UIViewController <PFLogInViewControllerDelegate ,UITextFieldDelegate>
+{
+    NSString *name;
+}
 
 - (IBAction)loginButtonTouchHandler:(id)sender;
 
@@ -16,4 +19,5 @@
 @property (nonatomic, strong) IBOutlet UITextField *emailField;
 @property (nonatomic, strong) IBOutlet UITextField *passwdField;
 @property (nonatomic, strong) IBOutlet UIButton *signInButton;
+
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoadingViewController : UIViewController
-
+@property NSString *name;
+@property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 @end

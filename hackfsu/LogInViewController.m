@@ -7,6 +7,7 @@
 //
 
 #import "LogInViewController.h"
+#import "LoadingViewController.h"
 
 @implementation LogInViewController
 
@@ -14,6 +15,8 @@
 {
     [super viewDidLoad];
     
+    self.emailField.delegate = self;
+    self.passwdField.delegate = self;
     self.signInButton.layer.cornerRadius = 5;
     
     [self.navigationController setNavigationBarHidden:YES];
@@ -32,13 +35,19 @@
         float dur = self.view.frame.size.height > 480 ? 0.3f : 0.5f;
         [UIView animateWithDuration:dur
                          animations:^{
-            [self.view setFrame:CGRectOffset(self.view.frame, 0, y)];
+                             [self.view setFrame:CGRectOffset(self.view.frame, 0, y)];
                          }];
     }
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (textField == self.emailField)
+    {
+        [self.passwdField becomeFirstResponder];
+        return NO;
+    }
+    [textField resignFirstResponder];
     if (self.view.frame.origin.y < 0)
     {
         int y = - CGRectGetMinY(self.view.frame);
@@ -49,6 +58,12 @@
                          }];
     }
     return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.emailField resignFirstResponder];
+    [self.passwdField resignFirstResponder];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -72,9 +87,53 @@
     [self.emailField resignFirstResponder];
     [self.passwdField resignFirstResponder];
     
-    if ([PFUser logInWithUsername:self.emailField.text password:self.passwdField.text])
+    if (self.view.frame.origin.y < 0)
     {
-        [self performSegueWithIdentifier:@"toLoading" sender:self];
+        int y = - CGRectGetMinY(self.view.frame);
+        float dur = self.view.frame.size.height > 480 ? 0.2f : 0.1f;
+        [UIView animateWithDuration:dur
+                         animations:^{
+                             [self.view setFrame:CGRectOffset(self.view.frame, 0, y)];
+                         }];
+    }
+    
+    [PFUser logInWithUsernameInBackground:self.emailField.text
+                                 password:self.passwdField.text
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user)
+                                        {
+                                            name = [user valueForKey:@"name"];
+                                            [self performSegueWithIdentifier:@"toLoading" sender:self];
+                                        }
+                                        else
+                                        {
+                                            [self invalidCredientials];
+                                        }
+                                    }];
+}
+
+-(void) invalidCredientials
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Whoops!"
+                                                    message:@"Invalid email or password."
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:nil];
+    [alert show];
+    [self performSelector:@selector(delayAlertDismiss:) withObject:alert afterDelay:1.5f];
+}
+
+-(void) delayAlertDismiss: (UIAlertView *) alert
+{
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"toLoading"])
+    {
+        LoadingViewController *LVC = [segue destinationViewController];
+        LVC.name = name;
     }
 }
 
