@@ -14,7 +14,7 @@
 {
     [Parse setApplicationId:@"4NDzxeC8KxdZi4Kyok7QfGhtS27GuHfntNh9ZSfL" clientKey:@"u4akfWEzsLpXunJEkGFlkA8xvkhEwvN8hwvw4Atq"];
     
-    [PFFacebookUtils initializeFacebook];
+//    [PFFacebookUtils initializeFacebook];
 
     
     // Register for push notifications
@@ -50,21 +50,21 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+//    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [[PFFacebookUtils session] close];
+//    [[PFFacebookUtils session] close];
 }
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:[PFFacebookUtils session]];
-}
+//
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+//    return [FBAppCall handleOpenURL:url
+//                  sourceApplication:sourceApplication
+//                        withSession:[PFFacebookUtils session]];
+//}
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken

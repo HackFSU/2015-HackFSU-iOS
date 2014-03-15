@@ -20,8 +20,7 @@
 		40275F2718A5B7780029C9DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0618A5B7780029C9DA /* UIKit.framework */; };
 		40275F2F18A5B7780029C9DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40275F2D18A5B7780029C9DA /* InfoPlist.strings */; };
 		40275F3118A5B7780029C9DA /* hackfsuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F3018A5B7780029C9DA /* hackfsuTests.m */; };
-		405196EB18A63166000E676A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196E918A63166000E676A /* FacebookSDK.framework */; };
-		405196EC18A63166000E676A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196EA18A63166000E676A /* Parse.framework */; };
+		4032197918D3EB06006A22F0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4032197818D3EB06006A22F0 /* Parse.framework */; };
 		405196EE18A63342000E676A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196ED18A63342000E676A /* SystemConfiguration.framework */; };
 		405196F018A6334B000E676A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196EF18A6334B000E676A /* Security.framework */; };
 		405196F218A63363000E676A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196F118A63363000E676A /* MobileCoreServices.framework */; };
@@ -70,8 +69,7 @@
 		40275F2C18A5B7780029C9DA /* hackfsuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackfsuTests-Info.plist"; sourceTree = "<group>"; };
 		40275F2E18A5B7780029C9DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40275F3018A5B7780029C9DA /* hackfsuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hackfsuTests.m; sourceTree = "<group>"; };
-		405196E918A63166000E676A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../../Isitt Apps/iOS Apps/Storyteller/Storyteller/FacebookSDK.framework"; sourceTree = "<group>"; };
-		405196EA18A63166000E676A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Isitt Apps/iOS Apps/Storyteller/Storyteller/Parse.framework"; sourceTree = "<group>"; };
+		4032197818D3EB06006A22F0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../../../Users/laisitt/Documents/ParseSDK/Parse.framework; sourceTree = "<group>"; };
 		405196ED18A63342000E676A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		405196EF18A6334B000E676A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		405196F118A63363000E676A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -106,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4032197918D3EB06006A22F0 /* Parse.framework in Frameworks */,
 				405196FC18A633B0000E676A /* StoreKit.framework in Frameworks */,
 				405196FA18A633A8000E676A /* CoreLocation.framework in Frameworks */,
 				405196F818A6338E000E676A /* libz.dylib in Frameworks */,
@@ -114,8 +113,6 @@
 				405196F218A63363000E676A /* MobileCoreServices.framework in Frameworks */,
 				405196F018A6334B000E676A /* Security.framework in Frameworks */,
 				405196EE18A63342000E676A /* SystemConfiguration.framework in Frameworks */,
-				405196EB18A63166000E676A /* FacebookSDK.framework in Frameworks */,
-				405196EC18A63166000E676A /* Parse.framework in Frameworks */,
 				40E0467E18A5DE07001A1C96 /* QuartzCore.framework in Frameworks */,
 				40275F0518A5B7780029C9DA /* CoreGraphics.framework in Frameworks */,
 				40275F0718A5B7780029C9DA /* UIKit.framework in Frameworks */,
@@ -158,6 +155,7 @@
 		40275F0118A5B7780029C9DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4032197818D3EB06006A22F0 /* Parse.framework */,
 				405196FB18A633B0000E676A /* StoreKit.framework */,
 				405196F918A633A8000E676A /* CoreLocation.framework */,
 				405196F718A6338E000E676A /* libz.dylib */,
@@ -166,8 +164,6 @@
 				405196F118A63363000E676A /* MobileCoreServices.framework */,
 				405196EF18A6334B000E676A /* Security.framework */,
 				405196ED18A63342000E676A /* SystemConfiguration.framework */,
-				405196E918A63166000E676A /* FacebookSDK.framework */,
-				405196EA18A63166000E676A /* Parse.framework */,
 				40E0467D18A5DE07001A1C96 /* QuartzCore.framework */,
 				40275F0218A5B7780029C9DA /* Foundation.framework */,
 				40275F0418A5B7780029C9DA /* CoreGraphics.framework */,
@@ -496,7 +492,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Volumes/Mac\\ HD/Logan/Isitt\\ Apps/iOS\\ Apps/Storyteller/Storyteller",
+					Parse,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
@@ -515,7 +511,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Volumes/Mac\\ HD/Logan/Isitt\\ Apps/iOS\\ Apps/Storyteller/Storyteller",
+					Parse,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hackfsu/hackfsu-Prefix.pch";
