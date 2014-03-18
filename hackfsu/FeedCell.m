@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Isitt Inc. All rights reserved.
 //
 
-#import "UpdateEventTableViewCell.h"
+#import "FeedCell.h"
 
-@implementation UpdateEventTableViewCell
+@implementation FeedCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -7,126 +7,183 @@
 //
 
 #import "TimelineViewController.h"
-
-@interface TimelineViewController ()
-
-@end
+#import "TimelineCell.h"
 
 @implementation TimelineViewController
+@synthesize sections = _sections;
+@synthesize sectionToDateMap = _sectionToDateMap;
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        self.parseClassName = @"Schedule";
+        self.textKey = @"description";
+        self.title = @"Timeline";
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 20;
     }
     return self;
 }
 
+#pragma mark - View lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _sections = [[NSMutableDictionary alloc] init];
+    _sectionToDateMap = [[NSMutableDictionary alloc] init];
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    CALayer *line = [CALayer layer];
-    line.frame = CGRectMake(27.5f, 25.0f, 5.0f, self.view.frame.size.height - 25.0f);
-    line.backgroundColor = [BLACK CGColor];
-    line.zPosition = -1;
-    line.cornerRadius = 2.0f;
-    [self.view.layer addSublayer:line];
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadObjects];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Parse
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)objectsDidLoad:(NSError *)error
 {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 20;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44 + (indexPath.row % 3) * 20;
-}
-
-- (TimelineCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    [super objectsDidLoad:error];
     
-    cell.timeLabel.text = @"12 pm";
+    [self.sections removeAllObjects];
+    [self.sectionToDateMap removeAllObjects];
     
-    cell.descriptionView.text = @"Test data...";
+    NSInteger section = 0;
+    NSInteger rowIndex = 0;
+    for (PFObject *object in self.objects)
+    {
+        NSDate *date = [object objectForKey:@"eventTime"];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MMMM dd, yyyy"];
+        NSString *dateStr = [dateFormat stringFromDate:date];
+        
+        NSMutableArray *objectsInSection = [self.sections objectForKey:dateStr];
+        if (!objectsInSection)
+        {
+            objectsInSection = [NSMutableArray array];
+            [self.sectionToDateMap setObject:dateStr forKey:[NSNumber numberWithInt:section++]];
+        }
+        
+        [objectsInSection addObject:[NSNumber numberWithInt:rowIndex++]];
+        [self.sections setObject:objectsInSection forKey:dateStr];
+    }
+}
+
+- (void)objectsWillLoad
+{
+    [super objectsWillLoad];
+}
+
+- (PFQuery *)queryForTable
+{
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
+    if (self.pullToRefreshEnabled)
+    {
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
+    if ([self.objects count] == 0)
+    {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    
+    [query orderByAscending:@"eventTime"];
+    
+    return query;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect f = CGRectMake(0, 0, tableView.frame.size.width, tableView.sectionHeaderHeight);
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:f];
+    
+    [dateLabel setText:[self dateForSection:section]];
+    [dateLabel setTextAlignment:NSTextAlignmentCenter];
+    [dateLabel setBackgroundColor:[UIColor whiteColor]];
+    
+    return dateLabel;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+{
+    TimelineCell *cell = (TimelineCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    NSDate *date = [object objectForKey:@"eventTime"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"ha"];
+    NSString *timeStr = [dateFormat stringFromDate:date];
+    
+    cell.timeLabel.text = timeStr;
+    cell.descriptionView.text = [object objectForKey:@"description"];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *) dateForSection:(NSInteger)section
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return [self.sectionToDateMap objectForKey:[NSNumber numberWithInt:section]];
 }
 
- */
+-(PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *dateType = [self dateForSection:indexPath.section];
+    NSArray *rowIndecesInSection = [self.sections objectForKey:dateType];
+    NSNumber *rowIndex = [rowIndecesInSection objectAtIndex:indexPath.row];
+    return [self.objects objectAtIndex:[rowIndex intValue]];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.sections.allKeys.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSString *dateType = [self dateForSection:section];
+    NSArray *rowIndecesInSection = [self.sections objectForKey:dateType];
+    return rowIndecesInSection.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *dateType = [self dateForSection:section];
+    return dateType;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 25;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
 
 @end

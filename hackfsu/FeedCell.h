@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UpdateEventTableViewCell : UITableViewCell
+@interface FeedCell : UITableViewCell
 
-@property (strong,nonatomic) IBOutlet UILabel *TitleLabel;
-@property (strong,nonatomic) IBOutlet UILabel *DescriptionLabel;
+@property (strong,nonatomic) IBOutlet UILabel *title;
+@property (strong,nonatomic) IBOutlet UILabel *description;
 
 
 @end

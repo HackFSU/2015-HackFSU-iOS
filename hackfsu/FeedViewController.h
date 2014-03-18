@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UITableViewController
-
-@property (nonatomic, strong) NSMutableArray *Title;
-@property (nonatomic, strong) NSMutableArray *Description;
+@interface FeedViewController : PFQueryTableViewController
 
 @end

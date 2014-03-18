@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TimelineCell.h"
 
-@interface TimelineViewController : UITableViewController
+@interface TimelineViewController : PFQueryTableViewController
+
+@property (nonatomic, retain) NSMutableDictionary *sections;
+@property (nonatomic, retain) NSMutableDictionary *sectionToDateMap;
 
 @end

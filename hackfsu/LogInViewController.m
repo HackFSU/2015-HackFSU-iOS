@@ -19,12 +19,15 @@
     self.passwdField.delegate = self;
     self.signInButton.layer.cornerRadius = 5;
     
-    [self.navigationController setNavigationBarHidden:YES];
-    
     if ([PFUser currentUser])
     {
         [self performSegueWithIdentifier:@"toTabs" sender:self];
     }
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField

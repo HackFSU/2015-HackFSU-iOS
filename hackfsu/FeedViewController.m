@@ -7,22 +7,39 @@
 //
 
 #import "FeedViewController.h"
-#import "UpdateEventTableViewCell.h"
-
-@interface FeedViewController ()
-
-@end
+#import "FeedCell.h"
 
 @implementation FeedViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        // Custom the table
+        
+        // The className to query on
+        self.parseClassName = @"Updates";
+        
+        // The key of the PFObject to display in the label of the default cell style
+        self.textKey = @"description";
+        
+        // The title for this table in the Navigation Controller.
+        self.title = @"News Feed";
+        
+        // Whether the built-in pull-to-refresh is enabled
+        self.pullToRefreshEnabled = YES;
+        
+        // Whether the built-in pagination is enabled
+        self.paginationEnabled = YES;
+        
+        // The number of objects to show per page
+        self.objectsPerPage = 5;
     }
     return self;
 }
+
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
@@ -33,52 +50,126 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    _Title = @[@"Food Update",
-               @"Submit",
-               @"Upcoming Event",].mutableCopy;
-    
-    _Description = @[@"Food is coming in 20 minutes!",
-                     @"Please submit your projects before noon!",
-                     @"This talk starts in 15 minutes!",].mutableCopy;
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Parse
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)objectsDidLoad:(NSError *)error
 {
-    // Return the number of sections.
-    return 1;
+    [super objectsDidLoad:error];
+    // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)objectsWillLoad
 {
-    // Return the number of rows in the section.
-    return _Title.count;
+    [super objectsWillLoad];
+    // This method is called before a PFQuery is fired to get more objects
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+// Override to customize what kind of query to perform on the class. The default is to query for
+// all objects ordered by createdAt descending.
+- (PFQuery *)queryForTable
 {
-    static NSString *CellIdentifier = @"UpdateEventTableViewCell";
-    UpdateEventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
-    // Configure the cell...
+    // If no objects are loaded in memory, we look to the cache first to fill the table
+    // and then subsequently do a query against the network.
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
     
-    int row = (int)[indexPath row];
+    //    [query orderByAscending:@"priority"];
     
-    cell.TitleLabel.text = _Title[row];
-    cell.DescriptionLabel.text = _Description[row];
+    return query;
+}
+
+
+// Override to customize the look of a cell representing an object. The default is to display
+// a UITableViewCellStyleDefault style cell with the label being the first key in the object.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+{
+    FeedCell *cell = (FeedCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (cell == nil)
+    {
+        cell = (FeedCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                  reuseIdentifier:@"Cell"];
+    }
+    
+    // Configure the cell
+
+    cell.title.text = [object objectForKey:@"title"];
+    cell.description.text = [object objectForKey:@"msg"];
     
     return cell;
 }
 
 
+/*
+ // Override if you need to change the ordering of objects in the table.
+ - (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
+ return [objects objectAtIndex:indexPath.row];
+ }
+ */
+
+/*
+ // Override to customize the look of the cell that allows the user to load the next page of objects.
+ // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+ static NSString *CellIdentifier = @"NextPage";
+ 
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+ 
+ if (cell == nil) {
+ cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+ }
+ 
+ cell.selectionStyle = UITableViewCellSelectionStyleNone;
+ cell.textLabel.text = @"Load more...";
+ 
+ return cell;
+ }
+ */
+
+#pragma mark - Table view data source
 
 /*
  // Override to support conditional editing of the table view.
@@ -95,7 +186,7 @@
  {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
  }
  else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -119,16 +210,11 @@
  }
  */
 
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
- */
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
 
 @end
