@@ -22,7 +22,16 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+  
+    [self setBackgroundColor:[UIColor clearColor]];
     
+    [self.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    
+    [self.titleLabel setTextColor:LIGHT_GREEN];
+
+    [self.updateView setBackgroundColor:GRAY];
+    
+    [self.updateView.layer setCornerRadius:5.0f];
     // Configure the view for the selected state
 }
 
