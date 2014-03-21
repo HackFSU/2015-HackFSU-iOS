@@ -55,12 +55,8 @@ BOOL isFirstShown = YES;
 		[alert show];
 	}
     className = @"Chat";
-	userName = @"John Appleseed";
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    userName = [defaults stringForKey:@"chatName"];
-    if ([userName isEqualToString:@"Chat Name"]) {
-        [self presentChatNameDialog];
-    }
+    userName = [[PFUser currentUser] objectForKey:@"username"];
+    
     chatData  = [[NSMutableArray alloc] init];
     [self loadLocalChat];
 }
@@ -277,6 +273,11 @@ BOOL isFirstShown = YES;
         
         cell.content.font = FONT14;
         cell.content.text = chatText;
+        
+        NSString *user = [[chatData objectAtIndex:row] objectForKey:@"userName"];
+        
+        cell.username.font = FONT12;
+        cell.username.text = user;
 //
 //        NSDate *theDate = [[chatData objectAtIndex:row] objectForKey:@"date"];
 //        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -289,17 +290,20 @@ BOOL isFirstShown = YES;
 	return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSString *cellText = [[chatData objectAtIndex:chatData.count-indexPath.row-1] objectForKey:@"text"];
-//    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:14.0];
-//    CGSize constraintSize = CGSizeMake(225.0f, MAXFLOAT);
-//    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
-//    
-//    return labelSize.height + 40;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITextView *tView = [[UITextView alloc] initWithFrame:CGRectMake(160.0f, 29.0f, 280.0f, 29.0f)];
+    
+    NSString *tString = [[chatData objectAtIndex:(chatData.count - indexPath.row -1)] objectForKey:@"text"];
+    
+    return [self heightForTextView:tView containingString:tString];
+}
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 #pragma mark -
 #pragma mark Data Source Loading / Reloading Methods
 
@@ -312,14 +316,12 @@ BOOL isFirstShown = YES;
 	[chatTable reloadData];
 }
 
-- (void)doneLoadingTableViewData{
-	
+- (void)doneLoadingTableViewData
+{
 	//  model should call this when its done loading
 	_reloading = NO;
 	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:chatTable];
-	
 }
-
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate Methods
@@ -327,15 +329,12 @@ BOOL isFirstShown = YES;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 	
 	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
-    
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
 	
 	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
-	
 }
-
 
 #pragma mark -
 #pragma mark EGORefreshTableHeaderDelegate Methods
@@ -379,46 +378,30 @@ BOOL isFirstShown = YES;
 	return string;
 }
 
-#pragma mark - Chat name dialog
+#pragma mark - Helper Methods
 
--(void)presentChatNameDialog
+- (CGFloat)heightForTextView:(UITextView*)textView containingString:(NSString*)string
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Chat Name"
-                                                      message:@"Choose a chat name, it can be changed later in the Options panel"
-                                                     delegate:self
-                                            cancelButtonTitle:@"Cancel"
-                                            otherButtonTitles:@"Continue", nil];
+    float horizontalPadding = 12;
+    float verticalPadding = 30;
+    float widthOfTextView = textView.contentSize.width - horizontalPadding;
     
-    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    //    [message setBackgroundColor:[UIColor colorWithRed:0.7765f green:0.1725f blue:0.1451f alpha:1.0f]];
-    //    [message setAlpha:0.8f];
-    [message show];
-    isShowingAlertView = YES;
-}
-
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"Alert View dismissed with button at index %ld",(long)buttonIndex);
-    if (buttonIndex != 0) {
-        UITextField *textField = [alertView textFieldAtIndex:0];
-        NSLog(@"Plain text input: %@",textField.text);
-//        userName = textField.text;
-//        [[NSUserDefaults standardUserDefaults] setObject:userName forKey:@"chatName"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        isShowingAlertView = NO;
-    }
-    else if (isFirstShown){
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Ooops"
-                              message:@"Something's gone wrong. To post in this room you must have a chat name. Go to the options panel to define one"
-                              delegate:self
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"Dismiss", nil];
-        [alert show];
-        isFirstShown = NO;
-    }
-    [chatTable setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-TABBAR_HEIGHT)];
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    
+    NSDictionary * attributes = @{NSFontAttributeName : FONT14,
+                                  NSParagraphStyleAttributeName : paragraphStyle};
+    
+    CGSize size = [string boundingRectWithSize:CGSizeMake(widthOfTextView, 999999.0f)
+                                       options:NSStringDrawingUsesFontLeading
+                   |NSStringDrawingUsesLineFragmentOrigin
+                                    attributes:attributes
+                                       context:nil].size;
+    
+    float height = size.height + verticalPadding;
+    
+    return height;
 }
 
 @end

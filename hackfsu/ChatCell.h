@@ -11,7 +11,6 @@
 @interface ChatCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *username;
-@property (strong, nonatomic) IBOutlet UILabel *timeStamp;
 @property (strong, nonatomic) IBOutlet UITextView *content;
 
 @end

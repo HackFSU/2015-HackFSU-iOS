@@ -77,10 +77,10 @@
         if (!objectsInSection)
         {
             objectsInSection = [NSMutableArray array];
-            [self.sectionToDateMap setObject:dateStr forKey:[NSNumber numberWithInt:section++]];
+            [self.sectionToDateMap setObject:dateStr forKey:[NSNumber numberWithInt:(int)section++]];
         }
         
-        [objectsInSection addObject:[NSNumber numberWithInt:rowIndex++]];
+        [objectsInSection addObject:[NSNumber numberWithInt:(int)rowIndex++]];
         [self.sections setObject:objectsInSection forKey:dateStr];
     }
 }

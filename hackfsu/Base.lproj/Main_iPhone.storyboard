@@ -301,31 +301,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zRZ-KM-154">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRZ-KM-154">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="kw1-0k-lH3"/>
+                                                    </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-3w-sPM">
-                                                    <rect key="frame" x="20" y="28" width="90" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-3w-sPM">
+                                                    <rect key="frame" x="20" y="32" width="280" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-wC-sj2">
-                                                    <rect key="frame" x="210" y="28" width="90" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="0wK-BL-GgU"/>
+                                                        <constraint firstAttribute="width" constant="280" id="aQ8-1A-v4L"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zRZ-KM-154" firstAttribute="top" secondItem="JWI-3J-P2c" secondAttribute="top" id="65E-y8-JyK"/>
+                                                <constraint firstItem="ktN-3w-sPM" firstAttribute="leading" secondItem="JWI-3J-P2c" secondAttribute="leading" constant="20" symbolic="YES" id="Dxs-x2-sdf"/>
+                                                <constraint firstItem="ktN-3w-sPM" firstAttribute="top" secondItem="zRZ-KM-154" secondAttribute="bottom" constant="3" id="Fyo-Gb-R7A"/>
+                                                <constraint firstItem="ktN-3w-sPM" firstAttribute="leading" secondItem="zRZ-KM-154" secondAttribute="leading" id="aef-7Q-V2K"/>
+                                                <constraint firstItem="ktN-3w-sPM" firstAttribute="top" secondItem="zRZ-KM-154" secondAttribute="bottom" constant="3" id="gMS-Qy-PwD"/>
+                                                <constraint firstAttribute="bottom" secondItem="ktN-3w-sPM" secondAttribute="bottom" id="idn-fr-sNU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="content" destination="zRZ-KM-154" id="FXC-eK-EhV"/>
-                                            <outlet property="timeStamp" destination="Yyy-wC-sj2" id="5qP-nK-NP5"/>
                                             <outlet property="username" destination="ktN-3w-sPM" id="LIz-c6-Iyl"/>
                                         </connections>
                                     </tableViewCell>
