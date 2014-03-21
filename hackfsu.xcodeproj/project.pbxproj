@@ -31,6 +31,7 @@
 		40275F2718A5B7780029C9DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0618A5B7780029C9DA /* UIKit.framework */; };
 		40275F2F18A5B7780029C9DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40275F2D18A5B7780029C9DA /* InfoPlist.strings */; };
 		40275F3118A5B7780029C9DA /* hackfsuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F3018A5B7780029C9DA /* hackfsuTests.m */; };
+		402D3F4218DCA100005AD027 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 402D3F4118DCA100005AD027 /* Reachability.m */; };
 		4032197918D3EB06006A22F0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4032197818D3EB06006A22F0 /* Parse.framework */; };
 		405196EE18A63342000E676A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196ED18A63342000E676A /* SystemConfiguration.framework */; };
 		405196F018A6334B000E676A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196EF18A6334B000E676A /* Security.framework */; };
@@ -92,6 +93,8 @@
 		40275F2C18A5B7780029C9DA /* hackfsuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackfsuTests-Info.plist"; sourceTree = "<group>"; };
 		40275F2E18A5B7780029C9DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40275F3018A5B7780029C9DA /* hackfsuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hackfsuTests.m; sourceTree = "<group>"; };
+		402D3F4018DCA100005AD027 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		402D3F4118DCA100005AD027 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		4032197818D3EB06006A22F0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../../../Users/laisitt/Documents/ParseSDK/Parse.framework; sourceTree = "<group>"; };
 		405196ED18A63342000E676A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		405196EF18A6334B000E676A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -219,6 +222,8 @@
 		40275F0818A5B7780029C9DA /* hackfsu */ = {
 			isa = PBXGroup;
 			children = (
+				402D3F4018DCA100005AD027 /* Reachability.h */,
+				402D3F4118DCA100005AD027 /* Reachability.m */,
 				40E0466F18A5D177001A1C96 /* Common.h */,
 				40E0467018A5D177001A1C96 /* Common.m */,
 				40275F1118A5B7780029C9DA /* AppDelegate.h */,
@@ -410,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402D3F4218DCA100005AD027 /* Reachability.m in Sources */,
 				B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */,
 				E75A03E618A62F4100D93BAD /* FeedCell.m in Sources */,
 				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,

@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
-@interface ChatViewController : UIViewController <UITextFieldDelegate>
+@interface ChatViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, PF_EGORefreshTableHeaderDelegate>
 {
     IBOutlet UITextField *tfEntry;
     
     IBOutlet UITableView *chatTable;
+    
+    PF_EGORefreshTableHeaderView *_refreshHeaderView;
+    
+    NSString *className;
+    NSString *userName;
+    
+    BOOL _reloading;
+    
+    NSMutableArray *chatData;
 }
 
 @property(nonatomic, strong) IBOutlet UITextField *tfEntry;

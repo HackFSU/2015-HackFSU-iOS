@@ -30,6 +30,13 @@
     UINavigationBar *navBar = [UINavigationBar appearance];
     [navBar setTitleTextAttributes:[NSDictionary dictionaryWithObjects:@[FONT22, WHITE] forKeys:@[NSFontAttributeName, NSForegroundColorAttributeName]]];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults stringForKey:@"chatName"]) {
+        // first time it's run, create a userDefault
+        [defaults setObject:@"Chat Name" forKey:@"chatName"];
+        [defaults synchronize];
+    }
+    
     // For viewing fonts avaible to the app #ICantSpell
 //    for (NSString* family in [UIFont familyNames])
 //    {
