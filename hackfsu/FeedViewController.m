@@ -136,7 +136,7 @@
     
     // Configure the cell
 
-    cell.titleLabel.text = [object objectForKey:@"title"];
+    cell.title.text = [object objectForKey:@"title"];
     cell.updateView.text = [object objectForKey:@"msg"];
     
     return cell;

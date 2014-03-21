@@ -25,9 +25,11 @@
   
     [self setBackgroundColor:[UIColor clearColor]];
     
-    [self.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    [self.title setFont:FONT10];
+
+    [self.title setFont:[UIFont systemFontOfSize:16.0f]];
     
-    [self.titleLabel setTextColor:LIGHT_GREEN];
+    [self.title setTextColor:LIGHT_GREEN];
 
     [self.updateView setBackgroundColor:GRAY];
     
