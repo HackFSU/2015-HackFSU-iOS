@@ -25,8 +25,20 @@
      UIRemoteNotificationTypeSound];
     
     UITabBar *tabBar = [UITabBar appearance];
-    [tabBar setSelectedImageTintColor:DARK_GREEN];
     [tabBar setTintColor:GRAY];
+    
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    [navBar setTitleTextAttributes:[NSDictionary dictionaryWithObjects:@[FONT22, WHITE] forKeys:@[NSFontAttributeName, NSForegroundColorAttributeName]]];
+    
+    // For viewing fonts avaible to the app #ICantSpell
+//    for (NSString* family in [UIFont familyNames])
+//    {
+//        NSLog(@"%@", family);
+//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+//        {
+//            NSLog(@"%@", name);
+//        }
+//    }
     
     return YES;
 }

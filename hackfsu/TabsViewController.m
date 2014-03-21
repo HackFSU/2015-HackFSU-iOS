@@ -14,9 +14,29 @@
 {
     [super viewDidLoad];
     
-    UIBarButtonItem *signOut = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(signOutUser)];
+    UIBarButtonItem *signOut = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out"
+                                                                style:UIBarButtonItemStyleDone
+                                                               target:self
+                                                               action:@selector(signOutUser)];
+    [signOut setTintColor:DARK_GREEN];
+    [signOut setTitleTextAttributes:[NSDictionary dictionaryWithObjects:@[FONT12] forKeys:@[NSFontAttributeName]]
+                           forState:UIControlStateNormal];
     
     [self.navigationItem setLeftBarButtonItem:signOut];
+    
+    
+    UITabBarItem *tbItem = [UITabBarItem appearance];
+    [tbItem setTitleTextAttributes:[NSDictionary dictionaryWithObjects:@[FONT10, [UIColor blackColor]] forKeys:@[NSFontAttributeName, NSBackgroundColorAttributeName]]
+                           forState:UIControlStateNormal];
+    
+    
+    
+    
+    UIImage *tabBackground = [[UIImage imageNamed:@"tabBG.png"]
+                               stretchableImageWithLeftCapWidth:0.0f topCapHeight:0.0f];
+    
+    [[UITabBar appearance] setSelectionIndicatorImage:tabBackground];
+    
     
     [self.navigationItem setHidesBackButton:YES];
     [self.navigationController setNavigationBarHidden:NO];
@@ -32,6 +52,8 @@
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     [self.navigationItem setTitle:item.title];
+
+    NSLog(@"%f %f", item.selectedImage.size.width, item.selectedImage.size.height);
 }
 
 -(void) signOutUser
