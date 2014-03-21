@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChatViewController : UITableViewController
+@interface ChatViewController : UIViewController <UITextFieldDelegate>
+{
+    IBOutlet UITextField *tfEntry;
+    
+    IBOutlet UITableView *chatTable;
+}
+
+@property(nonatomic, strong) IBOutlet UITextField *tfEntry;
+@property (nonatomic, retain) IBOutlet UITableView *chatTable;
+
+-(void) registerForKeyboardNotifications;
+-(void) freeKeyboardNotifications;
+-(void) keyboardWasShown:(NSNotification*)aNotification;
+-(void) keyboardWillHide:(NSNotification*)aNotification;
 
 @end

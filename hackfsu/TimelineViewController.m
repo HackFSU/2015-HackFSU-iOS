@@ -30,6 +30,7 @@
 
 #pragma mark - View lifecycle
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -114,8 +115,16 @@
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:f];
     
     [dateLabel setText:[self dateForSection:section]];
+    [dateLabel setFont:FONT16];
     [dateLabel setTextAlignment:NSTextAlignmentCenter];
     [dateLabel setBackgroundColor:[UIColor whiteColor]];
+    
+//    CALayer *line = [CALayer layer];
+//    line.frame = CGRectMake(25.0f, CGRectGetMaxY(f) - 2.0f, 5.0f, 5.0f);
+//    line.cornerRadius = 2.5f;
+//    line.backgroundColor = [BLACK CGColor];
+//    
+//    [dateLabel.layer insertSublayer:line atIndex:0];
     
     return dateLabel;
 }
@@ -129,15 +138,21 @@
     [dateFormat setDateFormat:@"ha"];
     NSString *timeStr = [dateFormat stringFromDate:date];
     
-    cell.timeLabel.text = timeStr;
+    
+    cell.timeLabel.text = [[timeStr substringToIndex:timeStr.length-1] lowercaseString];//timeStr;
     cell.descriptionView.text = [object objectForKey:@"description"];
     
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell layoutIfNeeded];
+}
+
 - (NSString *) dateForSection:(NSInteger)section
 {
-    return [self.sectionToDateMap objectForKey:[NSNumber numberWithInt:section]];
+    return [self.sectionToDateMap objectForKey:[NSNumber numberWithInt:(int)section]];
 }
 
 -(PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath
@@ -183,7 +198,37 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    UITextView *tView = [[UITextView alloc] initWithFrame:CGRectMake(179.0f, 40.0f, 242.0f, 30.0f)];
+    
+    NSString *tString = [[self objectAtIndexPath:indexPath] objectForKey:@"description"];
+    
+    return [self heightForTextView:tView containingString:tString];
+}
+
+#pragma mark - Helper Methods
+
+- (CGFloat)heightForTextView:(UITextView*)textView containingString:(NSString*)string
+{
+    float horizontalPadding = 14;
+    float verticalPadding = 32;
+    float widthOfTextView = textView.contentSize.width - horizontalPadding;
+    
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+
+    NSDictionary * attributes = @{NSFontAttributeName : FONT14,
+                                  NSParagraphStyleAttributeName : paragraphStyle};
+    
+    CGSize size = [string boundingRectWithSize:CGSizeMake(widthOfTextView, 999999.0f)
+                                      options:NSStringDrawingUsesFontLeading
+            |NSStringDrawingUsesLineFragmentOrigin
+                                   attributes:attributes
+                                      context:nil].size;
+    
+    float height = size.height + verticalPadding;
+    
+    return height;
 }
 
 @end
