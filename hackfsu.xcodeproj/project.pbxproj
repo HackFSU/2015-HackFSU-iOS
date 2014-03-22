@@ -41,6 +41,11 @@
 		405196F818A6338E000E676A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196F718A6338E000E676A /* libz.dylib */; };
 		405196FA18A633A8000E676A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196F918A633A8000E676A /* CoreLocation.framework */; };
 		405196FC18A633B0000E676A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196FB18A633B0000E676A /* StoreKit.framework */; };
+		40B9EC2B18DD25E60042A459 /* ExtraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC2A18DD25E60042A459 /* ExtraViewController.m */; };
+		40B9EC2E18DD289D0042A459 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC2D18DD289D0042A459 /* PageContentViewController.m */; };
+		40B9EC3118DD29130042A459 /* AwardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC3018DD29130042A459 /* AwardsViewController.m */; };
+		40B9EC3418DD29230042A459 /* SponsorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC3318DD29230042A459 /* SponsorsViewController.m */; };
+		40B9EC3718DD29300042A459 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC3618DD29300042A459 /* MapViewController.m */; };
 		40CEC6D418D8E78D00B2DB20 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CEC6D318D8E78D00B2DB20 /* ChatCell.m */; };
 		40E0467518A5D177001A1C96 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0466E18A5D177001A1C96 /* ChatViewController.m */; };
 		40E0467618A5D177001A1C96 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467018A5D177001A1C96 /* Common.m */; };
@@ -104,6 +109,16 @@
 		405196F718A6338E000E676A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		405196F918A633A8000E676A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		405196FB18A633B0000E676A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		40B9EC2918DD25E60042A459 /* ExtraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraViewController.h; sourceTree = "<group>"; };
+		40B9EC2A18DD25E60042A459 /* ExtraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraViewController.m; sourceTree = "<group>"; };
+		40B9EC2C18DD289D0042A459 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		40B9EC2D18DD289D0042A459 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		40B9EC2F18DD29130042A459 /* AwardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardsViewController.h; sourceTree = "<group>"; };
+		40B9EC3018DD29130042A459 /* AwardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardsViewController.m; sourceTree = "<group>"; };
+		40B9EC3218DD29230042A459 /* SponsorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorsViewController.h; sourceTree = "<group>"; };
+		40B9EC3318DD29230042A459 /* SponsorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorsViewController.m; sourceTree = "<group>"; };
+		40B9EC3518DD29300042A459 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		40B9EC3618DD29300042A459 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		40CEC6D218D8E78D00B2DB20 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		40CEC6D318D8E78D00B2DB20 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		40E0466D18A5D177001A1C96 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -238,6 +253,7 @@
 				40866E7718D2ADCD0092EC7B /* Feed */,
 				40E0467918A5DC86001A1C96 /* Timeline */,
 				40866E7818D2ADE30092EC7B /* Chat */,
+				40B9EC2818DD25CD0042A459 /* Extra */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
 			);
@@ -294,6 +310,23 @@
 				40CEC6D318D8E78D00B2DB20 /* ChatCell.m */,
 			);
 			name = Chat;
+			sourceTree = "<group>";
+		};
+		40B9EC2818DD25CD0042A459 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				40B9EC2918DD25E60042A459 /* ExtraViewController.h */,
+				40B9EC2A18DD25E60042A459 /* ExtraViewController.m */,
+				40B9EC2F18DD29130042A459 /* AwardsViewController.h */,
+				40B9EC3018DD29130042A459 /* AwardsViewController.m */,
+				40B9EC3218DD29230042A459 /* SponsorsViewController.h */,
+				40B9EC3318DD29230042A459 /* SponsorsViewController.m */,
+				40B9EC3518DD29300042A459 /* MapViewController.h */,
+				40B9EC3618DD29300042A459 /* MapViewController.m */,
+				40B9EC2C18DD289D0042A459 /* PageContentViewController.h */,
+				40B9EC2D18DD289D0042A459 /* PageContentViewController.m */,
+			);
+			name = Extra;
 			sourceTree = "<group>";
 		};
 		40E0467918A5DC86001A1C96 /* Timeline */ = {
@@ -417,9 +450,13 @@
 			files = (
 				402D3F4218DCA100005AD027 /* Reachability.m in Sources */,
 				B6BF4D8818A61C9800EDC729 /* TabsViewController.m in Sources */,
+				40B9EC3118DD29130042A459 /* AwardsViewController.m in Sources */,
+				40B9EC3718DD29300042A459 /* MapViewController.m in Sources */,
+				40B9EC2E18DD289D0042A459 /* PageContentViewController.m in Sources */,
 				E75A03E618A62F4100D93BAD /* FeedCell.m in Sources */,
 				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,
 				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
+				40B9EC2B18DD25E60042A459 /* ExtraViewController.m in Sources */,
 				40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */,
 				40E0467618A5D177001A1C96 /* Common.m in Sources */,
 				B6BF4D8518A60F8700EDC729 /* LogInViewController.m in Sources */,
@@ -428,6 +465,7 @@
 				40CEC6D418D8E78D00B2DB20 /* ChatCell.m in Sources */,
 				40275F0F18A5B7780029C9DA /* main.m in Sources */,
 				B6BF4D8B18A6241200EDC729 /* LoadingViewController.m in Sources */,
+				40B9EC3418DD29230042A459 /* SponsorsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

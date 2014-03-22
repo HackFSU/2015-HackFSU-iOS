@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabsViewController : UITabBarController
+#import "ExtraViewController.h"
+
+@interface TabsViewController : UITabBarController <ExtraViewControllerDelegate, UITabBarControllerDelegate>
+
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIPageControl *pageControl;
 
 @end
