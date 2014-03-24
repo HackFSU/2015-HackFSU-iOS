@@ -26,7 +26,6 @@ BOOL isFirstShown = YES;
     
     [self.navigationController setNavigationBarHidden:NO];
 
-
     tfEntry.delegate = self;
     tfEntry.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self registerForKeyboardNotifications];

@@ -41,6 +41,8 @@
 		405196F818A6338E000E676A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196F718A6338E000E676A /* libz.dylib */; };
 		405196FA18A633A8000E676A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196F918A633A8000E676A /* CoreLocation.framework */; };
 		405196FC18A633B0000E676A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405196FB18A633B0000E676A /* StoreKit.framework */; };
+		4073793D18DFA80E0063C865 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4073793C18DFA80E0063C865 /* MapKit.framework */; };
+		4073794018DFABBF0063C865 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4073793F18DFABBF0063C865 /* EventLocation.m */; };
 		40B9EC2B18DD25E60042A459 /* ExtraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC2A18DD25E60042A459 /* ExtraViewController.m */; };
 		40B9EC2E18DD289D0042A459 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC2D18DD289D0042A459 /* PageContentViewController.m */; };
 		40B9EC3118DD29130042A459 /* AwardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC3018DD29130042A459 /* AwardsViewController.m */; };
@@ -109,6 +111,9 @@
 		405196F718A6338E000E676A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		405196F918A633A8000E676A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		405196FB18A633B0000E676A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4073793C18DFA80E0063C865 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4073793E18DFABBF0063C865 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
+		4073793F18DFABBF0063C865 /* EventLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventLocation.m; sourceTree = "<group>"; };
 		40B9EC2918DD25E60042A459 /* ExtraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraViewController.h; sourceTree = "<group>"; };
 		40B9EC2A18DD25E60042A459 /* ExtraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraViewController.m; sourceTree = "<group>"; };
 		40B9EC2C18DD289D0042A459 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -147,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4073793D18DFA80E0063C865 /* MapKit.framework in Frameworks */,
 				4032197918D3EB06006A22F0 /* Parse.framework in Frameworks */,
 				405196FC18A633B0000E676A /* StoreKit.framework in Frameworks */,
 				405196FA18A633A8000E676A /* CoreLocation.framework in Frameworks */,
@@ -216,6 +222,7 @@
 		40275F0118A5B7780029C9DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4073793C18DFA80E0063C865 /* MapKit.framework */,
 				4032197818D3EB06006A22F0 /* Parse.framework */,
 				405196FB18A633B0000E676A /* StoreKit.framework */,
 				405196F918A633A8000E676A /* CoreLocation.framework */,
@@ -253,6 +260,8 @@
 				40866E7718D2ADCD0092EC7B /* Feed */,
 				40E0467918A5DC86001A1C96 /* Timeline */,
 				40866E7818D2ADE30092EC7B /* Chat */,
+				4073793A18DFA5B20063C865 /* Sponsors */,
+				4073793B18DFA5C30063C865 /* Maps */,
 				40B9EC2818DD25CD0042A459 /* Extra */,
 				40275F1D18A5B7780029C9DA /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
@@ -290,6 +299,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4073793A18DFA5B20063C865 /* Sponsors */ = {
+			isa = PBXGroup;
+			children = (
+				40B9EC3218DD29230042A459 /* SponsorsViewController.h */,
+				40B9EC3318DD29230042A459 /* SponsorsViewController.m */,
+			);
+			name = Sponsors;
+			sourceTree = "<group>";
+		};
+		4073793B18DFA5C30063C865 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				40B9EC3518DD29300042A459 /* MapViewController.h */,
+				40B9EC3618DD29300042A459 /* MapViewController.m */,
+				4073793E18DFABBF0063C865 /* EventLocation.h */,
+				4073793F18DFABBF0063C865 /* EventLocation.m */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		40866E7718D2ADCD0092EC7B /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,10 +348,6 @@
 				40B9EC2A18DD25E60042A459 /* ExtraViewController.m */,
 				40B9EC2F18DD29130042A459 /* AwardsViewController.h */,
 				40B9EC3018DD29130042A459 /* AwardsViewController.m */,
-				40B9EC3218DD29230042A459 /* SponsorsViewController.h */,
-				40B9EC3318DD29230042A459 /* SponsorsViewController.m */,
-				40B9EC3518DD29300042A459 /* MapViewController.h */,
-				40B9EC3618DD29300042A459 /* MapViewController.m */,
 				40B9EC2C18DD289D0042A459 /* PageContentViewController.h */,
 				40B9EC2D18DD289D0042A459 /* PageContentViewController.m */,
 			);
@@ -454,6 +479,7 @@
 				40B9EC3718DD29300042A459 /* MapViewController.m in Sources */,
 				40B9EC2E18DD289D0042A459 /* PageContentViewController.m in Sources */,
 				E75A03E618A62F4100D93BAD /* FeedCell.m in Sources */,
+				4073794018DFABBF0063C865 /* EventLocation.m in Sources */,
 				40E0467C18A5DCB4001A1C96 /* TimelineCell.m in Sources */,
 				40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */,
 				40B9EC2B18DD25E60042A459 /* ExtraViewController.m in Sources */,

@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface EventLocation : NSObject
+@interface EventLocation : NSObject <MKAnnotation>
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *address;
+@property (nonatomic, assign) CLLocationCoordinate2D theCoordinate;
+
+- (id)initWithName:(NSString*)name address:(NSString*)address coordinate:(CLLocationCoordinate2D)coordinate;
+- (MKMapItem*)mapItem;
 
 @end

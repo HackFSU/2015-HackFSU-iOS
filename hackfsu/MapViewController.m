@@ -7,43 +7,82 @@
 //
 
 #import "MapViewController.h"
+#import "EventLocation.h"
 
-@interface MapViewController ()
-
-@end
+#define METERS_PER_MILE 1609.344
 
 @implementation MapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        self.title = @"Map";
     }
     return self;
+}
+
+-(void)viewWillLayoutSubviews
+{
+    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    [self.mapView setDelegate:self];
+    [self.mapView setShowsUserLocation:YES];
+    [self.mapView setMapType:MKMapTypeHybrid];
+    [self.mapView setShowsBuildings:YES];
+    
+    
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 30.441372;
+    zoomLocation.longitude= -84.294088;
+    
+    // 2
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, .1*METERS_PER_MILE, .1*METERS_PER_MILE);
+    
+    // 3
+    [self.mapView setRegion:viewRegion animated:YES];
+    
+    NSString * address = @"Johnston Bldg";
+
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = 30.440795; //latitude.doubleValue;
+    coordinate.longitude = -84.290129; //longitude.doubleValue;
+    EventLocation *annotation = [[EventLocation alloc] initWithName:@"Hello" address:address coordinate:coordinate];
+
+    [self.mapView addAnnotation:annotation];
+    
+    [self.view addSubview:self.mapView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    static NSString *identifier = @"MyLocation";
+    if ([annotation isKindOfClass:[EventLocation class]])
+    {
+        MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            annotationView.image = [UIImage imageNamed:@"arrest.png"];//here we use a nice image instead of the default pins
+        } else {
+            annotationView.annotation = annotation;
+        }
+        
+        return annotationView;
+    }
+    
+    return nil;
 }
-*/
 
 @end
