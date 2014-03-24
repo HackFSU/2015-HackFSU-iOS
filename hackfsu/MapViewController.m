@@ -28,7 +28,7 @@
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     [self.mapView setDelegate:self];
     [self.mapView setShowsUserLocation:YES];
-    [self.mapView setMapType:MKMapTypeHybrid];
+    [self.mapView setMapType:MKMapTypeStandard];
     [self.mapView setShowsBuildings:YES];
     
     

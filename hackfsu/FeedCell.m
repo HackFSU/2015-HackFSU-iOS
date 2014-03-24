@@ -10,31 +10,22 @@
 
 @implementation FeedCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-  
+}
+
+-(void)layoutIfNeeded
+{
     [self setBackgroundColor:[UIColor clearColor]];
     
-    [self.title setFont:FONT10];
-
-    [self.title setFont:[UIFont systemFontOfSize:16.0f]];
+    [self.title setFont:BOLD16];
     
-    [self.title setTextColor:LIGHT_GREEN];
-
-    [self.updateView setBackgroundColor:GRAY];
+    [self.title setTextColor:DARK_GREEN];
     
-    [self.updateView.layer setCornerRadius:5.0f];
-    // Configure the view for the selected state
+//    [self.updateView setBackgroundColor:GRAY];
+    
+//    [self.updateView.layer setCornerRadius:5.0f];
 }
 
 @end

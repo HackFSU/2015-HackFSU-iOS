@@ -133,13 +133,51 @@
         cell = (FeedCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                   reuseIdentifier:@"Cell"];
     }
-    
-    // Configure the cell
 
     cell.title.text = [object objectForKey:@"title"];
     cell.updateView.text = [object objectForKey:@"msg"];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell layoutIfNeeded];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITextView *tView = [[UITextView alloc] initWithFrame:CGRectMake(179.0f, 40.0f, 242.0f, 30.0f)];
+    
+    NSString *tString = [[self objectAtIndexPath:indexPath] objectForKey:@"msg"];
+    
+    return [self heightForTextView:tView containingString:tString];
+}
+
+#pragma mark - Helper Methods
+
+- (CGFloat)heightForTextView:(UITextView*)textView containingString:(NSString*)string
+{
+    float horizontalPadding = 14;
+    float verticalPadding = 32;
+    float widthOfTextView = textView.contentSize.width - horizontalPadding;
+    
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    
+    NSDictionary * attributes = @{NSFontAttributeName :FONT14,
+                                  NSParagraphStyleAttributeName : paragraphStyle};
+    
+    CGSize size = [string boundingRectWithSize:CGSizeMake(widthOfTextView, 999999.0f)
+                                       options:NSStringDrawingUsesFontLeading
+                   |NSStringDrawingUsesLineFragmentOrigin
+                                    attributes:attributes
+                                       context:nil].size;
+    
+    float height = size.height + verticalPadding;
+    
+    return height;
 }
 
 

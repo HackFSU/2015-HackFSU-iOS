@@ -10,5 +10,10 @@
 #define FONT16      [UIFont fontWithName:@"Lato-Regular" size:16]
 #define FONT22      [UIFont fontWithName:@"Lato-Regular" size:22]
 
+#define BOLD12      [UIFont fontWithName:@"Lato-Bold" size:12]
+#define BOLD14      [UIFont fontWithName:@"Lato-Bold" size:14]
+#define BOLD16      [UIFont fontWithName:@"Lato-Bold" size:16]
+#define BOLD22      [UIFont fontWithName:@"Lato-Bold" size:22]
+
 
 #define HIRESDEVICE (((int)rintf([[[UIScreen mainScreen] currentMode] size].width/[[UIScreen mainScreen] bounds].size.width )>1))

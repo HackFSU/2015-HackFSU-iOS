@@ -29,6 +29,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Reg.ttf</string>
+		<string>Lato-Bol.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main_iPhone</string>
