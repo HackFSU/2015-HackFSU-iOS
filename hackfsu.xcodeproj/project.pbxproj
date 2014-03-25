@@ -412,6 +412,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Isitt Inc.";
 				TargetAttributes = {
+					40275EFE18A5B7780029C9DA = {
+						DevelopmentTeam = S39ED6M3WP;
+					};
 					40275F2218A5B7780029C9DA = {
 						TestTargetID = 40275EFE18A5B7780029C9DA;
 					};
@@ -618,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					Parse,
@@ -637,6 +641,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					Parse,

@@ -135,12 +135,12 @@
     
     NSDate *date = [object objectForKey:@"eventTime"];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"ha"];
+    [dateFormat setDateFormat:@"h.mma"];
     NSString *timeStr = [dateFormat stringFromDate:date];
-    
+
     
     cell.timeLabel.text = [[timeStr substringToIndex:timeStr.length-1] lowercaseString];//timeStr;
-    cell.descriptionView.text = [object objectForKey:@"description"];
+    cell.descriptionView.text = [object objectForKey:@"title"];
     
     return cell;
 }
@@ -200,7 +200,7 @@
 {
     UITextView *tView = [[UITextView alloc] initWithFrame:CGRectMake(179.0f, 40.0f, 242.0f, 30.0f)];
     
-    NSString *tString = [[self objectAtIndexPath:indexPath] objectForKey:@"description"];
+    NSString *tString = [[self objectAtIndexPath:indexPath] objectForKey:@"title"];
     
     return [self heightForTextView:tView containingString:tString];
 }

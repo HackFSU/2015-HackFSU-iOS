@@ -23,6 +23,8 @@
     
     [self.title setTextColor:DARK_GREEN];
     
+    [self.updateView setFont:FONT14];
+    
 //    [self.updateView setBackgroundColor:GRAY];
     
 //    [self.updateView.layer setCornerRadius:5.0f];

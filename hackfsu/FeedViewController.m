@@ -147,7 +147,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITextView *tView = [[UITextView alloc] initWithFrame:CGRectMake(179.0f, 40.0f, 242.0f, 30.0f)];
+    UITextView *tView = [[UITextView alloc] initWithFrame:CGRectMake(300.0f, 40.0f, 280.0f, 41.0f)];
     
     NSString *tString = [[self objectAtIndexPath:indexPath] objectForKey:@"msg"];
     
@@ -159,7 +159,7 @@
 - (CGFloat)heightForTextView:(UITextView*)textView containingString:(NSString*)string
 {
     float horizontalPadding = 14;
-    float verticalPadding = 32;
+    float verticalPadding = 44;
     float widthOfTextView = textView.contentSize.width - horizontalPadding;
     
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
