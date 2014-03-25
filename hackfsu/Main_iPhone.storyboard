@@ -496,7 +496,7 @@
                             <outlet property="delegate" destination="6ZN-Wn-EoL" id="f2E-mY-w7o"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Feed" id="d7d-A0-ltH"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="newsfeed" id="d7d-A0-ltH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLJ-iq-LEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -507,6 +507,7 @@
         <image name="Header" width="444" height="397"/>
         <image name="greetingHdr" width="445" height="138"/>
         <image name="greetingSmiley" width="117" height="67"/>
+        <image name="newsfeed" width="30" height="31"/>
         <image name="signUpWith" width="359" height="26"/>
         <image name="textFieldBG" width="321" height="49"/>
     </resources>

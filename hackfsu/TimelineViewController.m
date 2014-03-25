@@ -23,7 +23,7 @@
         self.title = @"Timeline";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 20;
+        self.objectsPerPage = 100;
     }
     return self;
 }
