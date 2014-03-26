@@ -25,33 +25,36 @@
 
 -(void)viewWillLayoutSubviews
 {
-    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    [self.mapView setDelegate:self];
-    [self.mapView setShowsUserLocation:YES];
-    [self.mapView setMapType:MKMapTypeStandard];
-    [self.mapView setShowsBuildings:YES];
-    
-    
-    CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 30.441372;
-    zoomLocation.longitude= -84.294088;
-    
-    // 2
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, .1*METERS_PER_MILE, .1*METERS_PER_MILE);
-    
-    // 3
-    [self.mapView setRegion:viewRegion animated:YES];
-    
-    NSString * address = @"Johnston Bldg";
-
-    CLLocationCoordinate2D coordinate;
-    coordinate.latitude = 30.440795; //latitude.doubleValue;
-    coordinate.longitude = -84.290129; //longitude.doubleValue;
-    EventLocation *annotation = [[EventLocation alloc] initWithName:@"Hello" address:address coordinate:coordinate];
-
-    [self.mapView addAnnotation:annotation];
-    
-    [self.view addSubview:self.mapView];
+    if (!self.mapView)
+    {
+        self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+        [self.mapView setDelegate:self];
+        [self.mapView setShowsUserLocation:YES];
+        [self.mapView setMapType:MKMapTypeStandard];
+        [self.mapView setShowsBuildings:YES];
+        
+        
+        CLLocationCoordinate2D zoomLocation;
+        zoomLocation.latitude = 30.441372;
+        zoomLocation.longitude= -84.294088;
+        
+        // 2
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, .1*METERS_PER_MILE, .1*METERS_PER_MILE);
+        
+        // 3
+        [self.mapView setRegion:viewRegion animated:YES];
+        
+        NSString * address = @"Johnston Bldg";
+        
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = 30.440795; //latitude.doubleValue;
+        coordinate.longitude = -84.290129; //longitude.doubleValue;
+        EventLocation *annotation = [[EventLocation alloc] initWithName:@"Hello" address:address coordinate:coordinate];
+        
+        [self.mapView addAnnotation:annotation];
+        
+        [self.view addSubview:self.mapView];
+    }
 }
 
 - (void)viewDidLoad

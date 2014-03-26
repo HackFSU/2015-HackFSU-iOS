@@ -115,16 +115,9 @@
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:f];
     
     [dateLabel setText:[self dateForSection:section]];
-    [dateLabel setFont:FONT16];
+    [dateLabel setFont:BOLD16];
     [dateLabel setTextAlignment:NSTextAlignmentCenter];
     [dateLabel setBackgroundColor:[UIColor whiteColor]];
-    
-//    CALayer *line = [CALayer layer];
-//    line.frame = CGRectMake(25.0f, CGRectGetMaxY(f) - 2.0f, 5.0f, 5.0f);
-//    line.cornerRadius = 2.5f;
-//    line.backgroundColor = [BLACK CGColor];
-//    
-//    [dateLabel.layer insertSublayer:line atIndex:0];
     
     return dateLabel;
 }
@@ -217,7 +210,7 @@
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
     paragraphStyle.alignment = NSTextAlignmentLeft;
 
-    NSDictionary * attributes = @{NSFontAttributeName : FONT14,
+    NSDictionary * attributes = @{NSFontAttributeName : BOLD14,
                                   NSParagraphStyleAttributeName : paragraphStyle};
     
     CGSize size = [string boundingRectWithSize:CGSizeMake(widthOfTextView, 999999.0f)

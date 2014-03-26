@@ -21,7 +21,7 @@
     
     [self.title setFont:BOLD16];
     
-    [self.title setTextColor:DARK_GREEN];
+    [self.updateView setTextColor:DARK_GREEN];
     
     [self.updateView setFont:FONT14];
     

@@ -10,21 +10,6 @@
 
 @implementation TimelineCell
 
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self)
-    {
-//        CALayer *line = [CALayer layer];
-//        line.frame = CGRectMake(25.0f, 0, 5.0f, self.frame.size.height);
-//        line.cornerRadius = 2.5f;
-//        line.backgroundColor = [BLACK CGColor];
-//        
-//        [self.layer insertSublayer:line atIndex:0];
-    }
-    return self;
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -39,7 +24,7 @@
     [self.timeLabel setBackgroundColor:LIGHT_GREEN];
     [self.timeLabel.layer setCornerRadius:5.0f];
     
-    [self.descriptionView setFont:FONT14];
+    [self.descriptionView setFont:BOLD14];
     [self.descriptionView setBackgroundColor:GRAY];
     [self.descriptionView.layer setCornerRadius:5.0f];
 }
