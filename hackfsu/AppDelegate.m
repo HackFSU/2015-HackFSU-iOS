@@ -18,6 +18,12 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObjectsFromArray:
+     @[@"Schedule", @"Updates",@"Awards"]
+                                            forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    
     // Register for push notifications
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge |

@@ -80,9 +80,8 @@
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MMM dd, yyyy h:mmaa"];
-    [df setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    [df setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EDT"]];
     NSString *date = [df stringFromDate:object.createdAt];
-    
     
     cell.title.text = [object objectForKey:@"title"];
     cell.updateView.text = [object objectForKey:@"msg"];

@@ -108,6 +108,7 @@
                                         if (user)
                                         {
                                             name = [user valueForKey:@"name"];
+                                            
                                             [self performSegueWithIdentifier:@"toLoading" sender:self];
                                         }
                                         else

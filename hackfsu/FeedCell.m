@@ -25,13 +25,11 @@
     
     [self.updateView setFont:FONT14];
     
-//    [self.updateView setBackgroundColor:GRAY];
-    
     [self.updateView.layer setCornerRadius:5.0f];
     [self.title.layer setCornerRadius:5.0f];
     [self.title setBackgroundColor:[UIColor whiteColor]];
     
-//    [self.bgLabel.layer setCornerRadius:5.0f];
+    [self.timeLabel setFont:FONT10];
 }
 
 @end
