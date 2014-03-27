@@ -11,18 +11,11 @@
 
 @implementation EventLocation
 
-- (id)initWithName:(NSString*)name address:(NSString*)address coordinate:(CLLocationCoordinate2D)coordinate
+- (id)initWithName:(NSString*)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate
 {
     if ((self = [super init]))
     {
-        if ([name isKindOfClass:[NSString class]])
-        {
-            self.name = name;
-        }
-        else
-        {
-            self.name = @"Unknown charge";
-        }
+        self.name = name;
         self.address = address;
         self.theCoordinate = coordinate;
     }
@@ -54,6 +47,7 @@
     
     MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
     mapItem.name = self.title;
+    [mapItem openInMapsWithLaunchOptions:nil];
     
     return mapItem;
 }

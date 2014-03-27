@@ -11,4 +11,5 @@
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) NSArray *mapLocations;
 @end
