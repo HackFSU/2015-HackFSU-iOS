@@ -30,9 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-//    [self.tableView setSeparatorColor:[UIColor clearColor]];
-//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Splash"]]];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker set:kGAIScreenName value:@"News Feed"];
+    
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 #pragma mark - Parse

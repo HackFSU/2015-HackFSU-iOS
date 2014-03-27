@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoadingViewController : UIViewController
+@interface LoadingViewController : GAITrackedViewController
 @property NSString *name;
 @property (strong, nonatomic) IBOutlet UILabel *greetingLbl;
 @end

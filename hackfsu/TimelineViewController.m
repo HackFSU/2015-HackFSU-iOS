@@ -51,6 +51,17 @@
     [self loadObjects];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker set:kGAIScreenName value:@"Schedule"];
+    
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+}
+
 #pragma mark - Parse
 
 - (void)objectsDidLoad:(NSError *)error

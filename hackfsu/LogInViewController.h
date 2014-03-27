@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface LogInViewController : UIViewController <PFLogInViewControllerDelegate ,UITextFieldDelegate>
+@interface LogInViewController : GAITrackedViewController <PFLogInViewControllerDelegate ,UITextFieldDelegate>
 {
     NSString *name;
 }

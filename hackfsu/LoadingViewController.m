@@ -14,6 +14,8 @@
 {
     [super viewDidLoad];
 
+    self.screenName = @"Login Screen";
+
     [self performSelector:@selector(popGoesTheWeasel) withObject:nil afterDelay:2.0];
 }
 

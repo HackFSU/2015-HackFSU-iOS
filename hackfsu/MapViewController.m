@@ -19,6 +19,7 @@
     if (self)
     {
         self.title = @"Map";
+        self.screenName = self.title;
         
         PFQuery *query = [PFQuery queryWithClassName:@"Locations"];
         [query orderByDescending:@"updatedAt"];

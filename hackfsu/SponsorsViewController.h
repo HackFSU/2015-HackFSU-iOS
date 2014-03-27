@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SponsorsViewController : UIViewController
+@interface SponsorsViewController : GAITrackedViewController
 
 @end

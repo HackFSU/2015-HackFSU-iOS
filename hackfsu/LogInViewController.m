@@ -15,6 +15,8 @@
 {
     [super viewDidLoad];
     
+    self.screenName = @"Login Screen";
+
     self.emailField.delegate = self;
     self.passwdField.delegate = self;
     self.signInButton.layer.cornerRadius = 5;

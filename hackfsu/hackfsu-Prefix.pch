@@ -16,4 +16,6 @@
     #import <QuartzCore/QuartzCore.h>
     #import "Common.h"
     #import <Parse/Parse.h>
+    #import "GAITrackedViewController.h"
+    #import "GAI.h"
 #endif

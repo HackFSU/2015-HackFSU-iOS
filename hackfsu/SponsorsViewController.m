@@ -16,6 +16,7 @@
     if (self)
     {
         self.title = @"Sponsors";
+        self.screenName = self.title;
     }
     return self;
 }

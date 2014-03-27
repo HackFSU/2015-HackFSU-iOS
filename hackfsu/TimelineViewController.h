@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
+
 @interface TimelineViewController : PFQueryTableViewController
 
 @property (nonatomic, retain) NSMutableDictionary *sections;
