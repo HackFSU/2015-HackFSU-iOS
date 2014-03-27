@@ -26,6 +26,7 @@
     
     [self.descriptionView setFont:BOLD14];
     [self.descriptionView setBackgroundColor:GRAY];
+    [self.descriptionView setAlpha:.95f];
     [self.descriptionView.layer setCornerRadius:5.0f];
 }
 

@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "mapsx30.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "fb_btn_hvr@2x-04.png"
+      "filename" : "mapsx60.png"
     }
   ],
   "info" : {

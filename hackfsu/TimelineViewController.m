@@ -18,9 +18,8 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
+        self.title = @"Schedule";
         self.parseClassName = @"Schedule";
-        self.textKey = @"description";
-        self.title = @"Timeline";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 100;
@@ -47,12 +46,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Splash"]]];
     [self loadObjects];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Parse
@@ -117,7 +113,7 @@
     [dateLabel setText:[self dateForSection:section]];
     [dateLabel setFont:BOLD16];
     [dateLabel setTextAlignment:NSTextAlignmentCenter];
-    [dateLabel setBackgroundColor:[UIColor whiteColor]];
+    [dateLabel setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:.65f]];
     
     return dateLabel;
 }

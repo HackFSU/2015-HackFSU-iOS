@@ -10,9 +10,9 @@
 
 @interface FeedCell : UITableViewCell
 
-@property (strong,nonatomic) IBOutlet UILabel *title;               // event update
-@property (strong,nonatomic) IBOutlet UITextView *updateView;      // details about event
-
+@property (strong,nonatomic) IBOutlet UILabel *title;
+@property (strong,nonatomic) IBOutlet UITextView *updateView;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 

@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "awardsx30.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "google_btn_@2x-04.png"
+      "filename" : "awardsx60.png"
     }
   ],
   "info" : {

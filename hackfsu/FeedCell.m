@@ -17,7 +17,7 @@
 
 -(void)layoutIfNeeded
 {
-    [self setBackgroundColor:[UIColor clearColor]];
+    [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:.1f]];
     
     [self.title setFont:BOLD16];
     
@@ -27,7 +27,11 @@
     
 //    [self.updateView setBackgroundColor:GRAY];
     
-//    [self.updateView.layer setCornerRadius:5.0f];
+    [self.updateView.layer setCornerRadius:5.0f];
+    [self.title.layer setCornerRadius:5.0f];
+    [self.title setBackgroundColor:[UIColor whiteColor]];
+    
+//    [self.bgLabel.layer setCornerRadius:5.0f];
 }
 
 @end

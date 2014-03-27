@@ -24,7 +24,6 @@
 		40275F0D18A5B7780029C9DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40275F0B18A5B7780029C9DA /* InfoPlist.strings */; };
 		40275F0F18A5B7780029C9DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F0E18A5B7780029C9DA /* main.m */; };
 		40275F1318A5B7780029C9DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40275F1218A5B7780029C9DA /* AppDelegate.m */; };
-		40275F1E18A5B7780029C9DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40275F1D18A5B7780029C9DA /* Images.xcassets */; };
 		40275F2518A5B7780029C9DA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F2418A5B7780029C9DA /* XCTest.framework */; };
 		40275F2618A5B7780029C9DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0218A5B7780029C9DA /* Foundation.framework */; };
 		40275F2718A5B7780029C9DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40275F0618A5B7780029C9DA /* UIKit.framework */; };
@@ -44,6 +43,7 @@
 		4073794018DFABBF0063C865 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4073793F18DFABBF0063C865 /* EventLocation.m */; };
 		40B9EC3418DD29230042A459 /* SponsorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC3318DD29230042A459 /* SponsorsViewController.m */; };
 		40B9EC3718DD29300042A459 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B9EC3618DD29300042A459 /* MapViewController.m */; };
+		40D8D74618E3E50C0006B113 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40D8D74518E3E50C0006B113 /* Images.xcassets */; };
 		40E0467618A5D177001A1C96 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467018A5D177001A1C96 /* Common.m */; };
 		40E0467718A5D177001A1C96 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467218A5D177001A1C96 /* FeedViewController.m */; };
 		40E0467818A5D177001A1C96 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E0467418A5D177001A1C96 /* TimelineViewController.m */; };
@@ -87,7 +87,6 @@
 		40275F1018A5B7780029C9DA /* hackfsu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hackfsu-Prefix.pch"; sourceTree = "<group>"; };
 		40275F1118A5B7780029C9DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		40275F1218A5B7780029C9DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		40275F1D18A5B7780029C9DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40275F2318A5B7780029C9DA /* hackfsuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackfsuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40275F2418A5B7780029C9DA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		40275F2C18A5B7780029C9DA /* hackfsuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hackfsuTests-Info.plist"; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		40B9EC3318DD29230042A459 /* SponsorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorsViewController.m; sourceTree = "<group>"; };
 		40B9EC3518DD29300042A459 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		40B9EC3618DD29300042A459 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		40D8D74518E3E50C0006B113 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40E0466F18A5D177001A1C96 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		40E0467018A5D177001A1C96 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		40E0467118A5D177001A1C96 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 				40E0467918A5DC86001A1C96 /* Timeline */,
 				4073793A18DFA5B20063C865 /* Sponsors */,
 				4073793B18DFA5C30063C865 /* Maps */,
-				40275F1D18A5B7780029C9DA /* Images.xcassets */,
+				40D8D74518E3E50C0006B113 /* Images.xcassets */,
 				40275F0918A5B7780029C9DA /* Supporting Files */,
 			);
 			path = hackfsu;
@@ -399,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				401091D518DABA43003E0C63 /* Lato-Bla.ttf in Resources */,
-				40275F1E18A5B7780029C9DA /* Images.xcassets in Resources */,
 				401091D818DABA43003E0C63 /* Lato-BolIta.ttf in Resources */,
 				401091D718DABA43003E0C63 /* Lato-Bol.ttf in Resources */,
 				401091DC18DABA43003E0C63 /* Lato-LigIta.ttf in Resources */,
@@ -408,6 +407,7 @@
 				401091D618DABA43003E0C63 /* Lato-BlaIta.ttf in Resources */,
 				401091DA18DABA43003E0C63 /* Lato-HaiIta.ttf in Resources */,
 				40275F0D18A5B7780029C9DA /* InfoPlist.strings in Resources */,
+				40D8D74618E3E50C0006B113 /* Images.xcassets in Resources */,
 				401091D918DABA43003E0C63 /* Lato-Hai.ttf in Resources */,
 				401091DB18DABA43003E0C63 /* Lato-Lig.ttf in Resources */,
 				405A0B4218E1377C00B3BB6C /* Main_iPhone.storyboard in Resources */,
