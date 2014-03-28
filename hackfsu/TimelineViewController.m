@@ -47,8 +47,9 @@
 {
     [super viewWillAppear:animated];
     
+    [self loadObjects:0 clear:YES];
+    
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Splash"]]];
-    [self loadObjects];
 }
 
 -(void)viewDidAppear:(BOOL)animated

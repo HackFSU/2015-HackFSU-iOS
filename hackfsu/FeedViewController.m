@@ -4,7 +4,6 @@
 //
 //  Created by Michelle Rojas on 2/7/14.
 //  Copyright (c) 2014 Isitt Inc. All rights reserved.
-//
 
 #import "FeedViewController.h"
 #import "FeedCell.h"
@@ -20,7 +19,7 @@
         self.parseClassName = @"Updates";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 100;
+        self.objectsPerPage = 1000;
     }
     return self;
 }
@@ -36,6 +35,8 @@
 {
     [super viewDidAppear:animated];
     
+    [self loadObjects:0 clear:YES];
+
     id tracker = [[GAI sharedInstance] defaultTracker];
     
     [tracker set:kGAIScreenName value:@"News Feed"];
@@ -59,6 +60,11 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
 
+    if (self.pullToRefreshEnabled)
+    {
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
     if ([self.objects count] == 0)
     {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -81,7 +87,7 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MMM dd, yyyy h:mmaa"];
     [df setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EDT"]];
-    NSString *date = [df stringFromDate:object.createdAt];
+    NSString *date = [df stringFromDate:object.updatedAt];
     
     cell.title.text = [object objectForKey:@"title"];
     cell.updateView.text = [object objectForKey:@"msg"];
@@ -126,6 +132,11 @@
                                        context:nil].size;
         
     return size.height + verticalPadding;
+}
+
+-(void) doSomething
+{
+    self.title = @"Logan";
 }
 
 @end

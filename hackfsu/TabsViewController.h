@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TabsViewController : UITabBarController <UITabBarControllerDelegate>
-
+-(void) refresh;
 @end

@@ -176,7 +176,7 @@
         <!--Tabs View Controller - Home-->
         <scene sceneID="Kib-Oh-MqU">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="7Yp-5a-LRb" customClass="TabsViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabsViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Yp-5a-LRb" customClass="TabsViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Home" id="UHk-qg-E6s"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" id="mWx-ZP-nqq">
@@ -184,6 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.2156862745" green="0.72156862749999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="6ZN-Wn-EoL" kind="relationship" relationship="viewControllers" id="rhl-O9-qWS"/>
@@ -399,7 +400,7 @@
         <image name="schedule" width="30" height="30"/>
         <image name="signUpWith" width="359" height="26"/>
         <image name="sponImg" width="30" height="30"/>
-        <image name="sponsors" width="480" height="466"/>
+        <image name="sponsors" width="434" height="466"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

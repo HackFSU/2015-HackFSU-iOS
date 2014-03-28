@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FeedViewController.h"
 
 @implementation AppDelegate
 
@@ -32,38 +33,16 @@
     
     UITabBar *tabBar = [UITabBar appearance];
     [tabBar setTintColor:GRAY];
+    [tabBar setSelectedImageTintColor:DARK_GREEN];
     
     UINavigationBar *navBar = [UINavigationBar appearance];
     [navBar setTitleTextAttributes:[NSDictionary dictionaryWithObjects:@[FONT22, WHITE] forKeys:@[NSFontAttributeName, NSForegroundColorAttributeName]]];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults stringForKey:@"chatName"]) {
-        // first time it's run, create a userDefault
-        [defaults setObject:@"Chat Name" forKey:@"chatName"];
-        [defaults synchronize];
-    }
-    
-    // For viewing fonts avaible to the app #ICantSpell
-//    for (NSString* family in [UIFont familyNames])
-//    {
-//        NSLog(@"%@", family);
-//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-//        {
-//            NSLog(@"%@", name);
-//        }
-//    }
-    
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
     
-    // Optional: set Logger to VERBOSE for debug information.
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
-    
-    // Initialize tracker. Replace with your tracking ID.
-    
-//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-49442322-1"];
 
@@ -91,8 +70,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 
 }
 

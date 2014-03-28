@@ -7,6 +7,7 @@
 //
 
 #import "TabsViewController.h"
+#import "FeedViewController.h"
 
 @implementation TabsViewController
 
@@ -52,6 +53,12 @@
 {
     [PFUser logOut];
     [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+-(void) refresh
+{
+    NSLog(@"%@", self.tabBarController.selectedViewController.title);
+    [(FeedViewController *)[self.tabBarController.viewControllers objectAtIndex:0] loadObjects:0 clear:YES];
 }
 
 @end

@@ -12,5 +12,5 @@
 #import "GAIFields.h"
 
 @interface FeedViewController : PFQueryTableViewController
-
+-(void) doSomething;
 @end

@@ -113,7 +113,7 @@
     zoomLocation.latitude = [[[self.mapLocations firstObject] valueForKey:@"latitude"] floatValue];
     zoomLocation.longitude= [[[self.mapLocations firstObject] valueForKey:@"longitude"] floatValue];
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, .1*METERS_PER_MILE, .1*METERS_PER_MILE);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, .3*METERS_PER_MILE, .3*METERS_PER_MILE);
     
     [self.mapView setRegion:viewRegion animated:YES];
     
