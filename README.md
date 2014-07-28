@@ -1,4 +1,4 @@
 hackfsu
 =======
 
-TechNOLEgy's premier application made by the best team for the best OS. 
+hackFSU 2014 iOS app
