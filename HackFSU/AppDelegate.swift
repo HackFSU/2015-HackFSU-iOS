@@ -13,9 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let newsViewController = storyboard.instantiateViewControllerWithIdentifier("NewsViewController") as NewsViewController
+        let sidebarViewController = storyboard.instantiateViewControllerWithIdentifier("SidebarViewController") as SidebarViewController
+        
+        let newsNav: UINavigationController = UINavigationController(rootViewController: newsViewController)
+//        let sideNav: UINavigationController = UINavigationController(rootViewController: sidebarViewController)
+        
+        sidebarViewController.newsViewController = newsNav
+        
+        let slideMenuController = SlideMenuController(mainViewController:newsNav, leftMenuViewController: sidebarViewController)
+        
+        self.window?.rootViewController = slideMenuController
+        
+        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+
         return true
     }
 
@@ -40,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
 }
 

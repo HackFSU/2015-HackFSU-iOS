@@ -1,25 +1,194 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tfL-vK-YNO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Sidebar View Controller-->
+        <scene sceneID="5oz-Me-DiX">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <collectionViewController storyboardIdentifier="SidebarViewController" id="tfL-vK-YNO" customClass="SidebarViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Mge-7Z-aTK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.18823529411764706" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q0f-Hm-LNS">
+                            <size key="itemSize" width="167" height="167"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0Wb-hp-M37">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ndP-pq-BMQ" customClass="MenuViewCell" customModule="HackFSU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="167"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-5D-gwe">
+                                            <rect key="frame" x="23" y="11" width="120" height="120"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBq-MY-uPR">
+                                            <rect key="frame" x="8" y="131" width="151" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="La4-Y3-gkN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="centerX" secondItem="3WF-5D-gwe" secondAttribute="centerX" id="69z-QT-nYt"/>
+                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="leading" secondItem="ndP-pq-BMQ" secondAttribute="leadingMargin" id="6gF-5m-hWz"/>
+                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="top" secondItem="3WF-5D-gwe" secondAttribute="bottom" id="VWN-Y8-W1P"/>
+                                    <constraint firstItem="3WF-5D-gwe" firstAttribute="leading" secondItem="ndP-pq-BMQ" secondAttribute="leadingMargin" constant="15" id="aer-ub-mC1"/>
+                                    <constraint firstItem="3WF-5D-gwe" firstAttribute="top" secondItem="ndP-pq-BMQ" secondAttribute="topMargin" constant="3" id="cda-tc-L3t"/>
+                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="trailing" secondItem="ndP-pq-BMQ" secondAttribute="trailingMargin" id="rDW-tF-uUY"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="fBq-MY-uPR" secondAttribute="bottom" constant="3" id="rLf-ll-K6D"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="3WF-5D-gwe" id="H23-F3-TnE"/>
+                                    <outlet property="nameLabel" destination="fBq-MY-uPR" id="sQd-5T-VNi"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tfL-vK-YNO" id="foo-AK-6Se"/>
+                            <outlet property="delegate" destination="tfL-vK-YNO" id="LPL-if-ZCa"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wn3-It-wey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="317"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="jtW-AM-hCl">
+            <objects>
+                <tableViewController storyboardIdentifier="NewsViewController" id="ruM-Sh-Srz" customClass="NewsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GhX-w7-Vit">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="5a3-Hn-zlj">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5a3-Hn-zlj" id="oD5-qO-PwL">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ruM-Sh-Srz" id="fiZ-id-9le"/>
+                            <outlet property="delegate" destination="ruM-Sh-Srz" id="qOP-eJ-B9E"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNY-6T-5Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="317"/>
+        </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="49p-D5-gwR">
+            <objects>
+                <tableViewController storyboardIdentifier="ScheduleViewController" id="kIf-cF-Zh2" customClass="ScheduleViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="il0-TL-PKh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fDK-vC-LLH">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fDK-vC-LLH" id="pdG-1Y-BkA">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kIf-cF-Zh2" id="k7M-OE-sV8"/>
+                            <outlet property="delegate" destination="kIf-cF-Zh2" id="VFt-VN-HMb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oey-5b-eFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="1063"/>
+        </scene>
+        <!--Maps View Controller-->
+        <scene sceneID="rai-E4-WKV">
+            <objects>
+                <viewController storyboardIdentifier="MapsViewController" id="pMP-iC-JrU" customClass="MapsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iLz-Qd-OgM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y0y-dO-4KG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IhA-Vd-lHS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="267-CF-E1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1025" y="1807"/>
+        </scene>
+        <!--Sponsors View Controller-->
+        <scene sceneID="1D7-lt-EZe">
+            <objects>
+                <tableViewController storyboardIdentifier="SponsorsViewController" id="aB4-vg-lAC" customClass="SponsorsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u9q-fP-eWh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0hE-uL-ByE">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0hE-uL-ByE" id="AK2-uu-5LI">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aB4-vg-lAC" id="zcL-M6-a0I"/>
+                            <outlet property="delegate" destination="aB4-vg-lAC" id="ZVh-gv-CIS"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VNj-Bh-jLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="2549"/>
+        </scene>
+        <!--Countdown View Controller-->
+        <scene sceneID="8zv-nU-5vc">
+            <objects>
+                <viewController storyboardIdentifier="CountdownViewController" id="IVx-u8-31e" customClass="CountdownViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JzM-E2-FKN"/>
+                        <viewControllerLayoutGuide type="bottom" id="rXB-oL-hik"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6v4-fp-nuN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOU-Ve-uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="3313"/>
         </scene>
     </scenes>
 </document>
