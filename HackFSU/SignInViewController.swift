@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SignInViewController : UIViewController {
     
     @IBOutlet var emailTextField: UITextField!
@@ -20,6 +19,15 @@ class SignInViewController : UIViewController {
     
     
     @IBAction func signInButonPressed() {
-        // TODO: Attempt to sign in with Parse
+        // Attempt to sign in with Parse
+        PFUser.logInWithUsernameInBackground(emailTextField.text, password: passwordTextField.text) {
+            (user: PFUser!, error: NSError!) -> Void in
+            if user != nil {
+                NSLog("Signed in")
+            }
+            else {
+                NSLog("Sign in failed")
+            }
+        }
     }
 }

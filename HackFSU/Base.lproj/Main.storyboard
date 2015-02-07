@@ -35,8 +35,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="N38-Xt-zkL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-Ys-AOv">
                                 <rect key="frame" x="150" y="396" width="300" height="30"/>
@@ -48,6 +49,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInButonPressed" destination="NcA-HX-GDH" eventType="touchUpInside" id="bC4-QB-6qu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,6 +64,10 @@
                             <constraint firstAttribute="centerX" secondItem="AYi-Ys-AOv" secondAttribute="centerX" id="rmX-iH-DBD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="ZFm-c8-pLL" id="gxI-47-Exb"/>
+                        <outlet property="passwordTextField" destination="o7V-fh-leB" id="H9Y-9m-ELA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA6-oL-C2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
