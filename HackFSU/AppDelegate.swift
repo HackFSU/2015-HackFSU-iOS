@@ -32,6 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
 
+        // Begin Navigation bar settings
+        var navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.shadowImage = UIImage()
+        navigationBarAppearace.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationBarAppearace.barStyle = UIBarStyle.Black
+        navigationBarAppearace.barTintColor = UIColor(red: 30.0/255.0, green: 177.0/255.0, blue: 173.0/255.0, alpha: 1)
+        navigationBarAppearace.tintColor = UIColor.whiteColor()
+        navigationBarAppearace.translucent = false
+        navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Uni Sans", size: 32)!]
+        // End navigation bar settings
+        
         return true
     }
 

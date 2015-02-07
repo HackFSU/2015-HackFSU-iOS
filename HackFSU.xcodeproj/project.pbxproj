@@ -24,6 +24,7 @@
 		0250C4B51A79E29E00DCD3A0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4B21A79E29E00DCD3A0 /* StringExtension.swift */; };
 		0250C4B61A79E29E00DCD3A0 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4B31A79E29E00DCD3A0 /* UITableViewExtension.swift */; };
 		0250C4B71A79E29E00DCD3A0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4B41A79E29E00DCD3A0 /* UIViewControllerExtension.swift */; };
+		BDB67EB91A86D3B700167076 /* Uni Sans Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDB67EB81A86D3B700167076 /* Uni Sans Heavy.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		0250C4B21A79E29E00DCD3A0 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		0250C4B31A79E29E00DCD3A0 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		0250C4B41A79E29E00DCD3A0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		BDB67EB81A86D3B700167076 /* Uni Sans Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Uni Sans Heavy.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +166,18 @@
 			children = (
 				0250C4991A79D5A900DCD3A0 /* LaunchScreen.xib */,
 				0250C4971A79D5A900DCD3A0 /* Images.xcassets */,
+				BDB67EBA1A86D3BB00167076 /* Fonts */,
 				0250B62E1A7D5B8A00113879 /* Lato-Regular.ttf */,
 			);
 			name = "Additional Files";
+			sourceTree = "<group>";
+		};
+		BDB67EBA1A86D3BB00167076 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BDB67EB81A86D3B700167076 /* Uni Sans Heavy.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,15 +229,16 @@
 				TargetAttributes = {
 					0250C48A1A79D5A900DCD3A0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = S39ED6M3WP;
+						DevelopmentTeam = Y5Q9CABWG8;
 					};
 					0250C49F1A79D5A900DCD3A0 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Y5Q9CABWG8;
 						TestTargetID = 0250C48A1A79D5A900DCD3A0;
 					};
 				};
 			};
-			buildConfigurationList = 0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "HackFSU" */;
+			buildConfigurationList = 0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "hackfsu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -253,6 +265,7 @@
 				0250C4961A79D5A900DCD3A0 /* Main.storyboard in Resources */,
 				0250C49B1A79D5A900DCD3A0 /* LaunchScreen.xib in Resources */,
 				0250C4981A79D5A900DCD3A0 /* Images.xcassets in Resources */,
+				BDB67EB91A86D3B700167076 /* Uni Sans Heavy.otf in Resources */,
 				0250B62F1A7D5B8A00113879 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +475,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "HackFSU" */ = {
+		0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "hackfsu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0250C4A81A79D5A900DCD3A0 /* Debug */,
