@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tfL-vK-YNO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NcA-HX-GDH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -10,6 +10,61 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="hro-m6-soZ">
+            <objects>
+                <viewController id="NcA-HX-GDH" customClass="SignInViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ye-J6-l0h"/>
+                        <viewControllerLayoutGuide type="bottom" id="JsW-Wq-SPz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sfq-Jc-yyE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFm-c8-pLL">
+                                <rect key="frame" x="150.5" y="320" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Jaa-pe-FhE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-fh-leB">
+                                <rect key="frame" x="150.5" y="358" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="N38-Xt-zkL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-Ys-AOv">
+                                <rect key="frame" x="150" y="396" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.39687055459999998" green="0.4959086606" blue="0.7010140467" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="H8V-15-Gcd"/>
+                                </constraints>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ZFm-c8-pLL" secondAttribute="centerX" id="9EH-HW-MQ7"/>
+                            <constraint firstItem="o7V-fh-leB" firstAttribute="top" secondItem="ZFm-c8-pLL" secondAttribute="bottom" constant="8" id="JZ1-AS-ZT8"/>
+                            <constraint firstItem="AYi-Ys-AOv" firstAttribute="top" secondItem="o7V-fh-leB" secondAttribute="bottom" constant="8" id="NOJ-C9-FM1"/>
+                            <constraint firstAttribute="centerX" secondItem="o7V-fh-leB" secondAttribute="centerX" id="grR-mz-zBY"/>
+                            <constraint firstItem="ZFm-c8-pLL" firstAttribute="top" secondItem="4ye-J6-l0h" secondAttribute="bottom" constant="300" id="hFL-6g-xQp"/>
+                            <constraint firstAttribute="centerX" secondItem="AYi-Ys-AOv" secondAttribute="centerX" id="rmX-iH-DBD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cA6-oL-C2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-649" y="317"/>
+        </scene>
         <!--Sidebar View Controller-->
         <scene sceneID="5oz-Me-DiX">
             <objects>
