@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sidebarViewController = storyboard.instantiateViewControllerWithIdentifier("SidebarViewController") as SidebarViewController
         
         let newsNav: UINavigationController = UINavigationController(rootViewController: newsViewController)
-//        let sideNav: UINavigationController = UINavigationController(rootViewController: sidebarViewController)
         
         sidebarViewController.newsViewController = newsNav
         
@@ -31,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = slideMenuController
         
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+        
+        
+        // MARK: - Parse
+        
+        Parse.setApplicationId("jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX", clientKey: "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 
         return true
     }
