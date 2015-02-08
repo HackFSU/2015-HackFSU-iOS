@@ -10,18 +10,6 @@ import UIKit
 
 extension UIViewController {
     
-    func prefersStatusBarHidden() -> Bool {
-        #if DEBUG
-            return false
-            #else
-            return false
-        #endif
-    }
-    
-    func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-
     func setNavigationBarItem() {
         self.addLeftBarButtonWithImage(UIImage(named: "menu")!)
 //        self.addRightBarButtonWithImage(UIImage(named: "")!)
