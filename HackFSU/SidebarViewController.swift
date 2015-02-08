@@ -148,7 +148,7 @@ class SidebarViewController: UICollectionViewController, UICollectionViewDelegat
             self.changeViewController(menu)
         }
     }
-    // UICollectionViewDelegateFlowLayout
+    // MARK: - Collection View Delegate Flow Layout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
