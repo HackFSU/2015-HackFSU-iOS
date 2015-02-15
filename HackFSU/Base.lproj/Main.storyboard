@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tfL-vK-YNO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SNe-IF-BPE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -10,10 +10,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--SignIn View Controller-->
         <scene sceneID="47c-tV-FFP">
             <objects>
-                <viewController id="SNe-IF-BPE" sceneMemberID="viewController">
+                <viewController title="SignIn View Controller" id="SNe-IF-BPE" customClass="SignInViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bJj-Dn-16I"/>
                         <viewControllerLayoutGuide type="bottom" id="57z-x0-tS9"/>
@@ -23,46 +23,75 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7oc-gy-XmK">
-                                <rect key="frame" x="150.5" y="285" width="300" height="30"/>
+                                <rect key="frame" x="150" y="285" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="BTC-fd-32Z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-g8-T8Q">
-                                <rect key="frame" x="150.5" y="323" width="300" height="30"/>
+                                <rect key="frame" x="150" y="323" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="B1P-cs-VaL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pva-M4-8v5">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pva-M4-8v5">
                                 <rect key="frame" x="150" y="361" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.47058823529411764" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.396078431372549" green="0.49411764705882355" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="0Y6-wi-g5u"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInButtonClicked" destination="SNe-IF-BPE" eventType="touchUpInside" id="vma-Qz-ILN"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWc-Rl-xbS">
+                                <rect key="frame" x="150" y="397" width="300" height="15.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="wO7-Yh-RWS"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Sign In Error Label!">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="o7V-g8-T8Q" firstAttribute="top" secondItem="7oc-gy-XmK" secondAttribute="bottom" constant="8" id="4e7-Z4-esj"/>
                             <constraint firstItem="pva-M4-8v5" firstAttribute="top" secondItem="o7V-g8-T8Q" secondAttribute="bottom" constant="8" id="7cX-wS-b3n"/>
+                            <constraint firstItem="dWc-Rl-xbS" firstAttribute="top" secondItem="pva-M4-8v5" secondAttribute="bottom" constant="8" id="BdZ-NP-h0V"/>
+                            <constraint firstAttribute="centerX" secondItem="dWc-Rl-xbS" secondAttribute="centerX" id="Eeb-4m-dbU"/>
                             <constraint firstAttribute="centerX" secondItem="pva-M4-8v5" secondAttribute="centerX" id="foE-jT-Jm8"/>
                             <constraint firstAttribute="centerX" secondItem="7oc-gy-XmK" secondAttribute="centerX" id="jfK-No-MdY"/>
                             <constraint firstAttribute="centerX" secondItem="o7V-g8-T8Q" secondAttribute="centerX" id="xZw-qY-DUX"/>
                             <constraint firstItem="7oc-gy-XmK" firstAttribute="top" secondItem="bJj-Dn-16I" secondAttribute="bottom" constant="265" id="yNk-Ib-9px"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="7oc-gy-XmK" id="yOU-AC-Dw7"/>
+                        <outlet property="passwordTextField" destination="o7V-g8-T8Q" id="jmV-hj-3hf"/>
+                        <outlet property="signInErrorLabel" destination="dWc-Rl-xbS" id="MQ5-vI-h1g"/>
+                        <segue destination="tfL-vK-YNO" kind="show" identifier="SignInViewSegue" id="CCC-22-akG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aB-Nb-RBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-503" y="317"/>
+            <point key="canvasLocation" x="-483" y="317"/>
         </scene>
         <!--Sidebar View Controller-->
         <scene sceneID="5oz-Me-DiX">

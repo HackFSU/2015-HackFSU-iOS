@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let slideMenuController = SlideMenuController(mainViewController:newsNav, leftMenuViewController: sidebarViewController)
         
-        self.window?.rootViewController = slideMenuController
+        //self.window?.rootViewController = slideMenuController
         
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         
