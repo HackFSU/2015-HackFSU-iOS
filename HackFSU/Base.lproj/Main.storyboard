@@ -86,7 +86,6 @@
                         <outlet property="emailTextField" destination="7oc-gy-XmK" id="yOU-AC-Dw7"/>
                         <outlet property="passwordTextField" destination="o7V-g8-T8Q" id="jmV-hj-3hf"/>
                         <outlet property="signInErrorLabel" destination="dWc-Rl-xbS" id="MQ5-vI-h1g"/>
-                        <segue destination="tfL-vK-YNO" kind="show" identifier="SignInViewSegue" id="CCC-22-akG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aB-Nb-RBj" userLabel="First Responder" sceneMemberID="firstResponder"/>

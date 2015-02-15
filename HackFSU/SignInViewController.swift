@@ -6,14 +6,12 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SignInViewController : UIViewController {
     
     let service = "parseSignIn"
     let userAccount = "parseSignInUser"
-    let key = "HackFSUSpring2015"
-    
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -24,10 +22,6 @@ class SignInViewController : UIViewController {
         signInErrorLabel.text = ""
     }
     
-    override func viewDidAppear(animated: Bool) {
-        let (dictionary, error) = Locksmith.loadData(forKey: key, inService: service, forUserAccount: userAccount)
-    }
-    
     @IBAction func signInButtonClicked() {
         // Check fields not empty
         if emailTextField.text != "" && passwordTextField.text != "" {
@@ -35,10 +29,13 @@ class SignInViewController : UIViewController {
                 (user: PFUser!, error: NSError!) -> Void in
                 if user != nil {
                     // User exists, let's sign 'em in
-                    self.signInErrorLabel.text = "SIGNED IN MAN"
+                    NSLog("Signed in as \(user.email)")
+                    self.presentSlideMenuController()
+                    
                 }
                 else {
                     self.signInErrorLabel.text = "Email/password combo not found, yo."
+                    NSLog("User account not found")
                 }
             }
         }
@@ -49,4 +46,17 @@ class SignInViewController : UIViewController {
         }
     }
     
+    func presentSlideMenuController() {
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let newsViewController = storyboard.instantiateViewControllerWithIdentifier("NewsViewController") as NewsViewController
+        let sidebarViewController = storyboard.instantiateViewControllerWithIdentifier("SidebarViewController") as SidebarViewController
+        
+        let newsNav: UINavigationController = UINavigationController(rootViewController: newsViewController)
+        
+        sidebarViewController.newsViewController = newsNav
+        
+        let slideMenuController = SlideMenuController(mainViewController: newsNav, leftMenuViewController: sidebarViewController)
+        self.presentViewController(slideMenuController, animated: true, completion: nil)
+    }
 }
