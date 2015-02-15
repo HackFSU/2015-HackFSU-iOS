@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - Parse
         
         Parse.setApplicationId("jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX", clientKey: "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2")
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+//        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 
         return true
     }

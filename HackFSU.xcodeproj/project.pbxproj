@@ -25,11 +25,7 @@
 		0250C4B51A79E29E00DCD3A0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4B21A79E29E00DCD3A0 /* StringExtension.swift */; };
 		0250C4B61A79E29E00DCD3A0 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4B31A79E29E00DCD3A0 /* UITableViewExtension.swift */; };
 		0250C4B71A79E29E00DCD3A0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4B41A79E29E00DCD3A0 /* UIViewControllerExtension.swift */; };
-<<<<<<< HEAD
 		F67A9D3AEF80FB8D85478573 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 868BC1771BEE58A3DF8F2349 /* libPods.a */; };
-=======
-		BDB67EB91A86D3B700167076 /* Uni Sans Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDB67EB81A86D3B700167076 /* Uni Sans Heavy.otf */; };
->>>>>>> 59bdc7571cd5c9e76e8b8819e94ff5168ec3aec6
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +62,9 @@
 		0250C4B21A79E29E00DCD3A0 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		0250C4B31A79E29E00DCD3A0 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		0250C4B41A79E29E00DCD3A0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		316BBAB6BFF7F51AB3792478 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A300FEF2C3D06FC8C8FF73B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		868BC1771BEE58A3DF8F2349 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-=======
-		BDB67EB81A86D3B700167076 /* Uni Sans Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Uni Sans Heavy.otf"; sourceTree = "<group>"; };
->>>>>>> 59bdc7571cd5c9e76e8b8819e94ff5168ec3aec6
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,13 +176,11 @@
 			children = (
 				0250C4991A79D5A900DCD3A0 /* LaunchScreen.xib */,
 				0250C4971A79D5A900DCD3A0 /* Images.xcassets */,
-				BDB67EBA1A86D3BB00167076 /* Fonts */,
 				0250B62E1A7D5B8A00113879 /* Lato-Regular.ttf */,
 			);
 			name = "Additional Files";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		9A6F6FE984EEF4F39899FA2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,14 +196,6 @@
 				868BC1771BEE58A3DF8F2349 /* libPods.a */,
 			);
 			name = Frameworks;
-=======
-		BDB67EBA1A86D3BB00167076 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				BDB67EB81A86D3B700167076 /* Uni Sans Heavy.otf */,
-			);
-			name = Fonts;
->>>>>>> 59bdc7571cd5c9e76e8b8819e94ff5168ec3aec6
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,16 +249,14 @@
 				TargetAttributes = {
 					0250C48A1A79D5A900DCD3A0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = Y5Q9CABWG8;
 					};
 					0250C49F1A79D5A900DCD3A0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = Y5Q9CABWG8;
 						TestTargetID = 0250C48A1A79D5A900DCD3A0;
 					};
 				};
 			};
-			buildConfigurationList = 0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "hackfsu" */;
+			buildConfigurationList = 0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "HackFSU" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -303,7 +283,6 @@
 				0250C4961A79D5A900DCD3A0 /* Main.storyboard in Resources */,
 				0250C49B1A79D5A900DCD3A0 /* LaunchScreen.xib in Resources */,
 				0250C4981A79D5A900DCD3A0 /* Images.xcassets in Resources */,
-				BDB67EB91A86D3B700167076 /* Uni Sans Heavy.otf in Resources */,
 				0250B62F1A7D5B8A00113879 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,7 +537,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "hackfsu" */ = {
+		0250C4861A79D5A900DCD3A0 /* Build configuration list for PBXProject "HackFSU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0250C4A81A79D5A900DCD3A0 /* Debug */,
