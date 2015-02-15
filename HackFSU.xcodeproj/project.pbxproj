@@ -152,6 +152,20 @@
 		0250C48E1A79D5A900DCD3A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AFCB6E661A869B9D00180407 /* CoreGraphics.framework */,
+				AFCB6E671A869B9D00180407 /* CoreLocation.framework */,
+				AFCB6E681A869B9D00180407 /* MobileCoreServices.framework */,
+				AFCB6E691A869B9D00180407 /* QuartzCore.framework */,
+				AFCB6E6A1A869B9D00180407 /* Security.framework */,
+				AFCB6E6B1A869B9D00180407 /* Social.framework */,
+				AFCB6E6C1A869B9D00180407 /* StoreKit.framework */,
+				AFCB6E6D1A869B9D00180407 /* SystemConfiguration.framework */,
+				AFCB6E641A869B7A00180407 /* libsqlite3.dylib */,
+				AFCB6E5E1A869B2800180407 /* Accounts.framework */,
+				AFCB6E5F1A869B2800180407 /* AudioToolbox.framework */,
+				AFCB6E601A869B2800180407 /* CFNetwork.framework */,
+				AFCB6E451A86965500180407 /* Parse.framework */,
+				AFCB6E431A86964700180407 /* Bolts.framework */,
 				0250C48F1A79D5A900DCD3A0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -359,6 +373,7 @@
 				0250C4B51A79E29E00DCD3A0 /* StringExtension.swift in Sources */,
 				0250C4B61A79E29E00DCD3A0 /* UITableViewExtension.swift in Sources */,
 				0250B6291A7D549F00113879 /* NewsViewController.swift in Sources */,
+				AFCB6E421A86916700180407 /* SignInViewController.swift in Sources */,
 				023945D41A7D68C500D3777F /* MenuViewCell.swift in Sources */,
 				0250B6231A7D548400113879 /* ScheduleViewController.swift in Sources */,
 				0250B6271A7D549600113879 /* SponsorsViewController.swift in Sources */,

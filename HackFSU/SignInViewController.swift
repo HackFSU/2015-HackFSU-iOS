@@ -9,19 +9,19 @@
 import UIKit
 
 class SignInViewController : UIViewController {
-    
+
     let service = "parseSignIn"
     let userAccount = "parseSignInUser"
-    
+
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signInErrorLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         signInErrorLabel.text = ""
     }
-    
+
     @IBAction func signInButtonClicked() {
         // Check fields not empty
         if emailTextField.text != "" && passwordTextField.text != "" {
@@ -31,7 +31,7 @@ class SignInViewController : UIViewController {
                     // User exists, let's sign 'em in
                     NSLog("Signed in as \(user.email)")
                     self.presentSlideMenuController()
-                    
+
                 }
                 else {
                     self.signInErrorLabel.text = "Email/password combo not found, yo."
@@ -45,18 +45,19 @@ class SignInViewController : UIViewController {
             NSLog("Fields not filled in")
         }
     }
-    
+
     func presentSlideMenuController() {
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+
         let newsViewController = storyboard.instantiateViewControllerWithIdentifier("NewsViewController") as NewsViewController
         let sidebarViewController = storyboard.instantiateViewControllerWithIdentifier("SidebarViewController") as SidebarViewController
-        
+
         let newsNav: UINavigationController = UINavigationController(rootViewController: newsViewController)
-        
+
         sidebarViewController.newsViewController = newsNav
-        
+
         let slideMenuController = SlideMenuController(mainViewController: newsNav, leftMenuViewController: sidebarViewController)
         self.presentViewController(slideMenuController, animated: true, completion: nil)
+
     }
 }
