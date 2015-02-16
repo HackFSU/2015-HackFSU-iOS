@@ -12,6 +12,8 @@ class SignInViewController : UIViewController {
 
     let service = "parseSignIn"
     let userAccount = "parseSignInUser"
+    
+    let DEVEL_MODE = true
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -23,6 +25,10 @@ class SignInViewController : UIViewController {
     }
 
     @IBAction func signInButtonClicked() {
+        if DEVEL_MODE {
+            presentSlideMenuController()
+        }
+        
         // Check fields not empty
         if emailTextField.text != "" && passwordTextField.text != "" {
             PFUser.logInWithUsernameInBackground(emailTextField.text, password: passwordTextField.text) {
