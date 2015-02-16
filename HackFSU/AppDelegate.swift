@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let PARSE_APP_ID = "jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX"
     let PARSE_CLIENT_KEY = "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2"
+    let GMS_API_KEY = "AIzaSyDqn2Xu7yLUjEqvuB-sDv05gva-5bojh3w"
     
     var window: UIWindow?
 
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse
         Parse.setApplicationId(PARSE_APP_ID, clientKey: PARSE_CLIENT_KEY)
         
+        // Initialize Google Maps
+        GMSServices.provideAPIKey(GMS_API_KEY)
         
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         

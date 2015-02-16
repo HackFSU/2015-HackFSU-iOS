@@ -1,2 +1,2 @@
 pod 'Parse'
-pod 'Locksmith'
+pod 'Google-Maps-iOS-SDK'

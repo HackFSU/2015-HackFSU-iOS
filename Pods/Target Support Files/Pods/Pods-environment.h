@@ -12,11 +12,11 @@
 #define COCOAPODS_VERSION_MINOR_Bolts 1
 #define COCOAPODS_VERSION_PATCH_Bolts 3
 
-// Locksmith
-#define COCOAPODS_POD_AVAILABLE_Locksmith
-#define COCOAPODS_VERSION_MAJOR_Locksmith 1
-#define COCOAPODS_VERSION_MINOR_Locksmith 2
-#define COCOAPODS_VERSION_PATCH_Locksmith 0
+// Google-Maps-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_Google_Maps_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_Google_Maps_iOS_SDK 1
+#define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_SDK 9
+#define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_SDK 2
 
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
