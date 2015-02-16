@@ -25,27 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Google Maps
         GMSServices.provideAPIKey(GMS_API_KEY)
         
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let newsViewController = storyboard.instantiateViewControllerWithIdentifier("NewsViewController") as NewsViewController
-        let sidebarViewController = storyboard.instantiateViewControllerWithIdentifier("SidebarViewController") as SidebarViewController
-        
-        let newsNav: UINavigationController = UINavigationController(rootViewController: newsViewController)
-        
-        sidebarViewController.newsViewController = newsNav
-        
-        let slideMenuController = SlideMenuController(mainViewController:newsNav, leftMenuViewController: sidebarViewController)
-        
-        //self.window?.rootViewController = slideMenuController
-        
-        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-        
-        
-        // MARK: - Parse
-        
-        Parse.setApplicationId("jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX", clientKey: "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2")
-//        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-
         return true
     }
 
