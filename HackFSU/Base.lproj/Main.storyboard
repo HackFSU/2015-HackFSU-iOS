@@ -1,87 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tfL-vK-YNO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Nk5-nz-PeC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
-        <!--Sidebar View Controller-->
-        <scene sceneID="5oz-Me-DiX">
+        <!--Dash View Controller-->
+        <scene sceneID="3zl-BG-x6l">
             <objects>
-                <collectionViewController storyboardIdentifier="SidebarViewController" id="tfL-vK-YNO" customClass="SidebarViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Mge-7Z-aTK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <viewController id="8ka-tG-mMM" customClass="HFDashViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9bd-yf-n8Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="IHV-fR-HNj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R0s-Fm-kJy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.13333333333333333" green="0.18823529411764706" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q0f-Hm-LNS">
-                            <size key="itemSize" width="167" height="167"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ndP-pq-BMQ" customClass="MenuViewCell" customModule="HackFSU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="167" height="167"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-5D-gwe">
-                                            <rect key="frame" x="23" y="11" width="120" height="120"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBq-MY-uPR">
-                                            <rect key="frame" x="8" y="131" width="151" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="La4-Y3-gkN"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="centerX" secondItem="3WF-5D-gwe" secondAttribute="centerX" id="69z-QT-nYt"/>
-                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="leading" secondItem="ndP-pq-BMQ" secondAttribute="leadingMargin" id="6gF-5m-hWz"/>
-                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="top" secondItem="3WF-5D-gwe" secondAttribute="bottom" id="VWN-Y8-W1P"/>
-                                    <constraint firstItem="3WF-5D-gwe" firstAttribute="leading" secondItem="ndP-pq-BMQ" secondAttribute="leadingMargin" constant="15" id="aer-ub-mC1"/>
-                                    <constraint firstItem="3WF-5D-gwe" firstAttribute="top" secondItem="ndP-pq-BMQ" secondAttribute="topMargin" constant="3" id="cda-tc-L3t"/>
-                                    <constraint firstItem="fBq-MY-uPR" firstAttribute="trailing" secondItem="ndP-pq-BMQ" secondAttribute="trailingMargin" id="rDW-tF-uUY"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="fBq-MY-uPR" secondAttribute="bottom" constant="3" id="rLf-ll-K6D"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="imageView" destination="3WF-5D-gwe" id="H23-F3-TnE"/>
-                                    <outlet property="nameLabel" destination="fBq-MY-uPR" id="sQd-5T-VNi"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="tfL-vK-YNO" id="foo-AK-6Se"/>
-                            <outlet property="delegate" destination="tfL-vK-YNO" id="LPL-if-ZCa"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wn3-It-wey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PkW-0H-Tot"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bKr-Em-QHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="259" y="317"/>
+            <point key="canvasLocation" x="764" y="-361"/>
         </scene>
-        <!--News View Controller-->
+        <!--Updates View Controller-->
         <scene sceneID="jtW-AM-hCl">
             <objects>
-                <tableViewController storyboardIdentifier="NewsViewController" id="ruM-Sh-Srz" customClass="NewsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HFUpdatesViewController" id="ruM-Sh-Srz" customClass="HFUpdatesViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GhX-w7-Vit">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="5a3-Hn-zlj">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="5a3-Hn-zlj" customClass="PFTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5a3-Hn-zlj" id="oD5-qO-PwL">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -101,7 +52,7 @@
         <!--Schedule View Controller-->
         <scene sceneID="49p-D5-gwR">
             <objects>
-                <tableViewController storyboardIdentifier="ScheduleViewController" id="kIf-cF-Zh2" customClass="ScheduleViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HFScheduleViewController" id="kIf-cF-Zh2" customClass="HFScheduleViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="il0-TL-PKh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +78,7 @@
         <!--Maps View Controller-->
         <scene sceneID="rai-E4-WKV">
             <objects>
-                <viewController storyboardIdentifier="MapsViewController" id="pMP-iC-JrU" customClass="MapsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HFMapsViewController" id="pMP-iC-JrU" customClass="HFMapsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iLz-Qd-OgM"/>
                         <viewControllerLayoutGuide type="bottom" id="Y0y-dO-4KG"/>
@@ -135,8 +86,28 @@
                     <view key="view" contentMode="scaleToFill" id="IhA-Vd-lHS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nCv-O0-aVK" customClass="HFCountdownView" customModule="HackFSU" customModuleProvider="target">
+                                <rect key="frame" x="20" y="28" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                        <color key="value" red="0.80784313730000001" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="counter">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="counterColor">
+                                        <color key="value" red="0.54901960780000003" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="countdown" destination="nCv-O0-aVK" id="DRN-77-UFp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="267-CF-E1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,7 +116,7 @@
         <!--Sponsors View Controller-->
         <scene sceneID="1D7-lt-EZe">
             <objects>
-                <tableViewController storyboardIdentifier="SponsorsViewController" id="aB4-vg-lAC" customClass="SponsorsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HFSponsorsViewController" id="aB4-vg-lAC" customClass="HFSponsorsViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u9q-fP-eWh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -185,6 +156,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOU-Ve-uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1025" y="3313"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Umn-fb-5iN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nk5-nz-PeC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Fhv-AG-6SR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.40000000000000002" green="0.47058823529411764" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8ka-tG-mMM" kind="relationship" relationship="rootViewController" id="pjQ-qm-F4G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OYa-sd-yQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-48" y="-361"/>
         </scene>
     </scenes>
 </document>
