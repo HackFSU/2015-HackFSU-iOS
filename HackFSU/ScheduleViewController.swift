@@ -1,29 +1,25 @@
 //
-//  ScheduleViewController.swift
+//  SecondViewController.swift
 //  HackFSU
 //
-//  Created by Logan Isitt on 1/31/15.
-//  Copyright (c) 2015 Logan Isitt. All rights reserved.
+//  Created by Trevor Helms on 2/21/15.
+//  Copyright (c) 2015 HackFSU. All rights reserved.
 //
 
 import UIKit
 
-class ScheduleViewController: UITableViewController {
-    
+class ScheduleViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setNavigationBarItem()
-        
-        self.title = "Schedule"
-        self.navigationItem.title = self.title
-        
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 30.0/255.0, green: 177.0/255.0, blue: 173.0/255.0, alpha: 1)
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Lato-Regular", size: 32)!]
+        // Do any additional setup after loading the view, typically from a nib.
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
 }
+
