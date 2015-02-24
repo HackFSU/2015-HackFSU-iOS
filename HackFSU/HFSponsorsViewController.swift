@@ -41,6 +41,6 @@ class HFSponsorsViewController: UITableViewController {
     // MARK: Table View Delegate
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 49.0
+        return 30.0
     }
 }

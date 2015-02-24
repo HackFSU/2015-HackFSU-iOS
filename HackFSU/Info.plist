@@ -25,6 +25,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Regular.ttf</string>
+		<string>Uni Sans Heavy Italic.otf</string>
+		<string>Uni Sans Heavy.otf</string>
+		<string>Uni Sans Thin Italic.otf</string>
+		<string>Uni Sans Thin.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

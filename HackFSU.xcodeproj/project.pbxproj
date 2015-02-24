@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020AEE221A9AC8F900D49B18 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AEE211A9AC8F900D49B18 /* Update.swift */; };
 		0247DFB21A9A71BD002B6452 /* RGPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */; };
 		0247DFB41A9A71F3002B6452 /* HFDashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */; };
 		0250B6231A7D548400113879 /* HFScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250B6221A7D548400113879 /* HFScheduleViewController.swift */; };
@@ -18,6 +19,10 @@
 		0250C4981A79D5A900DCD3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0250C4971A79D5A900DCD3A0 /* Images.xcassets */; };
 		0250C49B1A79D5A900DCD3A0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0250C4991A79D5A900DCD3A0 /* LaunchScreen.xib */; };
 		0250C4A71A79D5A900DCD3A0 /* HackFSUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C4A61A79D5A900DCD3A0 /* HackFSUTests.swift */; };
+		027DCFA61A9B7088006D59C7 /* Uni Sans Heavy Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 027DCFA21A9B7088006D59C7 /* Uni Sans Heavy Italic.otf */; };
+		027DCFA71A9B7088006D59C7 /* Uni Sans Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 027DCFA31A9B7088006D59C7 /* Uni Sans Heavy.otf */; };
+		027DCFA81A9B7088006D59C7 /* Uni Sans Thin Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 027DCFA41A9B7088006D59C7 /* Uni Sans Thin Italic.otf */; };
+		027DCFA91A9B7088006D59C7 /* Uni Sans Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 027DCFA51A9B7088006D59C7 /* Uni Sans Thin.otf */; };
 		02B1D86C1A9A7D3C00D2735D /* HFUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1D86B1A9A7D3C00D2735D /* HFUpdatesViewController.swift */; };
 		02C6408B1A911904007A3901 /* HFColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6408A1A911904007A3901 /* HFColors.swift */; };
 		02C6408D1A911B7C007A3901 /* HFCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6408C1A911B7C007A3901 /* HFCountdownView.swift */; };
@@ -37,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020AEE211A9AC8F900D49B18 /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		022E48141A86CCD6005E3963 /* HackFSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackFSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGPageViewController.swift; sourceTree = "<group>"; };
 		0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFDashViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,10 @@
 		0250C4A01A79D5A900DCD3A0 /* HackFSUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackFSUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0250C4A51A79D5A900DCD3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0250C4A61A79D5A900DCD3A0 /* HackFSUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackFSUTests.swift; sourceTree = "<group>"; };
+		027DCFA21A9B7088006D59C7 /* Uni Sans Heavy Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Uni Sans Heavy Italic.otf"; sourceTree = "<group>"; };
+		027DCFA31A9B7088006D59C7 /* Uni Sans Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Uni Sans Heavy.otf"; sourceTree = "<group>"; };
+		027DCFA41A9B7088006D59C7 /* Uni Sans Thin Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Uni Sans Thin Italic.otf"; sourceTree = "<group>"; };
+		027DCFA51A9B7088006D59C7 /* Uni Sans Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Uni Sans Thin.otf"; sourceTree = "<group>"; };
 		02B1D86B1A9A7D3C00D2735D /* HFUpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdatesViewController.swift; sourceTree = "<group>"; };
 		02C6408A1A911904007A3901 /* HFColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFColors.swift; sourceTree = "<group>"; };
 		02C6408C1A911B7C007A3901 /* HFCountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownView.swift; sourceTree = "<group>"; };
@@ -107,14 +117,15 @@
 		0250C48D1A79D5A900DCD3A0 /* HackFSU */ = {
 			isa = PBXGroup;
 			children = (
+				020AEE211A9AC8F900D49B18 /* Update.swift */,
 				0250C4901A79D5A900DCD3A0 /* AppDelegate.swift */,
+				02C6408A1A911904007A3901 /* HFColors.swift */,
 				0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */,
 				02B1D86B1A9A7D3C00D2735D /* HFUpdatesViewController.swift */,
 				0250B6221A7D548400113879 /* HFScheduleViewController.swift */,
 				0250B6241A7D548D00113879 /* HFMapsViewController.swift */,
 				0250B6261A7D549600113879 /* HFSponsorsViewController.swift */,
 				02C6408C1A911B7C007A3901 /* HFCountdownView.swift */,
-				02C6408A1A911904007A3901 /* HFColors.swift */,
 				0250C4941A79D5A900DCD3A0 /* Main.storyboard */,
 				0250C48E1A79D5A900DCD3A0 /* Supporting Files */,
 				0250C4B81A79E2B600DCD3A0 /* Additional Files */,
@@ -151,6 +162,10 @@
 		0250C4B81A79E2B600DCD3A0 /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
+				027DCFA21A9B7088006D59C7 /* Uni Sans Heavy Italic.otf */,
+				027DCFA31A9B7088006D59C7 /* Uni Sans Heavy.otf */,
+				027DCFA41A9B7088006D59C7 /* Uni Sans Thin Italic.otf */,
+				027DCFA51A9B7088006D59C7 /* Uni Sans Thin.otf */,
 				0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */,
 				0250C4991A79D5A900DCD3A0 /* LaunchScreen.xib */,
 				0250C4971A79D5A900DCD3A0 /* Images.xcassets */,
@@ -260,8 +275,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027DCFA61A9B7088006D59C7 /* Uni Sans Heavy Italic.otf in Resources */,
+				027DCFA81A9B7088006D59C7 /* Uni Sans Thin Italic.otf in Resources */,
 				0250C4961A79D5A900DCD3A0 /* Main.storyboard in Resources */,
 				0250C49B1A79D5A900DCD3A0 /* LaunchScreen.xib in Resources */,
+				027DCFA91A9B7088006D59C7 /* Uni Sans Thin.otf in Resources */,
+				027DCFA71A9B7088006D59C7 /* Uni Sans Heavy.otf in Resources */,
 				0250C4981A79D5A900DCD3A0 /* Images.xcassets in Resources */,
 				0250B62F1A7D5B8A00113879 /* Lato-Regular.ttf in Resources */,
 			);
@@ -316,6 +335,7 @@
 			files = (
 				0250B6251A7D548D00113879 /* HFMapsViewController.swift in Sources */,
 				02C6408D1A911B7C007A3901 /* HFCountdownView.swift in Sources */,
+				020AEE221A9AC8F900D49B18 /* Update.swift in Sources */,
 				0250B6231A7D548400113879 /* HFScheduleViewController.swift in Sources */,
 				02C6408B1A911904007A3901 /* HFColors.swift in Sources */,
 				0250B6271A7D549600113879 /* HFSponsorsViewController.swift in Sources */,

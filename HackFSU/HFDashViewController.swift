@@ -20,7 +20,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     
     var countdownBar: UIBarButtonItem!
     var timer: NSTimer!
-    var endTime: NSDate!
+    var destinationDate: NSDate!
     
     override var tabbarStyle: RGTabbarStyle {
         get {
@@ -35,22 +35,23 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         
         self.navigationController?.navigationBar.barTintColor = UIColor.HFColor.Green
         
+        var imgHeader = UIImageView(image: UIImage(named: "logo-nav"))
+        imgHeader.frame = CGRectMake(0, 0, self.view.bounds.size.width, 40)
+        imgHeader.contentMode = UIViewContentMode.ScaleAspectFit
+        self.navigationItem.titleView = imgHeader
+        
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationController?.toolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
         
         var spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-        countdownBar = UIBarButtonItem(title: "36:00:00", style: UIBarButtonItemStyle.Done, target: self, action: "")
-        countdownBar.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
-        
+        countdownBar = UIBarButtonItem(title: "36 hours 00 minutes 00 seconds", style: UIBarButtonItemStyle.Done, target: self, action: "")
+        countdownBar.setTitleTextAttributes([   NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 30)!], forState: UIControlState.Normal)
+   
         self.setToolbarItems([spacer, countdownBar, spacer], animated: true)
         
-        
-        // Setting up view controllers
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "%Y-%m-%d %H:%M:%S %z"
-        endTime = NSDate() // dateFormatter.dateFromString("2015-03-20 12:00:00 -0500")
+        destinationDate = NSDate(timeIntervalSince1970: 1427025600)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countdownBarUpdate", userInfo: nil, repeats: true)
         
@@ -69,15 +70,21 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     // MARK: - Countdown 
     func countdownBarUpdate() {
     
-        var currentTime = NSDate()
+        var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        NSCalendarUnit.CalendarUnitMonth
+        var units = NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond | NSCalendarUnit.CalendarUnitNanosecond
+
+        var nowComponents = calendar?.component(units, fromDate: NSDate())
+        var thenComponents = calendar?.component(units, fromDate: self.destinationDate)
+
+        var difComponents = calendar?.components(units, fromDate: NSDate(), toDate: self.destinationDate, options: NSCalendarOptions.MatchFirst)
         
-        var interval = endTime.timeIntervalSince1970 - currentTime.timeIntervalSince1970
+        let h = difComponents!.hour as Int
+        let m = difComponents!.minute as Int
+        let s = difComponents!.second as Int
+        let n = "\(difComponents!.nanosecond as Int)"
         
-        var seconds = interval % 60;
-        var minutes = (interval / 60) % 60;
-        var hours = interval / 3600;
-        
-        self.countdownBar.title = NSString(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        self.countdownBar.title = NSString(format: "%d:%d:%d.%@", h, m, s, n.substringToIndex(advance(n.startIndex, 1))) //"\(h):\(m):\(s).\(n.substringToIndex(advance(n.startIndex, 1)))"
     }
     
     // MARK: - RGPageViewController Data Source
@@ -93,6 +100,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         
         label.text = title
         label.textColor = UIColor.whiteColor()
+        label.font = UIFont(name: "UniSansHeavyCAPS", size: 15)
         
         label.sizeToFit()
         
@@ -132,6 +140,6 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     }
     func heightForTabbar() -> CGFloat {
         // default height of UITabBar is 49px
-        return 49.0
+        return 30.0
     }
 }
