@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX", clientKey: "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+        
+        // White status bar
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
 
         return true
     }
