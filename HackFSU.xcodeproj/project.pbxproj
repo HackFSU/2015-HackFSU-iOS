@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		020AEE221A9AC8F900D49B18 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AEE211A9AC8F900D49B18 /* Update.swift */; };
 		02454EC21A9D18A600523C09 /* HFUpdateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454EC11A9D18A600523C09 /* HFUpdateViewCell.swift */; };
 		0247DFB21A9A71BD002B6452 /* RGPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */; };
 		0247DFB41A9A71F3002B6452 /* HFDashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		020AEE211A9AC8F900D49B18 /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		022E48141A86CCD6005E3963 /* HackFSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackFSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		02454EC11A9D18A600523C09 /* HFUpdateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdateViewCell.swift; sourceTree = "<group>"; };
 		0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGPageViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		0250C48D1A79D5A900DCD3A0 /* HackFSU */ = {
 			isa = PBXGroup;
 			children = (
-				020AEE211A9AC8F900D49B18 /* Update.swift */,
 				0250C4901A79D5A900DCD3A0 /* AppDelegate.swift */,
 				02C6408A1A911904007A3901 /* HFColors.swift */,
 				0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */,
@@ -341,7 +338,6 @@
 			files = (
 				0250B6251A7D548D00113879 /* HFMapsViewController.swift in Sources */,
 				02C6408D1A911B7C007A3901 /* HFCountdownView.swift in Sources */,
-				020AEE221A9AC8F900D49B18 /* Update.swift in Sources */,
 				0250B6231A7D548400113879 /* HFScheduleViewController.swift in Sources */,
 				02C6408B1A911904007A3901 /* HFColors.swift in Sources */,
 				0250B6271A7D549600113879 /* HFSponsorsViewController.swift in Sources */,
