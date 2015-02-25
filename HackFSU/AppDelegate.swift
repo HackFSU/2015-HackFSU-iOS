@@ -11,6 +11,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX", clientKey: "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         
+        var userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        var settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
         // White status bar
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
 
@@ -37,6 +43,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: - Parse
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        var currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.channels = ["updates"]
+        currentInstallation.saveInBackgroundWithTarget(self, selector: nil)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
     }
     
 }

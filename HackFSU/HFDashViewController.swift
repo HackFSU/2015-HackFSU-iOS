@@ -71,6 +71,10 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         //        self.countdownViewController = storyboard.instantiateViewControllerWithIdentifier("CountdownViewController") as CountdownViewController
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
     // MARK: - Countdown
     func countdownBarUpdate() {
         
@@ -100,6 +104,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     }
     
     // MARK: - RGPageViewController Data Source
+    
     func numberOfPagesForViewController(pageViewController: RGPageViewController) -> Int {
         return menu.count
     }
@@ -147,7 +152,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     }
     
     func widthOrHeightForIndicator() -> CGFloat {
-        return 4.0
+        return 2.0
     }
     
     func heightForTabbar() -> CGFloat {

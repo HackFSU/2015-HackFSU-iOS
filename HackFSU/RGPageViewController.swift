@@ -566,6 +566,8 @@ class RGPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: - Interface rotation
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        self.setupSelf()
+        
         self.selectTabAtIndex(self.currentTabIndex)
     }
     
