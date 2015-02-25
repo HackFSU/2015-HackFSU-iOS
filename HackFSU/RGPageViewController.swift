@@ -136,7 +136,7 @@ class RGPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         if let navController = self.navigationController {
             navController.navigationBar.hideHairline()
         }
-        
+                
         // tabbar constraints
         constraints.addObject(NSLayoutConstraint(item: self.tabbar, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.topLayoutGuide, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
         constraints.addObject(NSLayoutConstraint(item: self.tabbar, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: self.tabbarHeight))
@@ -150,8 +150,10 @@ class RGPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         constraints.addObject(NSLayoutConstraint(item: self.tabScrollView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.tabbar, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0.0))
         
         // tabpager constraints
-        constraints.addObject(NSLayoutConstraint(item: self.pagerView!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
-        constraints.addObject(NSLayoutConstraint(item: self.pagerView!, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        constraints.addObject(NSLayoutConstraint(item: self.pagerView!, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.tabbar, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        
+        constraints.addObject(NSLayoutConstraint(item: self.pagerView!, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.bottomLayoutGuide, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        
         constraints.addObject(NSLayoutConstraint(item: self.pagerView!, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0.0))
         constraints.addObject(NSLayoutConstraint(item: self.pagerView!, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0.0))
         
@@ -189,7 +191,7 @@ class RGPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         if self.tabbarStyle == RGTabbarStyle.Solid {
             constraints.addObject(NSLayoutConstraint(item: self.tabbar, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
             constraints.addObject(NSLayoutConstraint(item: self.tabbar, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
-
+            
             var edgeInsets: UIEdgeInsets = self.tabScrollView.contentInset
             
             edgeInsets.top = self.topLayoutGuide.length
@@ -365,7 +367,7 @@ class RGPageViewController: UIViewController, UIPageViewControllerDataSource, UI
                 switch self.tabbarPosition {
                 case .Top, .Bottom:
                     frame.origin.x = contentSizeWH
- 
+                    
                     contentSizeWH += CGRectGetWidth(frame) + self.tabMargin
                 case .Left, .Right:
                     frame.origin.y = contentSizeWH
@@ -570,7 +572,7 @@ class RGPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     // MARK: - UIToolbarDelegate
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         var position: UIBarPosition = UIBarPosition.Top
-
+        
         switch self.tabbarPosition {
         case .Top:
             position = UIBarPosition.Top

@@ -1,31 +1,39 @@
-//
-//  ScheduleViewController.swift
-//  HackFSU
-//
-//  Created by Logan Isitt on 1/31/15.
-//  Copyright (c) 2015 Logan Isitt. All rights reserved.
-//
-
 import UIKit
 
 class HFScheduleViewController: PFQueryTableViewController {
     
     var formatter = NSDateFormatter()
     
+    override init!(style: UITableViewStyle, className: String!) {
+        super.init(style: style, className: className)
+        setup()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup() {
+        self.parseClassName = "Schedule"
+        self.loadingViewEnabled = false
+        self.paginationEnabled = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.parseClassName = "Updates"
-        self.pullToRefreshEnabled = true
-        self.paginationEnabled = false
-        
         self.loadObjects()
+        
+        self.refreshControl?.tintColor = UIColor.HFColor.White
+        
+        tableView.backgroundColor = UIColor.HFColor.Blue
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        tableView.separatorColor = UIColor.HFColor.Blue
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
         
         formatter.dateStyle = NSDateFormatterStyle.NoStyle
         formatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -35,48 +43,15 @@ class HFScheduleViewController: PFQueryTableViewController {
     
     // MARK: - Parse
     
-    override func objectsDidLoad(error: NSError!) {
-        super.objectsDidLoad(error)
-        
-        self.tableView.reloadData()
-    }
-    
-    override func objectsWillLoad() {
-        super.objectsWillLoad()
-        // TODO:
-    }
-    
     override func queryForTable() -> PFQuery! {
-        var query = PFQuery(className: self.parseClassName)
-        
-        query.orderByDescending("updatedAt")
-        
-        return query
+        return PFQuery(className: self.parseClassName).orderByDescending("updatedAt")
     }
     
     // MARK: - Table View Data Source
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
-        var cell: HFUpdateViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as HFUpdateViewCell
-        
-        cell.title?.text = object.valueForKey("title") as? String
-        
-        cell.subtitle?.text = object.valueForKey("subtitle") as? String
-        cell.subtitle?.font = UIFont(name: "UniSansThinCAPS", size: 15)
-        cell.subtitle?.numberOfLines = 0
-        
-        cell.time?.text = object.updatedAt.timeAgoSinceNow()
+        var cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell
         
         return cell
-    }
-    
-    // MARK: Table View Delegate
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30.0
-    }
-    
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40.0
     }
 }

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  HackFSU
-//
-//  Created by Logan Isitt on 1/28/15.
-//  Copyright (c) 2015 Logan Isitt. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -15,8 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // MARK: - Parse
-        
+        // Parse
         Parse.setApplicationId("jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX", clientKey: "nMdA9eBEQU5l2KNWvvWJ3gIDN70M4yi5hBkdyxs2")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         

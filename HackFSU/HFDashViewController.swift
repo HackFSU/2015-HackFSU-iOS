@@ -27,10 +27,14 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
             return .Solid
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.datasource = self
+        self.delegate = self
+        
+        // Nav Bar
         self.title = "HackFSU"
         
         self.navigationController?.navigationBar.barTintColor = UIColor.HFColor.Green
@@ -40,43 +44,45 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         imgHeader.contentMode = UIViewContentMode.ScaleAspectFit
         self.navigationItem.titleView = imgHeader
         
+        // Toolbar
         self.navigationController?.setToolbarHidden(false, animated: true)
-        self.navigationController?.toolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
+        self.navigationController?.toolbar.barTintColor = UIColor.HFColor.Green
         
+        var attrs = [NSForegroundColorAttributeName: UIColor.HFColor.White, NSFontAttributeName: UIFont.HFFont.CountdownFont]
         var spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-        countdownBar = UIBarButtonItem(title: "36 hours 00 minutes 00 seconds", style: UIBarButtonItemStyle.Done, target: self, action: "showCountdownView")
-        countdownBar.setTitleTextAttributes([   NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 30)!], forState: UIControlState.Normal)
-   
-        self.setToolbarItems([spacer, countdownBar, spacer], animated: true)
         
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        countdownBar = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: self, action: "showCountdownView")
         
-        destinationDate = NSDate(timeIntervalSince1970: 1427025600)
+        countdownBar.setTitleTextAttributes(attrs, forState: UIControlState.Normal)
         
+        self.setToolbarItems([spacer, countdownBar, spacer], animated: false)
+        
+        // Countdown
+        destinationDate = NSDate(timeIntervalSince1970: 1427025600) // TODO: Pull from Parse
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countdownBarUpdate", userInfo: nil, repeats: true)
         
-        
+        // View Controllers
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+
         self.updatesViewController  = storyboard.instantiateViewControllerWithIdentifier("HFUpdatesViewController") as HFUpdatesViewController
         self.scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("HFScheduleViewController")as HFScheduleViewController
-        let mapsViewController      = storyboard.instantiateViewControllerWithIdentifier("HFMapsViewController") as HFMapsViewController
-        self.mapsViewController = UINavigationController(rootViewController: mapsViewController)
+        self.mapsViewController     = storyboard.instantiateViewControllerWithIdentifier("HFMapsViewController") as HFMapsViewController
         self.sponsorsViewController = storyboard.instantiateViewControllerWithIdentifier("HFSponsorsViewController") as HFSponsorsViewController
-//        self.countdownViewController = storyboard.instantiateViewControllerWithIdentifier("CountdownViewController") as CountdownViewController
-        
-        self.datasource = self
-        self.delegate = self
+        //        self.countdownViewController = storyboard.instantiateViewControllerWithIdentifier("CountdownViewController") as CountdownViewController
     }
     
-    // MARK: - Countdown 
+    // MARK: - Countdown
     func countdownBarUpdate() {
-    
+        
+        destinationDate.timeAgoSinceDate(NSDate(), numericDates: true, numericTimes: true)
+        
         var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         NSCalendarUnit.CalendarUnitMonth
         var units = NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond | NSCalendarUnit.CalendarUnitNanosecond
-
+        
         var nowComponents = calendar?.component(units, fromDate: NSDate())
         var thenComponents = calendar?.component(units, fromDate: self.destinationDate)
-
+        
         var difComponents = calendar?.components(units, fromDate: NSDate(), toDate: self.destinationDate, options: NSCalendarOptions.MatchFirst)
         
         let h = difComponents!.hour as Int
@@ -84,7 +90,9 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         let s = difComponents!.second as Int
         let n = "\(difComponents!.nanosecond as Int)"
         
-        self.countdownBar.title = NSString(format: "%d:%d:%d.%@", h, m, s, n.substringToIndex(advance(n.startIndex, 1))) //"\(h):\(m):\(s).\(n.substringToIndex(advance(n.startIndex, 1)))"
+        var d = NSDate().dateByAddingTimeInterval(-500)
+        
+        self.countdownBar.title = NSString(format: "%d:%d:%d.%@", h, m, s, n.substringToIndex(advance(n.startIndex, 1)))
     }
     
     func showCountdownView() {
@@ -97,12 +105,10 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     }
     
     func tabViewForPageAtIndex(pageViewController: RGPageViewController, index: Int) -> UIView {
-        let title: String = self.menu.objectAtIndex(index) as String
-        let tabView: RGTabBarItem = RGTabBarItem(frame: CGRectMake(0.0, 0.0, self.view.bounds.width / 6.0, 49.0), text: title, image: UIImage(named: "Grid"), color: nil)
-        
+       
         let label: UILabel = UILabel()
         
-        label.text = title
+        label.text = self.menu.objectAtIndex(index) as? String
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "UniSansHeavyCAPS", size: 15)
         
@@ -139,11 +145,12 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     func colorForTabIndicator() -> UIColor {
         return UIColor.HFColor.Blue
     }
+    
     func widthOrHeightForIndicator() -> CGFloat {
         return 4.0
     }
+    
     func heightForTabbar() -> CGFloat {
-        // default height of UITabBar is 49px
         return 30.0
     }
 }

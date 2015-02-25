@@ -17,13 +17,30 @@ class HFUpdateViewCell: PFTableViewCell {
     var height = CGFloat(0.5)
     var buffer = CGFloat(8)
     
+    var separator: CALayer!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setup()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setup()
+    }
+    
+    func setup() {
+        
+        separator = CALayer()
+        layer.addSublayer(separator)
+    }
+    
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        var layer = CALayer()
-        layer.frame = CGRectMake(buffer, rect.size.height - height, rect.size.width - (buffer * 2), height)
-        layer.backgroundColor = UIColor.HFColor.Blue.CGColor
-        
-        self.layer.addSublayer(layer)
+        separator.frame = CGRectMake(buffer, rect.size.height - height, rect.size.width - (buffer * 2), height)
+        separator.backgroundColor = UIColor.HFColor.Blue.CGColor
     }
 }

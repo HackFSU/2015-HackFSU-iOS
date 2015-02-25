@@ -1,46 +1,57 @@
-//
-//  SponsorsViewController.swift
-//  HackFSU
-//
-//  Created by Logan Isitt on 1/31/15.
-//  Copyright (c) 2015 Logan Isitt. All rights reserved.
-//
-
 import UIKit
 
-class HFSponsorsViewController: UITableViewController {
+class HFSponsorsViewController: PFQueryTableViewController {
+    
+    var formatter = NSDateFormatter()
+    
+    override init!(style: UITableViewStyle, className: String!) {
+        super.init(style: style, className: className)
+        setup()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup() {
+        self.parseClassName = "Sponsors"
+        self.loadingViewEnabled = false
+        self.paginationEnabled = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadObjects()
+        
+        self.refreshControl?.tintColor = UIColor.HFColor.White
+        
+        tableView.backgroundColor = UIColor.HFColor.Blue
+        
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        
+        formatter.dateStyle = NSDateFormatterStyle.NoStyle
+        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        formatter.doesRelativeDateFormatting = true
     }
     
-    //: MARK - Table View Data Source 
+    // MARK: - Parse
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    override func queryForTable() -> PFQuery! {
+        return PFQuery(className: self.parseClassName).orderByDescending("updatedAt")
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+    // MARK: - Table View Data Source
+    
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
+        var cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell
         
         return cell
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
-    }
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Tier \(section + 1)"
-    }
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-    
-    // MARK: Table View Delegate
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30.0
     }
 }
