@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		020AEE221A9AC8F900D49B18 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AEE211A9AC8F900D49B18 /* Update.swift */; };
+		02454EC21A9D18A600523C09 /* HFUpdateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454EC11A9D18A600523C09 /* HFUpdateViewCell.swift */; };
 		0247DFB21A9A71BD002B6452 /* RGPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */; };
 		0247DFB41A9A71F3002B6452 /* HFDashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */; };
 		0250B6231A7D548400113879 /* HFScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250B6221A7D548400113879 /* HFScheduleViewController.swift */; };
@@ -28,6 +29,7 @@
 		02C6408D1A911B7C007A3901 /* HFCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6408C1A911B7C007A3901 /* HFCountdownView.swift */; };
 		02C6408F1A91247D007A3901 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C6408E1A91247D007A3901 /* QuartzCore.framework */; };
 		02C640911A912489007A3901 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C640901A912489007A3901 /* CoreGraphics.framework */; };
+		02E508F51A9D4B13007E4C18 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E508F41A9D4B13007E4C18 /* UIViewControllerExtension.swift */; };
 		F67A9D3AEF80FB8D85478573 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 868BC1771BEE58A3DF8F2349 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,7 @@
 /* Begin PBXFileReference section */
 		020AEE211A9AC8F900D49B18 /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		022E48141A86CCD6005E3963 /* HackFSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackFSU-Bridging-Header.h"; sourceTree = "<group>"; };
+		02454EC11A9D18A600523C09 /* HFUpdateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdateViewCell.swift; sourceTree = "<group>"; };
 		0247DFB11A9A71BD002B6452 /* RGPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGPageViewController.swift; sourceTree = "<group>"; };
 		0247DFB31A9A71F3002B6452 /* HFDashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFDashViewController.swift; sourceTree = "<group>"; };
 		0250B6221A7D548400113879 /* HFScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFScheduleViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		02C6408C1A911B7C007A3901 /* HFCountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownView.swift; sourceTree = "<group>"; };
 		02C6408E1A91247D007A3901 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02C640901A912489007A3901 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		02E508F41A9D4B13007E4C18 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		316BBAB6BFF7F51AB3792478 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A300FEF2C3D06FC8C8FF73B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		868BC1771BEE58A3DF8F2349 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,7 @@
 				0250B6241A7D548D00113879 /* HFMapsViewController.swift */,
 				0250B6261A7D549600113879 /* HFSponsorsViewController.swift */,
 				02C6408C1A911B7C007A3901 /* HFCountdownView.swift */,
+				02454EC11A9D18A600523C09 /* HFUpdateViewCell.swift */,
 				0250C4941A79D5A900DCD3A0 /* Main.storyboard */,
 				0250C48E1A79D5A900DCD3A0 /* Supporting Files */,
 				0250C4B81A79E2B600DCD3A0 /* Additional Files */,
@@ -162,6 +167,7 @@
 		0250C4B81A79E2B600DCD3A0 /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
+				02E508F41A9D4B13007E4C18 /* UIViewControllerExtension.swift */,
 				027DCFA21A9B7088006D59C7 /* Uni Sans Heavy Italic.otf */,
 				027DCFA31A9B7088006D59C7 /* Uni Sans Heavy.otf */,
 				027DCFA41A9B7088006D59C7 /* Uni Sans Thin Italic.otf */,
@@ -339,7 +345,9 @@
 				0250B6231A7D548400113879 /* HFScheduleViewController.swift in Sources */,
 				02C6408B1A911904007A3901 /* HFColors.swift in Sources */,
 				0250B6271A7D549600113879 /* HFSponsorsViewController.swift in Sources */,
+				02454EC21A9D18A600523C09 /* HFUpdateViewCell.swift in Sources */,
 				0247DFB21A9A71BD002B6452 /* RGPageViewController.swift in Sources */,
+				02E508F51A9D4B13007E4C18 /* UIViewControllerExtension.swift in Sources */,
 				02B1D86C1A9A7D3C00D2735D /* HFUpdatesViewController.swift in Sources */,
 				0247DFB41A9A71F3002B6452 /* HFDashViewController.swift in Sources */,
 				0250C4911A79D5A900DCD3A0 /* AppDelegate.swift in Sources */,

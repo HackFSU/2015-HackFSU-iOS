@@ -10,15 +10,29 @@ import UIKit
 
 class HFUpdatesViewController: PFQueryTableViewController {
     
+    var formatter = NSDateFormatter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.parseClassName = "Updates"
         self.pullToRefreshEnabled = true
-        self.paginationEnabled = true
-        self.objectsPerPage = 100
+        self.paginationEnabled = false
         
         self.loadObjects()
+        
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.tableView.backgroundColor = UIColor.HFColor.LightBlue
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        tableView.separatorColor = UIColor.HFColor.Blue
+        
+        formatter.dateStyle = NSDateFormatterStyle.NoStyle
+        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        formatter.doesRelativeDateFormatting = true
     }
     
     // MARK: - Parse
@@ -44,36 +58,15 @@ class HFUpdatesViewController: PFQueryTableViewController {
     
     // MARK: - Table View Data Source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return objects.count
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
+        var cell: HFUpdateViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as HFUpdateViewCell
         
-        var formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.NoStyle
-        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        cell.title?.text = object.valueForKey("title") as? String
         
-        formatter.doesRelativeDateFormatting = true
+        cell.subtitle?.text = object.valueForKey("subtitle") as? String
+        cell.subtitle?.numberOfLines = 0
         
-        let update = (objects[section] as PFObject).updatedAt
-        
-        return formatter.stringFromDate(NSDate())
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        
-        var object: PFObject = objects[indexPath.section] as PFObject
-        
-        cell.textLabel?.text = object.valueForKey("title") as? String
-        cell.detailTextLabel?.text = object.valueForKey("subtitle") as? String
-        cell.detailTextLabel?.font = UIFont(name: "UniSansThinCAPS", size: 15)
-        cell.detailTextLabel?.numberOfLines = 0
+        cell.time?.text = object.updatedAt.timeAgoSinceNow()
         
         return cell
     }
@@ -81,36 +74,10 @@ class HFUpdatesViewController: PFQueryTableViewController {
     // MARK: Table View Delegate
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 30.0
-        }
-        return 0
+        return 30.0
     }
 
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20.0
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        // TODO:
-        var tView = UITextView(frame: CGRectMake(0.0, 0.0, self.view.bounds.size.width, 44.0))
-        var tString = (objects[indexPath.section] as PFObject).valueForKey("subtitle") as String
-        
-        return self.heightForTextView(tView, containingSting: tString)
-    }
-    func heightForTextView(textView: UITextView, containingSting: String) -> CGFloat {
-        var horizontalPadding = CGFloat(14.0)
-        var verticalPadding = CGFloat(44.0)
-        var widthOfTextView = textView.contentSize.width - horizontalPadding
-        
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = NSLineBreakMode.ByCharWrapping
-        paragraphStyle.alignment = NSTextAlignment.Left
-
-        var attrs = [NSFontAttributeName: UIFont(name: "Times New Roman", size: 15)!, NSParagraphStyleAttributeName : paragraphStyle]
-        
-        var size: CGSize = (containingSting as NSString).boundingRectWithSize(CGSizeMake(widthOfTextView, 999999), options: NSStringDrawingOptions.UsesFontLeading, attributes: attrs, context: nil).size
-        
-        return size.height + verticalPadding
+        return 40.0
     }
 }

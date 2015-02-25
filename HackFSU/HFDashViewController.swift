@@ -44,7 +44,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         self.navigationController?.toolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
         
         var spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-        countdownBar = UIBarButtonItem(title: "36 hours 00 minutes 00 seconds", style: UIBarButtonItemStyle.Done, target: self, action: "")
+        countdownBar = UIBarButtonItem(title: "36 hours 00 minutes 00 seconds", style: UIBarButtonItemStyle.Done, target: self, action: "showCountdownView")
         countdownBar.setTitleTextAttributes([   NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 30)!], forState: UIControlState.Normal)
    
         self.setToolbarItems([spacer, countdownBar, spacer], animated: true)
@@ -57,7 +57,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         
         
         self.updatesViewController  = storyboard.instantiateViewControllerWithIdentifier("HFUpdatesViewController") as HFUpdatesViewController
-        self.scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("HFScheduleViewController") as HFScheduleViewController
+        self.scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("HFScheduleViewController")as HFScheduleViewController
         let mapsViewController      = storyboard.instantiateViewControllerWithIdentifier("HFMapsViewController") as HFMapsViewController
         self.mapsViewController = UINavigationController(rootViewController: mapsViewController)
         self.sponsorsViewController = storyboard.instantiateViewControllerWithIdentifier("HFSponsorsViewController") as HFSponsorsViewController
@@ -85,6 +85,10 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         let n = "\(difComponents!.nanosecond as Int)"
         
         self.countdownBar.title = NSString(format: "%d:%d:%d.%@", h, m, s, n.substringToIndex(advance(n.startIndex, 1))) //"\(h):\(m):\(s).\(n.substringToIndex(advance(n.startIndex, 1)))"
+    }
+    
+    func showCountdownView() {
+        
     }
     
     // MARK: - RGPageViewController Data Source

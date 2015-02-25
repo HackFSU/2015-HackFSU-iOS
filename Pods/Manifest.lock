@@ -1,5 +1,6 @@
 PODS:
   - Bolts (1.1.3)
+  - DateTools (1.5.0)
   - Facebook-iOS-SDK (3.23.0):
     - Bolts (~> 1.0)
   - Parse (1.6.2):
@@ -12,11 +13,13 @@ PODS:
     - ParseFacebookUtils (~> 1.6)
 
 DEPENDENCIES:
+  - DateTools
   - Parse
   - ParseUI
 
 SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
   Facebook-iOS-SDK: 3d65f685348b789e46a9aacf92bfa85b60b63755
   Parse: 60d65108fe39da77ec16c9e51d74b4d296b21424
   ParseFacebookUtils: 0b86cd67283c60d10e3ddc8427f989f5e60ebbd7

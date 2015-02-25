@@ -2,7 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Nk5-nz-PeC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Uni Sans Heavy.otf">
+            <string>UniSansHeavyCAPS</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Dash View Controller-->
         <scene sceneID="3zl-BG-x6l">
@@ -18,6 +24,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="PkW-0H-Tot"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKr-Em-QHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,30 +34,60 @@
         <scene sceneID="jtW-AM-hCl">
             <objects>
                 <tableViewController storyboardIdentifier="HFUpdatesViewController" id="ruM-Sh-Srz" customClass="HFUpdatesViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GhX-w7-Vit">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="GhX-w7-Vit">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.074509803920000006" green="0.1647058824" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="RB3-yp-rSx" detailTextLabel="QxV-Vx-7Xd" style="IBUITableViewCellStyleSubtitle" id="5a3-Hn-zlj" customClass="PFTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="130" id="5a3-Hn-zlj" customClass="HFUpdateViewCell" customModule="HackFSU" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5a3-Hn-zlj" id="oD5-qO-PwL">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RB3-yp-rSx">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaN-J2-vwB">
+                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="IOM-Q4-7if"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="UniSansHeavyCAPS" family="Uni Sans" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QxV-Vx-7Xd">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XZ-Tz-heI">
+                                            <rect key="frame" x="8" y="33" width="584" height="63"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a few seconds ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asQ-iw-TdI">
+                                            <rect key="frame" x="8" y="100" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="k58-Xw-efI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7XZ-Tz-heI" firstAttribute="leading" secondItem="oD5-qO-PwL" secondAttribute="leadingMargin" id="80y-Hm-0lD"/>
+                                        <constraint firstItem="7XZ-Tz-heI" firstAttribute="trailing" secondItem="oD5-qO-PwL" secondAttribute="trailingMargin" id="HBd-Mj-Uka"/>
+                                        <constraint firstItem="asQ-iw-TdI" firstAttribute="top" secondItem="7XZ-Tz-heI" secondAttribute="bottom" constant="4" id="J96-ui-7kO"/>
+                                        <constraint firstItem="asQ-iw-TdI" firstAttribute="leading" secondItem="oD5-qO-PwL" secondAttribute="leadingMargin" id="KjT-tb-DF1"/>
+                                        <constraint firstItem="asQ-iw-TdI" firstAttribute="trailing" secondItem="oD5-qO-PwL" secondAttribute="trailingMargin" id="Nmt-gh-ATc"/>
+                                        <constraint firstItem="gaN-J2-vwB" firstAttribute="trailing" secondItem="oD5-qO-PwL" secondAttribute="trailingMargin" id="ObN-Ro-ivG"/>
+                                        <constraint firstItem="asQ-iw-TdI" firstAttribute="bottom" secondItem="oD5-qO-PwL" secondAttribute="bottomMargin" id="ase-Wl-2YN"/>
+                                        <constraint firstItem="7XZ-Tz-heI" firstAttribute="top" secondItem="gaN-J2-vwB" secondAttribute="bottom" constant="4" id="bhI-IU-dhE"/>
+                                        <constraint firstItem="gaN-J2-vwB" firstAttribute="top" secondItem="oD5-qO-PwL" secondAttribute="topMargin" id="e9R-xF-wQt"/>
+                                        <constraint firstItem="gaN-J2-vwB" firstAttribute="leading" secondItem="oD5-qO-PwL" secondAttribute="leadingMargin" id="sS7-g9-fXY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitle" destination="7XZ-Tz-heI" id="0G8-zH-UyG"/>
+                                    <outlet property="time" destination="asQ-iw-TdI" id="oaf-pd-Kn3"/>
+                                    <outlet property="title" destination="gaN-J2-vwB" id="jTy-kb-ZWa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -61,7 +98,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNY-6T-5Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="317"/>
+            <point key="canvasLocation" x="1509" y="-1151"/>
         </scene>
         <!--Schedule View Controller-->
         <scene sceneID="49p-D5-gwR">
@@ -71,8 +108,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pg1-Q9-DYE">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="fDK-vC-LLH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="fDK-vC-LLH" customClass="HFUpdateViewCell" customModule="HackFSU" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fDK-vC-LLH" id="pdG-1Y-BkA">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -87,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oey-5b-eFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="1063"/>
+            <point key="canvasLocation" x="1509" y="-361"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="rai-E4-WKV">
@@ -125,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="267-CF-E1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="1807"/>
+            <point key="canvasLocation" x="1509" y="409"/>
         </scene>
         <!--Sponsors View Controller-->
         <scene sceneID="1D7-lt-EZe">
@@ -165,7 +209,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNj-Bh-jLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="2549"/>
+            <point key="canvasLocation" x="764" y="409"/>
         </scene>
         <!--Countdown View Controller-->
         <scene sceneID="8zv-nU-5vc">
@@ -183,13 +227,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOU-Ve-uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="3313"/>
+            <point key="canvasLocation" x="764" y="-1151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Umn-fb-5iN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nk5-nz-PeC" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Fhv-AG-6SR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
