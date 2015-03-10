@@ -44,7 +44,7 @@ class HFUpdatesViewController: PFQueryTableViewController {
     // MARK: - Parse
     
     override func queryForTable() -> PFQuery! {
-        return PFQuery(className: self.parseClassName).orderByDescending("updatedAt")
+        return PFQuery(className: self.parseClassName).orderByDescending("createdAt")
     }
     
     // MARK: - Table View Data Source

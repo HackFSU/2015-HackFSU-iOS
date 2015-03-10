@@ -10,48 +10,142 @@ import UIKit
 
 class HFCountdownView: UIView {
     
-    var lineWidth: CGFloat = 10.0
+    private let progressLayer: CAShapeLayer = CAShapeLayer()
     
-    private let scsLayer: CAShapeLayer = CAShapeLayer()
-    private let mnsLayer: CAShapeLayer = CAShapeLayer()
-    private let hrsLayer: CAShapeLayer = CAShapeLayer()
-    private let ttlLayer: CAShapeLayer = CAShapeLayer()
+    var startHeader: UILabel!
+    var startTime: UILabel!
+    
+    var progressLabel: UILabel!
+    
+    var endHeader: UILabel!
+    var endTime: UILabel!
+    
+    var startDate: NSDate!
+    var endDate: NSDate!
+    
+    var timer: NSTimer!
+    var destinationDate: NSDate!
+    
+    var formatter = NSDateFormatter()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
         setup()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setup()
     }
     
     func setup() {
-        var rad = CGRectGetWidth(frame)/2 - 30.0
-        let c = CGFloat(2)
         
-        createProgressLayer(ttlLayer, radius: rad, color: UIColor.redColor())
-        rad -= (lineWidth + c)
-        createProgressLayer(hrsLayer, radius: rad, color: UIColor.yellowColor())
-        rad -= (lineWidth + c)
-        createProgressLayer(mnsLayer, radius: rad, color: UIColor.greenColor())
-        rad -= (lineWidth + c)
-        createProgressLayer(scsLayer, radius: rad, color: UIColor.blueColor())
+        startDate = NSDate()
+        endDate = NSDate(timeIntervalSinceNow: 100)
+        
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        formatter.doesRelativeDateFormatting = true
+        
+        createProgressLayer()
+
+        startHeader     = UILabel(frame: CGRectMake(0.0, 20.0, CGRectGetWidth(frame), 30.0))
+        startTime       = UILabel(frame: CGRectMake(0.0, 50.0, CGRectGetWidth(frame), 20.0))
+        progressLabel   = UILabel(frame: CGRectMake(0.0, CGRectGetHeight(frame) / 15.0, CGRectGetWidth(frame), 30.0))
+        endHeader       = UILabel(frame: CGRectMake(0.0, CGRectGetHeight(frame) - 70.0, CGRectGetWidth(frame), 30.0))
+        endTime         = UILabel(frame: CGRectMake(0.0, CGRectGetHeight(frame) - 40.0, CGRectGetWidth(frame), 20.0))
+        
+        startHeader.textColor   = .whiteColor()
+        startTime.textColor     = .whiteColor()
+        progressLabel.textColor = .whiteColor()
+        endHeader.textColor     = .whiteColor()
+        endTime.textColor       = .whiteColor()
+        
+        startHeader.textAlignment   = .Center
+        startTime.textAlignment     = .Center
+        progressLabel.textAlignment = .Center
+        endHeader.textAlignment     = .Center
+        endTime.textAlignment       = .Center
+
+        startHeader.font    = UIFont.HFFont.H3
+        startTime.font      = UIFont.HFFont.H3
+        progressLabel.font  = UIFont.HFFont.H3
+        endHeader.font      = UIFont.HFFont.H3
+        endTime.font        = UIFont.HFFont.H3
+        
+        startHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
+        startTime.setTranslatesAutoresizingMaskIntoConstraints(false)
+        progressLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        endHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
+        endTime.setTranslatesAutoresizingMaskIntoConstraints(false)
+
+        startHeader.text    = "Hacking Begins"
+        startTime.text      = "March 20, 2015 12:00AM"
+        progressLabel.text  = "30:00:00"
+        endHeader.text      = "Hacking Ends"
+        endTime.text        = "March 22, 2015 5:00AM"
+        
+        addSubview(startHeader)
+        addSubview(startTime)
+        addSubview(progressLabel)
+        addSubview(endHeader)
+        addSubview(endTime)
+        
+        addConstraint(NSLayoutConstraint(item: self, attribute: .CenterX, relatedBy: .Equal, toItem: progressLabel, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+        addConstraint(NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: progressLabel, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countdownUpdate", userInfo: nil, repeats: true)
     }
- 
-    private func createProgressLayer(progressLayer: CAShapeLayer, radius: CGFloat, color: UIColor) {
+    
+    func update() {
+        startHeader.frame   = CGRectMake(0.0, 40.0, CGRectGetWidth(frame), 30.0)
+        startTime.frame     = CGRectMake(0.0, 70.0, CGRectGetWidth(frame), 30.0)
+        progressLabel.frame = CGRectMake(0.0, (CGRectGetHeight(frame) / 2.0) - 15.0, CGRectGetWidth(frame), 30.0)
+        endHeader.frame     = CGRectMake(0.0, CGRectGetHeight(frame) - 80.0, CGRectGetWidth(frame), 30.0)
+        endTime.frame       = CGRectMake(0.0, CGRectGetHeight(frame) - 50.0, CGRectGetWidth(frame), 30.0)
         
-        let startAngle = CGFloat(M_PI_2)
-        let endAngle = CGFloat(M_PI * 2 + M_PI_2)
+        startHeader.text    = "Hacking Begins"
+        startTime.text      = formatter.stringFromDate(startDate)
+        endHeader.text      = "Hacking Ends"
+        endTime.text        = formatter.stringFromDate(endDate)
+        
+        let startAngle = CGFloat(M_PI * 3 + M_PI_2)
+        let endAngle = CGFloat(M_PI * 5 + M_PI_2)
         let centerPoint = CGPointMake(CGRectGetWidth(frame)/2 , CGRectGetHeight(frame)/2)
         
-        var gradientMaskLayer = gradientMask(color, bottomColor: color)
-        progressLayer.path = UIBezierPath(arcCenter:centerPoint, radius: radius, startAngle:startAngle, endAngle:endAngle, clockwise: true).CGPath
-        layer.backgroundColor = UIColor.clearColor().CGColor
+        progressLayer.path = UIBezierPath(arcCenter:centerPoint, radius: CGRectGetWidth(frame)/2 - 25.0, startAngle:startAngle, endAngle:endAngle, clockwise: true).CGPath
+    }
+    
+    func countdownUpdate() {
+        
+        var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+
+        var units = NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond | NSCalendarUnit.CalendarUnitNanosecond
+        
+        var difComponents = calendar?.components(units, fromDate: NSDate(), toDate: endDate, options: NSCalendarOptions.MatchFirst)
+        
+        let h = difComponents!.hour as Int
+        let m = difComponents!.minute as Int
+        let s = difComponents!.second as Int
+        let n = "\(difComponents!.nanosecond as Int)"
+        
+        self.progressLabel.text = NSString(format: "%d hrs %d mins %d secs", h, m, s) as String
+    }
+
+    private func createProgressLayer() {
+        let startAngle = CGFloat(M_PI * 2 + M_PI_2)
+        let endAngle = CGFloat(M_PI * 5 + M_PI_2)
+        let centerPoint = CGPointMake(CGRectGetWidth(frame)/2 , CGRectGetHeight(frame)/2)
+        
+        var gradientMaskLayer = gradientMask()
+        progressLayer.path = UIBezierPath(arcCenter:centerPoint, radius: CGRectGetWidth(frame)/2 - 30.0, startAngle:startAngle, endAngle:endAngle, clockwise: true).CGPath
+        progressLayer.backgroundColor = UIColor.clearColor().CGColor
         progressLayer.fillColor = nil
-        progressLayer.strokeColor = color.CGColor
-        progressLayer.lineWidth = lineWidth
+        progressLayer.strokeColor = UIColor.blackColor().CGColor
+        progressLayer.lineWidth = 10.0
         progressLayer.strokeStart = 0.0
         progressLayer.strokeEnd = 0.0
         
@@ -59,96 +153,47 @@ class HFCountdownView: UIView {
         layer.addSublayer(gradientMaskLayer)
     }
     
-    private func gradientMask(topColor: UIColor, bottomColor: UIColor) -> CAGradientLayer {
+    private func gradientMask() -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         
         gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.colors = [topColor.CGColor, bottomColor.CGColor]
+        
+        let colorTop: AnyObject = UIColor.HFColor.White.CGColor // UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 63.0/255.0, alpha: 1.0).CGColor
+        let colorBottom: AnyObject = UIColor.HFColor.White.CGColor // UIColor(red: 255.0/255.0, green: 198.0/255.0, blue: 5.0/255.0, alpha: 1.0).CGColor
+        let arrayOfColors: [AnyObject] = [colorTop, colorBottom]
+        gradientLayer.colors = arrayOfColors
         
         return gradientLayer
     }
     
-    //MARK: - Animations
-    
     func hideProgressView() {
-        scsLayer.strokeEnd = 0.0
-        scsLayer.removeAllAnimations()
-        
-        mnsLayer.strokeEnd = 0.0
-        mnsLayer.removeAllAnimations()
-        
-        hrsLayer.strokeEnd = 0.0
-        hrsLayer.removeAllAnimations()
-        
-        ttlLayer.strokeEnd = 0.0
-        ttlLayer.removeAllAnimations()
+        progressLayer.strokeEnd = 0.0
+        progressLayer.removeAllAnimations()
+        progressLabel.text = "Load content"
     }
     
     func animateProgressView() {
         
-        let c = Float(4)
+        var max = CGFloat(endDate.timeIntervalSince1970)
+        var cur = CGFloat(NSDate().timeIntervalSince1970)
+        var min = CGFloat(startDate.timeIntervalSince1970)
         
-        let animation1 = CABasicAnimation(keyPath: "strokeEnd")
-        animation1.fromValue = CGFloat(0.0)
-        animation1.toValue = CGFloat(1.0)
-        animation1.duration = 1.0 * CFTimeInterval(c)
-        animation1.delegate = self
-        animation1.removedOnCompletion = false
-        animation1.additive = true
-        animation1.fillMode = kCAFillModeForwards
-        animation1.repeatCount = 8 //* c
+        progressLayer.strokeEnd = 0.0
         
-        let animation2 = CABasicAnimation(keyPath: "strokeEnd")
-        animation2.fromValue = CGFloat(0.0)
-        animation2.toValue = CGFloat(1.0)
-        animation2.duration = 2.0 * CFTimeInterval(c)
-        animation2.delegate = self
-        animation2.removedOnCompletion = false
-        animation2.additive = true
-        animation2.fillMode = kCAFillModeForwards
-        animation2.repeatCount = 4// * c
-        
-        let animation3 = CABasicAnimation(keyPath: "strokeEnd")
-        animation3.fromValue = CGFloat(0.0)
-        animation3.toValue = CGFloat(1.0)
-        animation3.duration = 4.0 * CFTimeInterval(c)
-        animation3.delegate = self
-        animation3.removedOnCompletion = false
-        animation3.additive = true
-        animation3.fillMode = kCAFillModeForwards
-        animation3.repeatCount = 2 //* c
-        
-        let animation4 = CABasicAnimation(keyPath: "strokeEnd")
-        animation4.fromValue = CGFloat(0.0)
-        animation4.toValue = CGFloat(1.0)
-        animation4.duration = 8.0 * CFTimeInterval(c)
-        animation4.delegate = self
-        animation4.removedOnCompletion = false
-        animation4.additive = true
-        animation4.fillMode = kCAFillModeForwards
-//        animation4.repeatCount = c
-        
-//        let clear = CABasicAnimation(keyPath: "strokeEnd")
-//        clear.fromValue = CGFloat(1.0)
-//        clear.toValue = CGFloat(0.0)
-//        clear.duration = 0.0
-//        clear.delegate = self
-//        clear.removedOnCompletion = false
-//        clear.additive = true
-//        clear.fillMode = kCAFillModeForwards
-        
-        var animGroup = CAAnimationGroup()
-        animGroup.animations = [animation1]
-        animGroup.repeatCount = 5
-        
-//        scsLayer.addAnimation(animation1, forKey: "strokeEnd")
-        mnsLayer.addAnimation(animation2, forKey: "strokeEnd")
-        hrsLayer.addAnimation(animation3, forKey: "strokeEnd")
-        ttlLayer.addAnimation(animation4, forKey: "strokeEnd")
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = CGFloat((cur - min) / (max - min))
+        animation.toValue = CGFloat(1.0)
+        animation.duration = CFTimeInterval(max) - CFTimeInterval(cur)
+        animation.delegate = self
+        animation.removedOnCompletion = false
+        animation.additive = true
+        animation.fillMode = kCAFillModeForwards
+        progressLayer.addAnimation(animation, forKey: "strokeEnd")
     }
     
     override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
-        // TODO
+        progressLabel.text = "Done"
+        timer.invalidate()
     }
 }

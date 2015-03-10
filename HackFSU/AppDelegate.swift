@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         // White status bar
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
 
         return true
     }
@@ -56,8 +56,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        PFPush.handlePush(userInfo)
-    }
+                
+        var aps = userInfo["aps"] as NSDictionary
+        
+        var title: String =  aps.valueForKey("alert") as String
+        var subtitle: String = userInfo["info"] as String
     
+        var easyNotification = MPGNotification(title: title, subtitle: subtitle, backgroundColor: UIColor.HFColor.LightBlue, iconImage: nil)
+        easyNotification.fullWidthMessages = true
+        
+        easyNotification.show()
+        
+        var dashViewController = (window?.rootViewController as UINavigationController).topViewController as HFDashViewController
+        dashViewController.reloadViewControllers()
+    }
 }
-

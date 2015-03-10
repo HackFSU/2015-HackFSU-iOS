@@ -22,35 +22,32 @@ class HFSponsorsViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.loadObjects()
-        
-        self.refreshControl?.tintColor = UIColor.HFColor.White
-        
         tableView.backgroundColor = UIColor.HFColor.Blue
+        self.view.backgroundColor = UIColor.HFColor.Blue
         
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
         
-        formatter.dateStyle = NSDateFormatterStyle.NoStyle
-        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        formatter.doesRelativeDateFormatting = true
+        self.refreshControl?.tintColor = UIColor.HFColor.White
     }
     
     // MARK: - Parse
     
     override func queryForTable() -> PFQuery! {
-        return PFQuery(className: self.parseClassName).orderByDescending("updatedAt")
+        return PFQuery(className: self.parseClassName).orderByAscending("name")
     }
     
     // MARK: - Table View Data Source
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
-        var cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell
+        var cell: HFSponsorCell = tableView.dequeueReusableCellWithIdentifier("Cell") as HFSponsorCell
+        
+        cell.imgFile = object.objectForKey("image") as PFFile
         
         return cell
     }

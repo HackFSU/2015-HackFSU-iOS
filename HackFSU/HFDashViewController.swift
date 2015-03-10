@@ -22,6 +22,9 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     var timer: NSTimer!
     var destinationDate: NSDate!
     
+    var startDate: NSDate!
+    var endDate: NSDate!
+    
     override var tabbarStyle: RGTabbarStyle {
         get {
             return .Solid
@@ -48,7 +51,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationController?.toolbar.barTintColor = UIColor.HFColor.Green
         
-        var attrs = [NSForegroundColorAttributeName: UIColor.HFColor.White, NSFontAttributeName: UIFont.HFFont.CountdownFont]
+        var attrs = [NSForegroundColorAttributeName: UIColor.HFColor.White, NSFontAttributeName: UIFont.HFFont.H3!]
         var spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         
         countdownBar = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: self, action: "showCountdownView")
@@ -57,9 +60,16 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         
         self.setToolbarItems([spacer, countdownBar, spacer], animated: false)
         
+        var swipeUp = UISwipeGestureRecognizer(target: self, action: "showCountdownView")
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        
+        self.navigationController?.toolbar.addGestureRecognizer(swipeUp)
+        
         // Countdown
-        destinationDate = NSDate(timeIntervalSince1970: 1427025600) // TODO: Pull from Parse
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countdownBarUpdate", userInfo: nil, repeats: true)
+        var countdownQuery = PFQuery(className: "Schedule")
+        countdownQuery.orderByAscending("startTime")
+        countdownQuery.whereKey("key", equalTo: Int(1))
+        countdownQuery.findObjectsInBackgroundWithTarget(self, selector: "countdownPrep:Error:")
         
         // View Controllers
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -68,17 +78,38 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         self.scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("HFScheduleViewController")as HFScheduleViewController
         self.mapsViewController     = storyboard.instantiateViewControllerWithIdentifier("HFMapsViewController") as HFMapsViewController
         self.sponsorsViewController = storyboard.instantiateViewControllerWithIdentifier("HFSponsorsViewController") as HFSponsorsViewController
-        //        self.countdownViewController = storyboard.instantiateViewControllerWithIdentifier("CountdownViewController") as CountdownViewController
+        self.countdownViewController
+            = storyboard.instantiateViewControllerWithIdentifier("HFCountdownViewController") as HFCountdownViewController
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
     }
     
+    // MARK: - Notifications 
+    func reloadViewControllers() {
+        (self.updatesViewController as HFUpdatesViewController).loadObjects()
+    }
+    
     // MARK: - Countdown
-    func countdownBarUpdate() {
+    func countdownPrep(objects: NSArray, Error error: NSError) {
         
-        destinationDate.timeAgoSinceDate(NSDate(), numericDates: true, numericTimes: true)
+        startDate   = objects.firstObject?.valueForKey("startTime") as NSDate
+        endDate     = objects.lastObject?.valueForKey("startTime") as NSDate
+        
+        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).startDate = startDate
+        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).endDate = endDate
+        
+        if (NSDate().isLaterThanOrEqualTo(startDate)) {
+            destinationDate = endDate
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdownBarUpdate", userInfo: nil, repeats: true)
+        }
+        else {
+            self.countdownBar.title = "30 Hours"
+        }
+    }
+    
+    func countdownBarUpdate() {
         
         var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         NSCalendarUnit.CalendarUnitMonth
@@ -91,16 +122,14 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         
         let h = difComponents!.hour as Int
         let m = difComponents!.minute as Int
-        let s = difComponents!.second as Int
-        let n = "\(difComponents!.nanosecond as Int)"
+//        let s = difComponents!.second as Int
+//        let n = "\(difComponents!.nanosecond as Int)"
         
-        var d = NSDate().dateByAddingTimeInterval(-500)
-        
-        self.countdownBar.title = NSString(format: "%d:%d:%d.%@", h, m, s, n.substringToIndex(advance(n.startIndex, 1)))
+        self.countdownBar.title = NSString(format: "%d Hours & %d Minutes", h, m)
     }
     
     func showCountdownView() {
-        
+        self.navigationController?.presentViewController(self.countdownViewController, animated: true, completion: nil)
     }
     
     // MARK: - RGPageViewController Data Source
@@ -115,7 +144,7 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         
         label.text = self.menu.objectAtIndex(index) as? String
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "UniSansHeavyCAPS", size: 15)
+        label.font = UIFont.HFFont.H5
         
         label.sizeToFit()
         

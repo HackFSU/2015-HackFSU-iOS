@@ -1,28 +1,37 @@
 PODS:
-  - Bolts (1.1.3)
+  - Bolts (1.1.4)
+  - CupertinoYankee (0.1.1)
   - DateTools (1.5.0)
   - Facebook-iOS-SDK (3.23.0):
     - Bolts (~> 1.0)
-  - Parse (1.6.2):
+  - MPGNotification (1.2.1)
+  - MSCollectionViewCalendarLayout (0.1.3):
+    - CupertinoYankee (~> 0.1)
+  - Parse (1.6.4):
     - Bolts (~> 1.1)
-  - ParseFacebookUtils (1.6.2):
+  - ParseFacebookUtils (1.6.4):
     - Facebook-iOS-SDK (~> 3.20)
-    - Parse (~> 1.6.2)
-  - ParseUI (1.1.0):
+    - Parse (~> 1.6.4)
+  - ParseUI (1.1.1):
     - Parse (~> 1.6)
     - ParseFacebookUtils (~> 1.6)
 
 DEPENDENCIES:
   - DateTools
+  - MPGNotification
+  - MSCollectionViewCalendarLayout
   - Parse
   - ParseUI
 
 SPEC CHECKSUMS:
-  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
+  CupertinoYankee: b07873e724c2c5c1a249c555a5bd3d508c04e0de
   DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
   Facebook-iOS-SDK: 3d65f685348b789e46a9aacf92bfa85b60b63755
-  Parse: 60d65108fe39da77ec16c9e51d74b4d296b21424
-  ParseFacebookUtils: 0b86cd67283c60d10e3ddc8427f989f5e60ebbd7
-  ParseUI: 00c4c39aab3944d88758b55416581650caa37f89
+  MPGNotification: 5db268c0da7182c8ac67f328a3b126a8c780f09f
+  MSCollectionViewCalendarLayout: 10ca29578b0dd9b8586b1beed3ab479a3788b4b5
+  Parse: c2610f7a12ad0defc974803b819c4efe7746e6db
+  ParseFacebookUtils: 00833ccf6fec7d6429e2403fe457496a5089358b
+  ParseUI: f7e9e0e5271f75a19c74ead8fdd95d36160e268e
 
 COCOAPODS: 0.35.0
