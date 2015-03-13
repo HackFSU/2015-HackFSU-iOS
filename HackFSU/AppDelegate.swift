@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // White status bar
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+//        application.setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
 
         return true
     }

@@ -39,7 +39,7 @@ class HFSponsorsViewController: PFQueryTableViewController {
     // MARK: - Parse
     
     override func queryForTable() -> PFQuery! {
-        return PFQuery(className: self.parseClassName).orderByAscending("name")
+        return PFQuery(className: self.parseClassName).orderByAscending("rank")
     }
     
     // MARK: - Table View Data Source

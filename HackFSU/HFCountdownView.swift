@@ -11,6 +11,7 @@ import UIKit
 class HFCountdownView: UIView {
     
     private let progressLayer: CAShapeLayer = CAShapeLayer()
+    private let backgroundLayer: CAShapeLayer = CAShapeLayer()
     
     var startHeader: UILabel!
     var startTime: UILabel!
@@ -41,9 +42,6 @@ class HFCountdownView: UIView {
     }
     
     func setup() {
-        
-        startDate = NSDate()
-        endDate = NSDate(timeIntervalSinceNow: 100)
         
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
         formatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -81,12 +79,6 @@ class HFCountdownView: UIView {
         progressLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         endHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
         endTime.setTranslatesAutoresizingMaskIntoConstraints(false)
-
-        startHeader.text    = "Hacking Begins"
-        startTime.text      = "March 20, 2015 12:00AM"
-        progressLabel.text  = "30:00:00"
-        endHeader.text      = "Hacking Ends"
-        endTime.text        = "March 22, 2015 5:00AM"
         
         addSubview(startHeader)
         addSubview(startTime)
@@ -96,20 +88,34 @@ class HFCountdownView: UIView {
         
         addConstraint(NSLayoutConstraint(item: self, attribute: .CenterX, relatedBy: .Equal, toItem: progressLabel, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: progressLabel, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "countdownUpdate", userInfo: nil, repeats: true)
+    }
+    
+    func startTimer() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdownUpdate", userInfo: nil, repeats: true)
     }
     
     func update() {
+        
         startHeader.frame   = CGRectMake(0.0, 40.0, CGRectGetWidth(frame), 30.0)
         startTime.frame     = CGRectMake(0.0, 70.0, CGRectGetWidth(frame), 30.0)
         progressLabel.frame = CGRectMake(0.0, (CGRectGetHeight(frame) / 2.0) - 15.0, CGRectGetWidth(frame), 30.0)
         endHeader.frame     = CGRectMake(0.0, CGRectGetHeight(frame) - 80.0, CGRectGetWidth(frame), 30.0)
         endTime.frame       = CGRectMake(0.0, CGRectGetHeight(frame) - 50.0, CGRectGetWidth(frame), 30.0)
         
-        startHeader.text    = "Hacking Begins"
+        if (NSDate().isLaterThan(endDate)) { // Over
+            startHeader.text    = "Hacking Began"
+            endHeader.text      = "Hacking Ended"
+        }
+        else if (NSDate().isLaterThan(startDate)) { // Started
+            startHeader.text    = "Hacking Began"
+            endHeader.text      = "Hacking Ends"
+        }
+        else { // current
+            startHeader.text    = "Hacking Begins"
+            endHeader.text      = "Hacking Ends"
+        }
+        
         startTime.text      = formatter.stringFromDate(startDate)
-        endHeader.text      = "Hacking Ends"
         endTime.text        = formatter.stringFromDate(endDate)
         
         let startAngle = CGFloat(M_PI * 3 + M_PI_2)
@@ -120,6 +126,18 @@ class HFCountdownView: UIView {
     }
     
     func countdownUpdate() {
+        
+        if (NSDate().isLaterThan(endDate)) { // Over
+            self.progressLabel.text = "Done"
+            timer.invalidate()
+            return
+        }
+        
+        if (startDate.isLaterThan(NSDate())) {
+            self.progressLabel.text = "30 Hours"
+            timer.invalidate()
+            return
+        }
         
         var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
 
@@ -140,7 +158,18 @@ class HFCountdownView: UIView {
         let endAngle = CGFloat(M_PI * 5 + M_PI_2)
         let centerPoint = CGPointMake(CGRectGetWidth(frame)/2 , CGRectGetHeight(frame)/2)
         
+        backgroundLayer.path = UIBezierPath(arcCenter:centerPoint, radius: CGRectGetWidth(frame)/2 - 25.0, startAngle:startAngle, endAngle:endAngle, clockwise: true).CGPath
+        backgroundLayer.backgroundColor = UIColor.clearColor().CGColor
+        backgroundLayer.fillColor = nil //UIColor.HFColor.Blue.CGColor
+        backgroundLayer.strokeColor = UIColor.HFColor.Blue.CGColor
+        backgroundLayer.lineWidth = 20.0
+        backgroundLayer.strokeStart = 0.0
+        backgroundLayer.strokeEnd = 1.0
+        
+        layer.addSublayer(backgroundLayer)
+        
         var gradientMaskLayer = gradientMask()
+        
         progressLayer.path = UIBezierPath(arcCenter:centerPoint, radius: CGRectGetWidth(frame)/2 - 30.0, startAngle:startAngle, endAngle:endAngle, clockwise: true).CGPath
         progressLayer.backgroundColor = UIColor.clearColor().CGColor
         progressLayer.fillColor = nil
@@ -193,7 +222,7 @@ class HFCountdownView: UIView {
     }
     
     override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
-        progressLabel.text = "Done"
-        timer.invalidate()
+//        progressLabel.text = "Done"
+//        timer.invalidate()
     }
 }

@@ -9,9 +9,7 @@
 import UIKit
 
 class HFCountdownViewController: UIViewController {
-    
-    @IBOutlet var countdownView: HFCountdownView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,18 +21,19 @@ class HFCountdownViewController: UIViewController {
         swipeDown.direction = UISwipeGestureRecognizerDirection.Down
         
         self.view.addGestureRecognizer(swipeDown)
+        
+        (view as HFCountdownView).startTimer()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        (self.view as HFCountdownView).update()
+        (view as HFCountdownView).update()
+        (view as HFCountdownView).animateProgressView()
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        (self.view as HFCountdownView).animateProgressView()
-//        countdownView.animateProgressView()
     }
     
     @IBAction func dissmiss() {

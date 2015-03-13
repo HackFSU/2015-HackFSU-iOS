@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Nk5-nz-PeC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Nk5-nz-PeC">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -271,35 +271,8 @@
                     <view key="view" contentMode="scaleToFill" id="6v4-fp-nuN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-nav" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-0I-ITx">
-                                <rect key="frame" x="16" y="20" width="568" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="U1n-0I-ITx" secondAttribute="height" multiplier="284:45" id="QPF-vo-7bH"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4n6-3Y-Gop" customClass="HFCountdownView" customModule="HackFSU" customModuleProvider="target">
-                                <rect key="frame" x="16" y="110" width="568" height="470"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="4n6-3Y-Gop" secondAttribute="height" multiplier="284:235" id="eqG-na-o5v"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.65490196079999996" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="U1n-0I-ITx" firstAttribute="leading" secondItem="6v4-fp-nuN" secondAttribute="leadingMargin" id="1pW-b3-gUB"/>
-                            <constraint firstItem="rXB-oL-hik" firstAttribute="top" secondItem="4n6-3Y-Gop" secondAttribute="bottom" constant="20" id="GXt-ba-VIF"/>
-                            <constraint firstItem="4n6-3Y-Gop" firstAttribute="leading" secondItem="6v4-fp-nuN" secondAttribute="leadingMargin" id="GgN-gK-DQe"/>
-                            <constraint firstItem="4n6-3Y-Gop" firstAttribute="top" secondItem="U1n-0I-ITx" secondAttribute="bottom" id="acJ-Ib-PUD"/>
-                            <constraint firstItem="4n6-3Y-Gop" firstAttribute="trailing" secondItem="6v4-fp-nuN" secondAttribute="trailingMargin" id="cOu-B8-9bv"/>
-                            <constraint firstItem="U1n-0I-ITx" firstAttribute="trailing" secondItem="6v4-fp-nuN" secondAttribute="trailingMargin" id="m7T-TN-XfJ"/>
-                            <constraint firstItem="U1n-0I-ITx" firstAttribute="top" secondItem="JzM-E2-FKN" secondAttribute="bottom" id="uh5-IG-jS9"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="countdownView" destination="4n6-3Y-Gop" id="fyt-Nu-hOs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOU-Ve-uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,7 +304,4 @@
             <point key="canvasLocation" x="-48" y="-361"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="logo-nav" width="829" height="133"/>
-    </resources>
 </document>

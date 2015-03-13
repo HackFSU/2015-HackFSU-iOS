@@ -47,8 +47,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		022B7B471AAECD7000D4E3BC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		022AE3EE1AAA03B300380B9E /* HFEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFEventCell.swift; sourceTree = "<group>"; };
+		022B7B281AAECD6F00D4E3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		022B7B291AAECD6F00D4E3BC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		022B7B2A1AAECD6F00D4E3BC /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		022B7B2C1AAECD6F00D4E3BC /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		022B7B2E1AAECD6F00D4E3BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		022B7B381AAECD7000D4E3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		022B7B3A1AAECD7000D4E3BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		022B7B3C1AAECD7000D4E3BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		022E48141A86CCD6005E3963 /* HackFSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackFSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		024149391AAE62C6002688D7 /* HFSponsorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFSponsorCell.swift; sourceTree = "<group>"; };
 		02454EC11A9D18A600523C09 /* HFUpdateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdateViewCell.swift; sourceTree = "<group>"; };
@@ -106,11 +127,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022B7B261AAECD6F00D4E3BC /* HackFSU WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				022B7B2A1AAECD6F00D4E3BC /* InterfaceController.swift */,
+				022B7B2C1AAECD6F00D4E3BC /* NotificationController.swift */,
+				022B7B2E1AAECD6F00D4E3BC /* Images.xcassets */,
+				022B7B271AAECD6F00D4E3BC /* Supporting Files */,
+			);
+			path = "HackFSU WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		022B7B271AAECD6F00D4E3BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				022B7B281AAECD6F00D4E3BC /* Info.plist */,
+				022B7B291AAECD6F00D4E3BC /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		022B7B361AAECD7000D4E3BC /* HackFSU WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				022B7B391AAECD7000D4E3BC /* Interface.storyboard */,
+				022B7B3C1AAECD7000D4E3BC /* Images.xcassets */,
+				022B7B371AAECD7000D4E3BC /* Supporting Files */,
+			);
+			path = "HackFSU WatchKit App";
+			sourceTree = "<group>";
+		};
+		022B7B371AAECD7000D4E3BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				022B7B381AAECD7000D4E3BC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0250C4821A79D5A900DCD3A0 = {
 			isa = PBXGroup;
 			children = (
 				0250C48D1A79D5A900DCD3A0 /* HackFSU */,
 				0250C4A31A79D5A900DCD3A0 /* HackFSUTests */,
+				022B7B261AAECD6F00D4E3BC /* HackFSU WatchKit Extension */,
+				022B7B361AAECD7000D4E3BC /* HackFSU WatchKit App */,
 				0250C48C1A79D5A900DCD3A0 /* Products */,
 				9A6F6FE984EEF4F39899FA2E /* Pods */,
 				BD2FEA51B078CEE9A2815151 /* Frameworks */,
@@ -239,6 +300,7 @@
 				0250C4881A79D5A900DCD3A0 /* Frameworks */,
 				0250C4891A79D5A900DCD3A0 /* Resources */,
 				9E49A176225E33D279FABFC0 /* Copy Pods Resources */,
+				022B7B471AAECD7000D4E3BC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -406,6 +468,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		022B7B391AAECD7000D4E3BC /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				022B7B3A1AAECD7000D4E3BC /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		0250C4941A79D5A900DCD3A0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -512,12 +582,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HackFSU/HackFSU-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -529,11 +601,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HackFSU/HackFSU-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

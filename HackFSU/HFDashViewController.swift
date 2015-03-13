@@ -16,7 +16,6 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     var scheduleViewController: UIViewController!
     var mapsViewController: UIViewController!
     var sponsorsViewController: UIViewController!
-    var countdownViewController: UIViewController!
     
     var countdownBar: UIBarButtonItem!
     var timer: NSTimer!
@@ -78,8 +77,6 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         self.scheduleViewController = storyboard.instantiateViewControllerWithIdentifier("HFScheduleViewController")as HFScheduleViewController
         self.mapsViewController     = storyboard.instantiateViewControllerWithIdentifier("HFMapsViewController") as HFMapsViewController
         self.sponsorsViewController = storyboard.instantiateViewControllerWithIdentifier("HFSponsorsViewController") as HFSponsorsViewController
-        self.countdownViewController
-            = storyboard.instantiateViewControllerWithIdentifier("HFCountdownViewController") as HFCountdownViewController
     }
     
     override func viewWillLayoutSubviews() {
@@ -97,8 +94,8 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
         startDate   = objects.firstObject?.valueForKey("startTime") as NSDate
         endDate     = objects.lastObject?.valueForKey("startTime") as NSDate
         
-        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).startDate = startDate
-        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).endDate = endDate
+//        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).startDate = startDate
+//        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).endDate = endDate
         
         if (NSDate().isLaterThanOrEqualTo(startDate)) {
             destinationDate = endDate
@@ -110,6 +107,12 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     }
     
     func countdownBarUpdate() {
+        
+        if (NSDate().isLaterThan(endDate)) {
+            self.countdownBar.title = "Hacking ended!"
+            timer.invalidate()
+            return
+        }
         
         var calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
         NSCalendarUnit.CalendarUnitMonth
@@ -129,7 +132,14 @@ class HFDashViewController: RGPageViewController, RGPageViewControllerDataSource
     }
     
     func showCountdownView() {
-        self.navigationController?.presentViewController(self.countdownViewController, animated: true, completion: nil)
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var countdownViewController = storyboard.instantiateViewControllerWithIdentifier("HFCountdownViewController") as HFCountdownViewController
+        
+        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).startDate = startDate
+        ((countdownViewController as HFCountdownViewController).view as HFCountdownView).endDate = endDate
+        
+        self.navigationController?.presentViewController(countdownViewController, animated: true, completion: nil)
     }
     
     // MARK: - RGPageViewController Data Source
